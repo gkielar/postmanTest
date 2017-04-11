@@ -1,0 +1,340 @@
+swagger: 2.0
+info:
+  version: 1.0
+  title: FreightDevApi_Carrier
+  description: 'TODO: Add Description'
+  license:
+    name: MIT
+    url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
+host: dev-netins.trans-dev.loc
+basePath: /api/rest/v1
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /offers/5:
+    put:
+      description: 'TODO: Add Description'
+      summary: Add New Offer
+      tags:
+      - Misc
+      operationId: Add New Offer
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/AddNewOfferrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: PUT
+          uri: /offers/5
+          headers:
+            Content-Type: application/json
+          body: >-
+            {
+              "payment" : {
+                "price" : {
+                  "value" : 1400,
+                  "currency" : "PLN"
+                }
+              },
+              "freight": 1,
+              "comment": "super",
+              "carrier" : {
+                "id" : "3333"
+              },
+              "status" : "in_progress",
+              "version" : 3
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Add New Offer
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /offers/46:
+    put:
+      description: 'TODO: Add Description'
+      summary: Edit offer
+      tags:
+      - Misc
+      operationId: Edit offer
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/EditOfferrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: PUT
+          uri: /offers/46
+          headers:
+            Content-Type: application/json
+          body: >-
+            {
+              "payment" : {
+                "price" : {
+                  "value" : 4000,
+                  "currency" : "PLN"
+                }
+              },
+              "order": 404,
+              "comment": "super",
+              "carrier" : {
+                "company_id" : "b856c26a-24f3-3f95-ac26-300cadf2dd12",
+                "contact_persons" : [
+                  {"person_id" : "585c75b3-779a-370b-992c-1f250272ff68"}
+                ]
+              },
+              "status" : "in_progress",
+              "version" : 1
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Edit offer
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /offers/45:
+    delete:
+      description: 'TODO: Add Description'
+      summary: Delete Offer
+      tags:
+      - Misc
+      operationId: Delete Offer
+      produces:
+      - application/json
+      parameters:
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: DELETE
+          uri: /offers/45
+          headers:
+            Content-Type: application/json
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Delete Offer
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /freight-carrier/3334/freight:
+    get:
+      description: 'TODO: Add Description'
+      summary: Get All Carrier Offers
+      tags:
+      - Misc
+      operationId: Get All Carrier Offers
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /freight-carrier/3334/freight
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Get All Carrier Offers
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+definitions:
+  AddNewOfferrequest:
+    title: Add New OfferRequest
+    type: object
+    properties:
+      payment:
+        description: ''
+        $ref: '#/definitions/Payment'
+      freight:
+        description: ''
+        type: integer
+        format: int32
+      comment:
+        description: ''
+        type: string
+      carrier:
+        description: ''
+        $ref: '#/definitions/Carrier'
+      status:
+        description: ''
+        type: string
+      version:
+        description: ''
+        type: integer
+        format: int32
+    required:
+    - payment
+    - freight
+    - comment
+    - carrier
+    - status
+    - version
+  Payment:
+    title: Payment
+    type: object
+    properties:
+      price:
+        description: ''
+        $ref: '#/definitions/Price'
+    required:
+    - price
+  Price:
+    title: Price
+    type: object
+    properties:
+      value:
+        description: ''
+        type: integer
+        format: int32
+      currency:
+        description: ''
+        type: string
+    required:
+    - value
+    - currency
+  Carrier:
+    title: Carrier
+    type: object
+    properties:
+      id:
+        description: ''
+        type: string
+    required:
+    - id
+  EditOfferrequest:
+    title: Edit offerRequest
+    type: object
+    properties:
+      payment:
+        description: ''
+        $ref: '#/definitions/Payment'
+      order:
+        description: ''
+        type: integer
+        format: int32
+      comment:
+        description: ''
+        type: string
+      carrier:
+        description: ''
+        $ref: '#/definitions/Carrier7'
+      status:
+        description: ''
+        type: string
+      version:
+        description: ''
+        type: integer
+        format: int32
+    required:
+    - payment
+    - order
+    - comment
+    - carrier
+    - status
+    - version
+  Carrier7:
+    title: Carrier7
+    type: object
+    properties:
+      company_id:
+        description: ''
+        type: string
+      contact_persons:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/ContactPerson'
+    required:
+    - company_id
+    - contact_persons
+  ContactPerson:
+    title: ContactPerson
+    type: object
+    properties:
+      person_id:
+        description: ''
+        type: string
+    required:
+    - person_id
