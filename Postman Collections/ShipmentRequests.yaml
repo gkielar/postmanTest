@@ -1,0 +1,482 @@
+swagger: 2.0
+info:
+  version: 1.0
+  title: ShipmentRequests
+  description: 'TODO: Add Description'
+  license:
+    name: MIT
+    url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
+host: dev-netins.trans-dev.loc
+basePath: /api/rest/v1
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /shipment-requests/3333:
+    get:
+      description: 'TODO: Add Description'
+      summary: Get All User ShipmentRequests
+      tags:
+      - Misc
+      operationId: Get All User ShipmentRequests
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /shipment-requests/3333
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Get All User ShipmentRequests
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+    post:
+      description: 'TODO: Add Description'
+      summary: Add New ShipmentReqests
+      tags:
+      - Misc
+      operationId: Add New ShipmentReqests
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/AddNewShipmentreqestsrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /shipment-requests:
+    put:
+      description: 'TODO: Add Description'
+      summary: Edit ShipmentReqests
+      tags:
+      - Misc
+      operationId: Edit ShipmentReqests
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/EditShipmentreqestsrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+    delete:
+      description: 'TODO: Add Description'
+      summary: Delete ShipmentReqests
+      tags:
+      - Misc
+      operationId: Delete ShipmentReqests
+      produces:
+      - application/json
+      parameters:
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: DELETE
+          uri: /shipment-requests
+          headers:
+            Content-Type: application/json
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Delete ShipmentReqests
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+definitions:
+  AddNewShipmentreqestsrequest:
+    title: Add New ShipmentReqestsRequest
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      number:
+        description: ''
+        type: string
+      status:
+        description: ''
+        type: string
+      freights:
+        description: ''
+        type: array
+        items:
+          type: string
+      spots:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Spot'
+      loads:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Load'
+    required:
+    - name
+    - number
+    - status
+    - freights
+    - spots
+    - loads
+  Spot:
+    title: Spot
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      type:
+        description: ''
+        type: string
+      timespans:
+        description: ''
+        $ref: '#/definitions/Timespans'
+      place:
+        description: ''
+        $ref: '#/definitions/Place'
+    required:
+    - name
+    - type
+    - timespans
+    - place
+  Timespans:
+    title: Timespans
+    type: object
+    properties:
+      begin:
+        description: ''
+        type: string
+      end:
+        description: ''
+        type: string
+    required:
+    - begin
+    - end
+  Place:
+    title: Place
+    type: object
+    properties:
+      address:
+        description: ''
+        $ref: '#/definitions/Address'
+      coordinates:
+        description: ''
+        $ref: '#/definitions/Coordinates'
+    required:
+    - address
+    - coordinates
+  Address:
+    title: Address
+    type: object
+    properties:
+      locality:
+        description: ''
+        type: string
+      postal_code:
+        description: ''
+        type: string
+      country:
+        description: ''
+        type: string
+      street:
+        description: ''
+        type: string
+      number:
+        description: ''
+        type: string
+    required:
+    - locality
+    - postal_code
+    - country
+    - street
+    - number
+  Coordinates:
+    title: Coordinates
+    type: object
+    properties:
+      latitude:
+        description: ''
+        type: number
+        format: double
+      longitude:
+        description: ''
+        type: number
+        format: double
+    required:
+    - latitude
+    - longitude
+  Load:
+    title: Load
+    type: object
+    properties:
+      id:
+        description: ''
+        type: integer
+        format: int32
+      name:
+        description: ''
+        type: string
+      description:
+        description: ''
+        type: string
+      type_of_load:
+        description: ''
+        type: string
+      weight:
+        description: ''
+        $ref: '#/definitions/Weight'
+      height:
+        description: ''
+        $ref: '#/definitions/Height'
+      width:
+        description: ''
+        $ref: '#/definitions/Width'
+      length:
+        description: ''
+        $ref: '#/definitions/Length'
+      volume:
+        description: ''
+        $ref: '#/definitions/Volume'
+      amount:
+        description: ''
+        type: integer
+        format: int32
+      requirements:
+        description: ''
+        $ref: '#/definitions/Requirements'
+    required:
+    - id
+    - name
+    - description
+    - type_of_load
+    - weight
+    - height
+    - width
+    - length
+    - volume
+    - amount
+    - requirements
+  Weight:
+    title: Weight
+    type: object
+    properties:
+      value:
+        description: ''
+        type: integer
+        format: int32
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  Height:
+    title: Height
+    type: object
+    properties:
+      value:
+        description: ''
+        type: integer
+        format: int32
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  Width:
+    title: Width
+    type: object
+    properties:
+      value:
+        description: ''
+        type: integer
+        format: int32
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  Length:
+    title: Length
+    type: object
+    properties:
+      value:
+        description: ''
+        type: integer
+        format: int32
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  Volume:
+    title: Volume
+    type: object
+    properties:
+      value:
+        description: ''
+        type: integer
+        format: int32
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  Requirements:
+    title: Requirements
+    type: object
+    properties:
+      required_adr_classes:
+        description: ''
+        type: array
+        items:
+          type: string
+      required_ways_of_loading:
+        description: ''
+        type: array
+        items:
+          type: string
+      required_truck_bodies:
+        description: ''
+        type: array
+        items:
+          type: string
+      is_truck_crane_required:
+        description: ''
+        type: boolean
+      is_lift_required:
+        description: ''
+        type: boolean
+      is_for_clearance:
+        description: ''
+        type: boolean
+      is_tir_cable_required:
+        description: ''
+        type: boolean
+      is_ftl:
+        description: ''
+        type: boolean
+      is_tracking_system_required:
+        description: ''
+        type: boolean
+      shipping_remarks:
+        description: ''
+        type: string
+    required:
+    - required_adr_classes
+    - required_ways_of_loading
+    - required_truck_bodies
+    - is_truck_crane_required
+    - is_lift_required
+    - is_for_clearance
+    - is_tir_cable_required
+    - is_ftl
+    - is_tracking_system_required
+    - shipping_remarks
+  EditShipmentreqestsrequest:
+    title: Edit ShipmentReqestsRequest
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      number:
+        description: ''
+        type: string
+      status:
+        description: ''
+        type: string
+      freights:
+        description: ''
+        type: array
+        items:
+          type: string
+      spots:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Spot'
+      loads:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Load'
+    required:
+    - name
+    - number
+    - status
+    - freights
+    - spots
+    - loads
