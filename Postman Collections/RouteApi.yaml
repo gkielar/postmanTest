@@ -1,0 +1,885 @@
+swagger: 2.0
+info:
+  version: 1.0
+  title: RouteDevApi
+  description: 'TODO: Add Description'
+  license:
+    name: MIT
+    url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
+host: dev-netins.trans-dev.loc:81
+basePath: /api/rest/v1
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /routes-shipper/3333:
+    get:
+      description: 'TODO: Add Description'
+      summary: Get All Shipper Routes
+      tags:
+      - Misc
+      operationId: Get All Shipper Routes
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /routes-shipper/3333
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Get All Shipper Routes
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /routes-shipper/3333/122:
+    get:
+      description: 'TODO: Add Description'
+      summary: Get One Route
+      tags:
+      - Misc
+      operationId: Get One Route
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /routes-shipper/3333/122
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Get One Route
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /routes:
+    post:
+      description: 'TODO: Add Description'
+      summary: Add New Route
+      tags:
+      - Misc
+      operationId: Add New Route
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/AddNewRouterequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /routes/2:
+    put:
+      description: 'TODO: Add Description'
+      summary: Edit Route
+      tags:
+      - Misc
+      operationId: Edit Route
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/EditRouterequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /routes/3:
+    delete:
+      description: 'TODO: Add Description'
+      summary: Delete Route
+      tags:
+      - Misc
+      operationId: Delete Route
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: DELETE
+          uri: /routes/3
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Delete Route
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+definitions:
+  AddNewRouterequest:
+    title: Add New RouteRequest
+    type: object
+    properties:
+      id:
+        description: ''
+        type: string
+      name:
+        description: ''
+        type: string
+      terms:
+        description: ''
+        type: string
+      spots:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Spot'
+      loads:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Load'
+      shipper:
+        description: ''
+        $ref: '#/definitions/Shipper'
+    required:
+    - id
+    - name
+    - terms
+    - spots
+    - loads
+    - shipper
+  Spot:
+    title: Spot
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      type:
+        description: ''
+        type: string
+      place:
+        description: ''
+        $ref: '#/definitions/Place'
+      id:
+        description: ''
+        type: string
+      companyName:
+        description: ''
+        type: string
+    required:
+    - name
+    - type
+    - place
+  Place:
+    title: Place
+    type: object
+    properties:
+      address:
+        description: ''
+        $ref: '#/definitions/Address'
+      coordinates:
+        description: ''
+        $ref: '#/definitions/Coordinates'
+    required:
+    - address
+    - coordinates
+  Address:
+    title: Address
+    type: object
+    properties:
+      locality:
+        description: ''
+        type: string
+      postal_code:
+        description: ''
+        type: string
+      country:
+        description: ''
+        type: string
+      street:
+        description: ''
+        type: string
+      number:
+        description: ''
+        type: string
+    required:
+    - locality
+    - postal_code
+    - country
+    - street
+    - number
+  Coordinates:
+    title: Coordinates
+    type: object
+    properties:
+      latitude:
+        description: ''
+        type: number
+        format: double
+      longitude:
+        description: ''
+        type: number
+        format: double
+    required:
+    - latitude
+    - longitude
+  Load:
+    title: Load
+    type: object
+    properties:
+      id:
+        description: ''
+        type: string
+      name:
+        description: ''
+        type: string
+      type_of_load:
+        description: ''
+        type: string
+      weight:
+        description: ''
+        $ref: '#/definitions/Weight'
+      height:
+        description: ''
+        $ref: '#/definitions/Height'
+      width:
+        description: ''
+        $ref: '#/definitions/Width'
+      length:
+        description: ''
+        $ref: '#/definitions/Length'
+      volume:
+        description: ''
+        $ref: '#/definitions/Volume'
+      amount:
+        description: ''
+        type: integer
+        format: int32
+      requirements:
+        description: ''
+        $ref: '#/definitions/Requirements'
+    required:
+    - id
+    - name
+    - type_of_load
+    - weight
+    - height
+    - width
+    - length
+    - volume
+    - amount
+    - requirements
+  Weight:
+    title: Weight
+    type: object
+    properties:
+      value:
+        description: ''
+        type: number
+        format: double
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  Height:
+    title: Height
+    type: object
+    properties:
+      value:
+        description: ''
+        type: number
+        format: double
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  Width:
+    title: Width
+    type: object
+    properties:
+      value:
+        description: ''
+        type: number
+        format: double
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  Length:
+    title: Length
+    type: object
+    properties:
+      value:
+        description: ''
+        type: number
+        format: double
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  Volume:
+    title: Volume
+    type: object
+    properties:
+      value:
+        description: ''
+        type: number
+        format: double
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  Requirements:
+    title: Requirements
+    type: object
+    properties:
+      required_adr_classes:
+        description: ''
+        type: array
+        items:
+          type: string
+      required_ways_of_loading:
+        description: ''
+        type: array
+        items:
+          type: string
+      required_truck_bodies:
+        description: ''
+        type: array
+        items:
+          type: string
+      is_truck_crane_required:
+        description: ''
+        type: boolean
+      is_lift_required:
+        description: ''
+        type: boolean
+      is_for_clearance:
+        description: ''
+        type: boolean
+      is_tir_cable_required:
+        description: ''
+        type: boolean
+      is_ftl:
+        description: ''
+        type: boolean
+      is_tracking_system_required:
+        description: ''
+        type: boolean
+      shipping_remarks:
+        description: ''
+        type: string
+    required:
+    - required_adr_classes
+    - required_ways_of_loading
+    - required_truck_bodies
+    - is_truck_crane_required
+    - is_lift_required
+    - is_for_clearance
+    - is_tir_cable_required
+    - is_ftl
+    - is_tracking_system_required
+    - shipping_remarks
+  Shipper:
+    title: Shipper
+    type: object
+    properties:
+      source:
+        description: ''
+        type: string
+      company:
+        description: ''
+        $ref: '#/definitions/Company'
+    required:
+    - source
+    - company
+  Company:
+    title: Company
+    type: object
+    properties:
+      id:
+        description: ''
+        type: integer
+        format: int32
+      name:
+        description: ''
+        type: string
+      vat_id:
+        description: ''
+        type: string
+      email:
+        description: ''
+        type: string
+      telephone:
+        description: ''
+        type: string
+      fax_number:
+        description: ''
+        type: string
+      address:
+        description: ''
+        $ref: '#/definitions/Address'
+      contact_persons:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/ContactPerson'
+    required:
+    - id
+    - name
+    - vat_id
+    - email
+    - telephone
+    - fax_number
+    - address
+    - contact_persons
+  ContactPerson:
+    title: ContactPerson
+    type: object
+    properties:
+      id:
+        description: ''
+        type: integer
+        format: int32
+      trans_id:
+        description: ''
+        type: integer
+        format: int32
+      family_name:
+        description: ''
+        type: string
+      given_name:
+        description: ''
+        type: string
+      email:
+        description: ''
+        type: string
+      telephone:
+        description: ''
+        type: string
+      fax_number:
+        description: ''
+        type: string
+    required:
+    - id
+    - trans_id
+    - family_name
+    - given_name
+    - email
+    - telephone
+    - fax_number
+  EditRouterequest:
+    title: Edit RouteRequest
+    type: object
+    properties:
+      route_id:
+        description: ''
+        type: string
+      name:
+        description: ''
+        type: string
+      terms:
+        description: ''
+        type: string
+      spots:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Spot17'
+      loads:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Load21'
+      shipper:
+        description: ''
+        $ref: '#/definitions/Shipper28'
+    required:
+    - route_id
+    - name
+    - terms
+    - spots
+    - loads
+    - shipper
+  Spot17:
+    title: Spot17
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      type:
+        description: ''
+        type: string
+      place:
+        description: ''
+        $ref: '#/definitions/Place18'
+      spot_id:
+        description: ''
+        type: string
+      companyName:
+        description: ''
+        type: string
+    required:
+    - name
+    - type
+    - place
+  Place18:
+    title: Place18
+    type: object
+    properties:
+      address:
+        description: ''
+        $ref: '#/definitions/Address19'
+      coordinates:
+        description: ''
+        $ref: '#/definitions/Coordinates'
+    required:
+    - address
+    - coordinates
+  Address19:
+    title: Address19
+    type: object
+    properties:
+      locality:
+        description: ''
+        type: string
+      postal_code:
+        description: ''
+        type: string
+      country:
+        description: ''
+        type: string
+      street_address:
+        description: ''
+        type: string
+    required:
+    - locality
+    - postal_code
+    - country
+    - street_address
+  Load21:
+    title: Load21
+    type: object
+    properties:
+      load_id:
+        description: ''
+        type: string
+      name:
+        description: ''
+        type: string
+      description:
+        description: ''
+        type: string
+      load_type:
+        description: ''
+        type: string
+      load_weight:
+        description: ''
+        $ref: '#/definitions/LoadWeight'
+      load_height:
+        description: ''
+        $ref: '#/definitions/LoadHeight'
+      load_width:
+        description: ''
+        $ref: '#/definitions/LoadWidth'
+      load_length:
+        description: ''
+        $ref: '#/definitions/LoadLength'
+      load_capacity:
+        description: ''
+        $ref: '#/definitions/LoadCapacity'
+      amount:
+        description: ''
+        type: integer
+        format: int32
+      required_adr_classes:
+        description: ''
+        type: array
+        items:
+          type: string
+      requirements:
+        description: ''
+        $ref: '#/definitions/Requirements27'
+    required:
+    - load_id
+    - name
+    - description
+    - load_type
+    - load_weight
+    - load_height
+    - load_width
+    - load_length
+    - load_capacity
+    - amount
+    - required_adr_classes
+    - requirements
+  LoadWeight:
+    title: LoadWeight
+    type: object
+    properties:
+      value:
+        description: ''
+        type: number
+        format: double
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  LoadHeight:
+    title: LoadHeight
+    type: object
+    properties:
+      value:
+        description: ''
+        type: number
+        format: double
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  LoadWidth:
+    title: LoadWidth
+    type: object
+    properties:
+      value:
+        description: ''
+        type: number
+        format: double
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  LoadLength:
+    title: LoadLength
+    type: object
+    properties:
+      value:
+        description: ''
+        type: number
+        format: double
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  LoadCapacity:
+    title: LoadCapacity
+    type: object
+    properties:
+      value:
+        description: ''
+        type: number
+        format: double
+      unit_code:
+        description: ''
+        type: string
+    required:
+    - value
+    - unit_code
+  Requirements27:
+    title: Requirements27
+    type: object
+    properties:
+      required_ways_of_loading:
+        description: ''
+        type: array
+        items:
+          type: string
+      required_truck_bodies:
+        description: ''
+        type: array
+        items:
+          type: string
+      is_truck_crane_required:
+        description: ''
+        type: boolean
+      is_lift_required:
+        description: ''
+        type: boolean
+      is_for_clearance:
+        description: ''
+        type: boolean
+      is_tir_cable_required:
+        description: ''
+        type: boolean
+      is_ftl:
+        description: ''
+        type: boolean
+      is_gps_required:
+        description: ''
+        type: boolean
+      shipping_remarks:
+        description: ''
+        type: string
+    required:
+    - required_ways_of_loading
+    - required_truck_bodies
+    - is_truck_crane_required
+    - is_lift_required
+    - is_for_clearance
+    - is_tir_cable_required
+    - is_ftl
+    - is_gps_required
+    - shipping_remarks
+  Shipper28:
+    title: Shipper28
+    type: object
+    properties:
+      company_id:
+        description: ''
+        type: string
+      trans_company_id:
+        description: ''
+        type: integer
+        format: int32
+      name:
+        description: ''
+        type: string
+      vat_id:
+        description: ''
+        type: string
+      email:
+        description: ''
+        type: string
+      telephone:
+        description: ''
+        type: string
+      fax:
+        description: ''
+        type: string
+      address:
+        description: ''
+        $ref: '#/definitions/Address19'
+      contact_persons:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/ContactPerson30'
+    required:
+    - company_id
+    - trans_company_id
+    - name
+    - vat_id
+    - email
+    - telephone
+    - fax
+    - address
+    - contact_persons
+  ContactPerson30:
+    title: ContactPerson30
+    type: object
+    properties:
+      person_id:
+        description: ''
+        type: string
+      trans_id:
+        description: ''
+        type: integer
+        format: int32
+      family_name:
+        description: ''
+        type: string
+      given_name:
+        description: ''
+        type: string
+      email:
+        description: ''
+        type: string
+      telephone:
+        description: ''
+        type: string
+      fax:
+        description: ''
+        type: string
+    required:
+    - person_id
+    - trans_id
+    - family_name
+    - given_name
+    - email
+    - telephone
+    - fax
