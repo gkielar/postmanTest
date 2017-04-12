@@ -6,7 +6,7 @@ info:
   license:
     name: MIT
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
-host: dev-netins.trans-dev.loc
+host: '{DefaultParameterValue}'
 basePath: /api/rest/v1
 schemes:
 - http
@@ -15,7 +15,7 @@ consumes:
 produces:
 - application/json
 paths:
-  /shipment-requests/3333:
+  /shipment-requests/{shipper_id}:
     get:
       description: 'TODO: Add Description'
       summary: Get All User ShipmentRequests
@@ -24,26 +24,17 @@ paths:
       operationId: Get All User ShipmentRequests
       produces:
       - application/json
-      parameters: []
+      parameters:
+      - name: shipper_id
+        in: path
+        required: true
+        type: string
+        description: ''
       responses:
         200:
           description: ''
       security: []
-      x-unitTests:
-      - request:
-          method: GET
-          uri: /shipment-requests/3333
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Get All User ShipmentRequests
-        x-testDescription: 'TODO: Add Description'
+      x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -51,10 +42,10 @@ paths:
         IsMultiContentStreaming: false
     post:
       description: 'TODO: Add Description'
-      summary: Add New ShipmentReqests
+      summary: Add New ShipmentRequests
       tags:
       - Misc
-      operationId: Add New ShipmentReqests
+      operationId: Add New ShipmentRequests
       produces:
       - application/json
       parameters:
@@ -63,9 +54,14 @@ paths:
         required: true
         description: ''
         schema:
-          $ref: '#/definitions/AddNewShipmentreqestsrequest'
+          $ref: '#/definitions/AddNewShipmentrequestsrequest'
       - name: Content-Type
         in: header
+        required: true
+        type: string
+        description: ''
+      - name: shipper_id
+        in: path
         required: true
         type: string
         description: ''
@@ -150,9 +146,55 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+  /shipment-requests/{shipper_id}/{shippment_request_id}:
+    patch:
+      description: 'TODO: Add Description'
+      summary: SR add/update Freights
+      tags:
+      - Misc
+      operationId: SR add/update Freights
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/SrAdd~1updateFreightsrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: shipper_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: shippment_request_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
 definitions:
-  AddNewShipmentreqestsrequest:
-    title: Add New ShipmentReqestsRequest
+  AddNewShipmentrequestsrequest:
+    title: Add New ShipmentRequestsRequest
     type: object
     properties:
       name:
@@ -480,3 +522,153 @@ definitions:
     - freights
     - spots
     - loads
+  SrAdd/updateFreightsrequest:
+    title: SR add/update FreightsRequest
+    type: object
+    properties:
+      freights:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Freight'
+    required:
+    - freights
+  Freight:
+    title: Freight
+    type: object
+    properties:
+      id:
+        description: ''
+        type: integer
+        format: int32
+      name:
+        description: ''
+        type: string
+      publish_date:
+        description: ''
+        type: string
+      publish_type:
+        description: ''
+        type: string
+      send_to_stock:
+        description: ''
+        type: boolean
+      type:
+        description: ''
+        type: string
+      shipper:
+        description: ''
+        $ref: '#/definitions/Shipper'
+      payment:
+        description: ''
+        $ref: '#/definitions/Payment'
+      decision_date:
+        description: ''
+        type: string
+      loads:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Load32'
+    required:
+    - id
+    - name
+    - publish_date
+    - publish_type
+    - send_to_stock
+    - type
+    - shipper
+    - payment
+    - decision_date
+    - loads
+  Shipper:
+    title: Shipper
+    type: object
+    properties:
+      company:
+        description: ''
+        $ref: '#/definitions/Company'
+    required:
+    - company
+  Company:
+    title: Company
+    type: object
+    properties:
+      id:
+        description: ''
+        type: string
+    required:
+    - id
+  Payment:
+    title: Payment
+    type: object
+    properties:
+      price:
+        description: ''
+        $ref: '#/definitions/Price'
+    required:
+    - price
+  Price:
+    title: Price
+    type: object
+    properties:
+      value:
+        description: ''
+        type: string
+      currency:
+        description: ''
+        type: string
+    required:
+    - value
+    - currency
+  Load32:
+    title: Load32
+    type: object
+    properties:
+      shipment_request_load_id:
+        description: ''
+        type: integer
+        format: int32
+      name:
+        description: ''
+        type: string
+      description:
+        description: ''
+        type: string
+      type_of_load:
+        description: ''
+        type: string
+      weight:
+        description: ''
+        $ref: '#/definitions/Weight'
+      height:
+        description: ''
+        $ref: '#/definitions/Height'
+      width:
+        description: ''
+        $ref: '#/definitions/Width'
+      length:
+        description: ''
+        $ref: '#/definitions/Length'
+      volume:
+        description: ''
+        $ref: '#/definitions/Volume'
+      amount:
+        description: ''
+        type: integer
+        format: int32
+      requirements:
+        description: ''
+        $ref: '#/definitions/Requirements'
+    required:
+    - shipment_request_load_id
+    - name
+    - description
+    - type_of_load
+    - weight
+    - height
+    - width
+    - length
+    - volume
+    - amount
+    - requirements
