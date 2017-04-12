@@ -6,7 +6,7 @@ info:
   license:
     name: MIT
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
-host: dev-netins.trans-dev.loc:81
+host: '{DefaultParameterValue}'
 basePath: /api/rest/v1
 schemes:
 - http
@@ -15,7 +15,7 @@ consumes:
 produces:
 - application/json
 paths:
-  /routes-shipper/3333:
+  /routes-shipper/{shipper_id}:
     get:
       description: 'TODO: Add Description'
       summary: Get All Shipper Routes
@@ -24,32 +24,23 @@ paths:
       operationId: Get All Shipper Routes
       produces:
       - application/json
-      parameters: []
+      parameters:
+      - name: shipper_id
+        in: path
+        required: true
+        type: string
+        description: ''
       responses:
         200:
           description: ''
       security: []
-      x-unitTests:
-      - request:
-          method: GET
-          uri: /routes-shipper/3333
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Get All Shipper Routes
-        x-testDescription: 'TODO: Add Description'
+      x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /routes-shipper/3333/122:
+  /routes-shipper/{shipper_id}/122:
     get:
       description: 'TODO: Add Description'
       summary: Get One Route
@@ -58,26 +49,17 @@ paths:
       operationId: Get One Route
       produces:
       - application/json
-      parameters: []
+      parameters:
+      - name: shipper_id
+        in: path
+        required: true
+        type: string
+        description: ''
       responses:
         200:
           description: ''
       security: []
-      x-unitTests:
-      - request:
-          method: GET
-          uri: /routes-shipper/3333/122
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Get One Route
-        x-testDescription: 'TODO: Add Description'
+      x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
