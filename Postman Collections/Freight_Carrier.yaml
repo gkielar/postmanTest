@@ -6,7 +6,7 @@ info:
   license:
     name: MIT
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
-host: dev-netins.trans-dev.loc
+host: '{DefaultParameterValue}'
 basePath: /api/rest/v1
 schemes:
 - http
@@ -185,7 +185,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /freight-carrier/3334/freight:
+  /freight-carrier/{carrier_id}/freight:
     get:
       description: 'TODO: Add Description'
       summary: Get All Carrier Offers
@@ -194,26 +194,17 @@ paths:
       operationId: Get All Carrier Offers
       produces:
       - application/json
-      parameters: []
+      parameters:
+      - name: carrier_id
+        in: path
+        required: true
+        type: string
+        description: ''
       responses:
         200:
           description: ''
       security: []
-      x-unitTests:
-      - request:
-          method: GET
-          uri: /freight-carrier/3334/freight
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Get All Carrier Offers
-        x-testDescription: 'TODO: Add Description'
+      x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
