@@ -598,7 +598,7 @@ definitions:
       description:
         description: ''
         type: string
-      load_type:
+      type_of_load:
         description: ''
         type: string
       weight:
@@ -631,7 +631,7 @@ definitions:
     required:
     - name
     - description
-    - load_type
+    - type_of_load
     - weight
     - height
     - width
