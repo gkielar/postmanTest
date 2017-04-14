@@ -146,7 +146,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/{shipper_id}/{shippment_request_id}:
+  /shipment-requests/{shipper_id}/77:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -167,17 +167,7 @@ paths:
         required: true
         type: string
         description: ''
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
       - name: shipper_id
-        in: path
-        required: true
-        type: string
-        description: ''
-      - name: shippment_request_id
         in: path
         required: true
         type: string
@@ -319,10 +309,6 @@ definitions:
     title: Load
     type: object
     properties:
-      id:
-        description: ''
-        type: integer
-        format: int32
       name:
         description: ''
         type: string
@@ -355,7 +341,6 @@ definitions:
         description: ''
         $ref: '#/definitions/Requirements'
     required:
-    - id
     - name
     - description
     - type_of_load
@@ -514,7 +499,7 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Load'
+          $ref: '#/definitions/Load19'
     required:
     - name
     - number
@@ -522,6 +507,57 @@ definitions:
     - freights
     - spots
     - loads
+  Load19:
+    title: Load19
+    type: object
+    properties:
+      id:
+        description: ''
+        type: integer
+        format: int32
+      name:
+        description: ''
+        type: string
+      description:
+        description: ''
+        type: string
+      type_of_load:
+        description: ''
+        type: string
+      weight:
+        description: ''
+        $ref: '#/definitions/Weight'
+      height:
+        description: ''
+        $ref: '#/definitions/Height'
+      width:
+        description: ''
+        $ref: '#/definitions/Width'
+      length:
+        description: ''
+        $ref: '#/definitions/Length'
+      volume:
+        description: ''
+        $ref: '#/definitions/Volume'
+      amount:
+        description: ''
+        type: integer
+        format: int32
+      requirements:
+        description: ''
+        $ref: '#/definitions/Requirements'
+    required:
+    - id
+    - name
+    - description
+    - type_of_load
+    - weight
+    - height
+    - width
+    - length
+    - volume
+    - amount
+    - requirements
   SrAdd/updateFreightsrequest:
     title: SR add/update FreightsRequest
     type: object
@@ -556,6 +592,9 @@ definitions:
       type:
         description: ''
         type: string
+      status:
+        description: ''
+        type: string
       shipper:
         description: ''
         $ref: '#/definitions/Shipper'
@@ -577,6 +616,7 @@ definitions:
     - publish_type
     - send_to_stock
     - type
+    - status
     - shipper
     - payment
     - decision_date
