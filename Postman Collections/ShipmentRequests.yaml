@@ -146,7 +146,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/{shipper_id}/77:
+  /shipment-requests/{shipper_id}/109:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
