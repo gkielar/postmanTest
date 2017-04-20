@@ -54,13 +54,13 @@ paths:
                   "currency" : "PLN"
                 }
               },
-              "freight": 1,
+              "freight": 147,
               "comment": "super",
               "carrier" : {
                 "id" : "3333"
               },
               "status" : "in_progress",
-              "version" : 3
+              "version" : 1
             }
         expectedResponse:
           x-allowExtraHeaders: true
@@ -120,13 +120,9 @@ paths:
               "order": 404,
               "comment": "super",
               "carrier" : {
-                "company_id" : "b856c26a-24f3-3f95-ac26-300cadf2dd12",
-                "contact_persons" : [
-                  {"person_id" : "585c75b3-779a-370b-992c-1f250272ff68"}
-                ]
+                "id" : "3334"
               },
-              "status" : "in_progress",
-              "version" : 1
+              "status" : "in_progress"
             }
         expectedResponse:
           x-allowExtraHeaders: true
@@ -290,42 +286,13 @@ definitions:
         type: string
       carrier:
         description: ''
-        $ref: '#/definitions/Carrier7'
+        $ref: '#/definitions/Carrier'
       status:
         description: ''
         type: string
-      version:
-        description: ''
-        type: integer
-        format: int32
     required:
     - payment
     - order
     - comment
     - carrier
     - status
-    - version
-  Carrier7:
-    title: Carrier7
-    type: object
-    properties:
-      company_id:
-        description: ''
-        type: string
-      contact_persons:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/ContactPerson'
-    required:
-    - company_id
-    - contact_persons
-  ContactPerson:
-    title: ContactPerson
-    type: object
-    properties:
-      person_id:
-        description: ''
-        type: string
-    required:
-    - person_id
