@@ -46,7 +46,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /freight-shipper/{shipper_id}/freight:
+  /freight-shipper/3335/freight:
     get:
       description: 'TODO: Add Description'
       summary: Get All Shipper Freights
@@ -55,17 +55,26 @@ paths:
       operationId: Get All Shipper Freights
       produces:
       - application/json
-      parameters:
-      - name: shipper_id
-        in: path
-        required: true
-        type: string
-        description: ''
+      parameters: []
       responses:
         200:
           description: ''
       security: []
-      x-unitTests: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /freight-shipper/3335/freight
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Get All Shipper Freights
+        x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
