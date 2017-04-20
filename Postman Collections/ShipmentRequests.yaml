@@ -49,12 +49,6 @@ paths:
       produces:
       - application/json
       parameters:
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/AddNewShipmentrequestsrequest'
       - name: Content-Type
         in: header
         required: true
@@ -146,7 +140,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/{shipper_id}/109:
+  /shipment-requests/{shipper_id}/155:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -183,8 +177,8 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
 definitions:
-  AddNewShipmentrequestsrequest:
-    title: Add New ShipmentRequestsRequest
+  EditShipmentreqestsrequest:
+    title: Edit ShipmentReqestsRequest
     type: object
     properties:
       name:
@@ -309,6 +303,10 @@ definitions:
     title: Load
     type: object
     properties:
+      id:
+        description: ''
+        type: integer
+        format: int32
       name:
         description: ''
         type: string
@@ -341,6 +339,7 @@ definitions:
         description: ''
         $ref: '#/definitions/Requirements'
     required:
+    - id
     - name
     - description
     - type_of_load
@@ -472,92 +471,6 @@ definitions:
     - is_ftl
     - is_tracking_system_required
     - shipping_remarks
-  EditShipmentreqestsrequest:
-    title: Edit ShipmentReqestsRequest
-    type: object
-    properties:
-      name:
-        description: ''
-        type: string
-      number:
-        description: ''
-        type: string
-      status:
-        description: ''
-        type: string
-      freights:
-        description: ''
-        type: array
-        items:
-          type: string
-      spots:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Spot'
-      loads:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Load19'
-    required:
-    - name
-    - number
-    - status
-    - freights
-    - spots
-    - loads
-  Load19:
-    title: Load19
-    type: object
-    properties:
-      id:
-        description: ''
-        type: integer
-        format: int32
-      name:
-        description: ''
-        type: string
-      description:
-        description: ''
-        type: string
-      type_of_load:
-        description: ''
-        type: string
-      weight:
-        description: ''
-        $ref: '#/definitions/Weight'
-      height:
-        description: ''
-        $ref: '#/definitions/Height'
-      width:
-        description: ''
-        $ref: '#/definitions/Width'
-      length:
-        description: ''
-        $ref: '#/definitions/Length'
-      volume:
-        description: ''
-        $ref: '#/definitions/Volume'
-      amount:
-        description: ''
-        type: integer
-        format: int32
-      requirements:
-        description: ''
-        $ref: '#/definitions/Requirements'
-    required:
-    - id
-    - name
-    - description
-    - type_of_load
-    - weight
-    - height
-    - width
-    - length
-    - volume
-    - amount
-    - requirements
   SrAdd/updateFreightsrequest:
     title: SR add/update FreightsRequest
     type: object
@@ -575,9 +488,8 @@ definitions:
     properties:
       id:
         description: ''
-        type: integer
-        format: int32
-      name:
+        type: string
+      number:
         description: ''
         type: string
       publish_date:
@@ -608,10 +520,10 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Load32'
+          $ref: '#/definitions/Load19'
     required:
     - id
-    - name
+    - number
     - publish_date
     - publish_type
     - send_to_stock
@@ -661,8 +573,8 @@ definitions:
     required:
     - value
     - currency
-  Load32:
-    title: Load32
+  Load19:
+    title: Load19
     type: object
     properties:
       shipment_request_load_id:
