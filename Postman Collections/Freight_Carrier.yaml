@@ -15,8 +15,8 @@ consumes:
 produces:
 - application/json
 paths:
-  /offers/5:
-    put:
+  /offers:
+    post:
       description: 'TODO: Add Description'
       summary: Add New Offer
       tags:
@@ -42,8 +42,8 @@ paths:
       security: []
       x-unitTests:
       - request:
-          method: PUT
-          uri: /offers/5
+          method: POST
+          uri: /offers
           headers:
             Content-Type: application/json
           body: >-
@@ -54,10 +54,10 @@ paths:
                   "currency" : "PLN"
                 }
               },
-              "freight": 147,
+              "freight": 239,
               "comment": "super",
               "carrier" : {
-                "id" : "3333"
+                "id" : "3334"
               },
               "status" : "in_progress",
               "version" : 1
