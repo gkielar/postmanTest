@@ -146,7 +146,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/{shipper_id}/252:
+  /shipment-requests/{shipper_id}/631:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -577,9 +577,6 @@ definitions:
         description: ''
         type: integer
         format: int32
-      number:
-        description: ''
-        type: string
       publish_date:
         description: ''
         type: string
@@ -589,56 +586,23 @@ definitions:
       send_to_stock:
         description: ''
         type: boolean
-      type:
-        description: ''
-        type: string
       status:
         description: ''
         type: string
-      shipper:
-        description: ''
-        $ref: '#/definitions/Shipper'
       payment:
         description: ''
         $ref: '#/definitions/Payment'
       decision_date:
         description: ''
         type: string
-      loads:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Load32'
     required:
     - id
-    - number
     - publish_date
     - publish_type
     - send_to_stock
-    - type
     - status
-    - shipper
     - payment
     - decision_date
-    - loads
-  Shipper:
-    title: Shipper
-    type: object
-    properties:
-      company:
-        description: ''
-        $ref: '#/definitions/Company'
-    required:
-    - company
-  Company:
-    title: Company
-    type: object
-    properties:
-      id:
-        description: ''
-        type: string
-    required:
-    - id
   Payment:
     title: Payment
     type: object
@@ -654,61 +618,11 @@ definitions:
     properties:
       value:
         description: ''
-        type: string
+        type: integer
+        format: int32
       currency:
         description: ''
         type: string
     required:
     - value
     - currency
-  Load32:
-    title: Load32
-    type: object
-    properties:
-      shipment_request_load_id:
-        description: ''
-        type: integer
-        format: int32
-      name:
-        description: ''
-        type: string
-      description:
-        description: ''
-        type: string
-      type_of_load:
-        description: ''
-        type: string
-      weight:
-        description: ''
-        $ref: '#/definitions/Weight'
-      height:
-        description: ''
-        $ref: '#/definitions/Height'
-      width:
-        description: ''
-        $ref: '#/definitions/Width'
-      length:
-        description: ''
-        $ref: '#/definitions/Length'
-      volume:
-        description: ''
-        $ref: '#/definitions/Volume'
-      amount:
-        description: ''
-        type: integer
-        format: int32
-      requirements:
-        description: ''
-        $ref: '#/definitions/Requirements'
-    required:
-    - shipment_request_load_id
-    - name
-    - description
-    - type_of_load
-    - weight
-    - height
-    - width
-    - length
-    - volume
-    - amount
-    - requirements
