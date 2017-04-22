@@ -50,12 +50,12 @@ paths:
             {
               "payment" : {
                 "price" : {
-                  "value" : 1400,
+                  "value" : 1500,
                   "currency" : "PLN"
                 }
               },
-              "freight": 239,
-              "comment": "super",
+              "freight": 282,
+              "comment": "promocja",
               "carrier" : {
                 "id" : "3334"
               },
@@ -181,7 +181,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /freight-carrier/{carrier_id}/freight:
+  /freight-carrier/{carrier_id}/freight/273:
     get:
       description: 'TODO: Add Description'
       summary: Get All Carrier Offers
