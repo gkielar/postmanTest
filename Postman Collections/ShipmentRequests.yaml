@@ -562,47 +562,208 @@ definitions:
     title: SR add/update FreightsRequest
     type: object
     properties:
-      freights:
+      number:
+        description: ''
+        type: string
+      route:
+        description: ''
+        $ref: '#/definitions/Route'
+      loads:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Freight'
-    required:
-    - freights
-  Freight:
-    title: Freight
-    type: object
-    properties:
-      id:
+          $ref: '#/definitions/Load33'
+      carrier:
         description: ''
-        type: integer
-        format: int32
-      publish_date:
+        $ref: '#/definitions/Carrier'
+      payer:
         description: ''
-        type: string
-      publish_type:
-        description: ''
-        type: string
-      send_to_stock:
-        description: ''
-        type: boolean
-      status:
-        description: ''
-        type: string
+        $ref: '#/definitions/Payer'
       payment:
         description: ''
         $ref: '#/definitions/Payment'
-      decision_date:
+      vehicle:
+        description: ''
+        $ref: '#/definitions/Vehicle'
+      driver:
+        description: ''
+        $ref: '#/definitions/Driver'
+      requirements:
+        description: ''
+        $ref: '#/definitions/Requirements50'
+    required:
+    - number
+    - route
+    - loads
+    - carrier
+    - payer
+    - payment
+    - vehicle
+    - driver
+    - requirements
+  Route:
+    title: Route
+    type: object
+    properties:
+      events:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Event'
+    required:
+    - events
+  Event:
+    title: Event
+    type: object
+    properties:
+      place:
+        description: ''
+        $ref: '#/definitions/Place'
+      time_frame:
+        description: ''
+        $ref: '#/definitions/TimeFrame'
+      type:
         description: ''
         type: string
     required:
-    - id
-    - publish_date
-    - publish_type
-    - send_to_stock
-    - status
-    - payment
-    - decision_date
+    - place
+    - time_frame
+    - type
+  TimeFrame:
+    title: TimeFrame
+    type: object
+    properties:
+      day:
+        description: ''
+        type: string
+      time_from:
+        description: ''
+        type: string
+      time_to:
+        description: ''
+        type: string
+    required:
+    - day
+    - time_from
+    - time_to
+  Load33:
+    title: Load33
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      type_of_load:
+        description: ''
+        type: string
+      weight:
+        description: ''
+        $ref: '#/definitions/Weight'
+      height:
+        description: ''
+        $ref: '#/definitions/Height'
+      width:
+        description: ''
+        $ref: '#/definitions/Width'
+      length:
+        description: ''
+        $ref: '#/definitions/Length'
+      volume:
+        description: ''
+        $ref: '#/definitions/Volume'
+      amount:
+        description: ''
+        type: integer
+        format: int32
+    required:
+    - name
+    - type_of_load
+    - weight
+    - height
+    - width
+    - length
+    - volume
+    - amount
+  Carrier:
+    title: Carrier
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      vat_id:
+        description: ''
+        type: string
+      language:
+        description: ''
+        type: string
+      address:
+        description: ''
+        $ref: '#/definitions/Address'
+      contact_person:
+        description: ''
+        $ref: '#/definitions/ContactPerson'
+    required:
+    - name
+    - vat_id
+    - language
+    - address
+    - contact_person
+  ContactPerson:
+    title: ContactPerson
+    type: object
+    properties:
+      contact_id:
+        description: ''
+        type: integer
+        format: int32
+      family_name:
+        description: ''
+        type: string
+      given_name:
+        description: ''
+        type: string
+      email:
+        description: ''
+        type: string
+      telephone:
+        description: ''
+        type: string
+      fax:
+        description: ''
+        type: string
+    required:
+    - contact_id
+    - family_name
+    - given_name
+    - email
+    - telephone
+    - fax
+  Payer:
+    title: Payer
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      vat_id:
+        description: ''
+        type: string
+      language:
+        description: ''
+        type: string
+      address:
+        description: ''
+        $ref: '#/definitions/Address'
+      contact_person:
+        description: ''
+        $ref: '#/definitions/ContactPerson'
+    required:
+    - name
+    - vat_id
+    - language
+    - address
+    - contact_person
   Payment:
     title: Payment
     type: object
@@ -610,8 +771,12 @@ definitions:
       price:
         description: ''
         $ref: '#/definitions/Price'
+      interval_of_days:
+        description: ''
+        type: string
     required:
     - price
+    - interval_of_days
   Price:
     title: Price
     type: object
@@ -626,3 +791,98 @@ definitions:
     required:
     - value
     - currency
+  Vehicle:
+    title: Vehicle
+    type: object
+    properties:
+      registration_plate_number:
+        description: ''
+        type: string
+      semi_trailer:
+        description: ''
+        $ref: '#/definitions/SemiTrailer'
+    required:
+    - registration_plate_number
+    - semi_trailer
+  SemiTrailer:
+    title: SemiTrailer
+    type: object
+    properties:
+      registration_plate_number:
+        description: ''
+        type: string
+    required:
+    - registration_plate_number
+  Driver:
+    title: Driver
+    type: object
+    properties:
+      employee_id:
+        description: ''
+        type: integer
+        format: int32
+      family_name:
+        description: ''
+        type: string
+      given_name:
+        description: ''
+        type: string
+      identity_document_number:
+        description: ''
+        type: string
+      telephone:
+        description: ''
+        type: string
+    required:
+    - employee_id
+    - family_name
+    - given_name
+    - identity_document_number
+    - telephone
+  Requirements50:
+    title: Requirements50
+    type: object
+    properties:
+      is_ftl:
+        description: ''
+        type: boolean
+      is_tracking_system_required:
+        description: ''
+        type: boolean
+      shipping_remarks:
+        description: ''
+        type: string
+      required_ways_of_loading:
+        description: ''
+        type: array
+        items:
+          type: string
+      required_truck_bodies:
+        description: ''
+        type: array
+        items:
+          type: string
+      is_truck_crane_required:
+        description: ''
+        type: boolean
+      is_lift_required:
+        description: ''
+        type: boolean
+      is_tir_cable_required:
+        description: ''
+        type: boolean
+      required_adr_classes:
+        description: ''
+        type: array
+        items:
+          type: string
+    required:
+    - is_ftl
+    - is_tracking_system_required
+    - shipping_remarks
+    - required_ways_of_loading
+    - required_truck_bodies
+    - is_truck_crane_required
+    - is_lift_required
+    - is_tir_cable_required
+    - required_adr_classes
