@@ -7,7 +7,7 @@ info:
     name: MIT
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
 host: '{DefaultParameterValue}'
-basePath: /api/rest/v1
+basePath: /
 schemes:
 - http
 consumes:
@@ -78,7 +78,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /offers/46:
+  /api/rest/v1/offers/46:
     put:
       description: 'TODO: Add Description'
       summary: Edit offer
@@ -106,7 +106,7 @@ paths:
       x-unitTests:
       - request:
           method: PUT
-          uri: /offers/46
+          uri: /api/rest/v1/offers/46
           headers:
             Content-Type: application/json
           body: >-
@@ -140,7 +140,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /offers/45:
+  /api/rest/v1/offers/45:
     delete:
       description: 'TODO: Add Description'
       summary: Delete Offer
@@ -162,7 +162,7 @@ paths:
       x-unitTests:
       - request:
           method: DELETE
-          uri: /offers/45
+          uri: /api/rest/v1/offers/45
           headers:
             Content-Type: application/json
         expectedResponse:
