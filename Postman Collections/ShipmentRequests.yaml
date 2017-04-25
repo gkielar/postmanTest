@@ -7,7 +7,12 @@ info:
     name: MIT
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
 host: '{DefaultParameterValue}'
-basePath: /api/rest/v1
+basePath: /
+securityDefinitions:
+  auth:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: ''
 schemes:
 - http
 consumes:
@@ -16,30 +21,6 @@ produces:
 - application/json
 paths:
   /shipment-requests/{shipper_id}:
-    get:
-      description: 'TODO: Add Description'
-      summary: Get All User ShipmentRequests
-      tags:
-      - Misc
-      operationId: Get All User ShipmentRequests
-      produces:
-      - application/json
-      parameters:
-      - name: shipper_id
-        in: path
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security: []
-      x-unitTests: []
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
     post:
       description: 'TODO: Add Description'
       summary: Add New ShipmentRequests
@@ -76,6 +57,48 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
   /shipment-requests:
+    get:
+      description: 'TODO: Add Description'
+      summary: Get All User ShipmentRequests
+      tags:
+      - Misc
+      operationId: Get All User ShipmentRequests
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /shipment-requests
+          headers:
+            Authorization: Bearer 1c24bed0e8be4da36f825fc55937f5f7aa560d2a
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Get All User ShipmentRequests
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /api/rest/v1/shipment-requests:
     put:
       description: 'TODO: Add Description'
       summary: Edit ShipmentReqests
@@ -127,7 +150,7 @@ paths:
       x-unitTests:
       - request:
           method: DELETE
-          uri: /shipment-requests
+          uri: /api/rest/v1/shipment-requests
           headers:
             Content-Type: application/json
         expectedResponse:
@@ -146,7 +169,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/{shipper_id}/631:
+  /shipment-requests/{shipper_id}/309:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -562,95 +585,149 @@ definitions:
     title: SR add/update FreightsRequest
     type: object
     properties:
+      freights:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Freight'
+    required:
+    - freights
+  Freight:
+    title: Freight
+    type: object
+    properties:
+      id:
+        description: ''
+        type: integer
+        format: int32
       number:
         description: ''
         type: string
-      route:
+      publish_date:
         description: ''
-        $ref: '#/definitions/Route'
+        type: string
+      publish_type:
+        description: ''
+        type: string
+      send_to_stock:
+        description: ''
+        type: boolean
+      type:
+        description: ''
+        type: string
+      status:
+        description: ''
+        type: string
+      carriers:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Carrier'
+      shipper:
+        description: ''
+        $ref: '#/definitions/Shipper'
+      spots:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Spot'
+      payment:
+        description: ''
+        $ref: '#/definitions/Payment'
+      decision_date:
+        description: ''
+        type: string
       loads:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Load33'
-      carrier:
-        description: ''
-        $ref: '#/definitions/Carrier'
-      payer:
-        description: ''
-        $ref: '#/definitions/Payer'
-      payment:
-        description: ''
-        $ref: '#/definitions/Payment'
-      vehicle:
-        description: ''
-        $ref: '#/definitions/Vehicle'
-      driver:
-        description: ''
-        $ref: '#/definitions/Driver'
-      requirements:
-        description: ''
-        $ref: '#/definitions/Requirements50'
+          $ref: '#/definitions/Load39'
     required:
+    - id
     - number
-    - route
-    - loads
-    - carrier
-    - payer
-    - payment
-    - vehicle
-    - driver
-    - requirements
-  Route:
-    title: Route
-    type: object
-    properties:
-      events:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Event'
-    required:
-    - events
-  Event:
-    title: Event
-    type: object
-    properties:
-      place:
-        description: ''
-        $ref: '#/definitions/Place'
-      time_frame:
-        description: ''
-        $ref: '#/definitions/TimeFrame'
-      type:
-        description: ''
-        type: string
-    required:
-    - place
-    - time_frame
+    - publish_date
+    - publish_type
+    - send_to_stock
     - type
-  TimeFrame:
-    title: TimeFrame
+    - status
+    - carriers
+    - shipper
+    - spots
+    - payment
+    - decision_date
+    - loads
+  Carrier:
+    title: Carrier
     type: object
     properties:
-      day:
+      company:
         description: ''
-        type: string
-      time_from:
+        $ref: '#/definitions/Company'
+    required:
+    - company
+  Company:
+    title: Company
+    type: object
+    properties:
+      id:
         description: ''
-        type: string
-      time_to:
+        type: integer
+        format: int32
+    required:
+    - id
+  Shipper:
+    title: Shipper
+    type: object
+    properties:
+      company:
+        description: ''
+        $ref: '#/definitions/Company31'
+    required:
+    - company
+  Company31:
+    title: Company31
+    type: object
+    properties:
+      id:
         description: ''
         type: string
     required:
-    - day
-    - time_from
-    - time_to
-  Load33:
-    title: Load33
+    - id
+  Payment:
+    title: Payment
     type: object
     properties:
+      price:
+        description: ''
+        $ref: '#/definitions/Price'
+    required:
+    - price
+  Price:
+    title: Price
+    type: object
+    properties:
+      value:
+        description: ''
+        type: integer
+        format: int32
+      currency:
+        description: ''
+        type: string
+    required:
+    - value
+    - currency
+  Load39:
+    title: Load39
+    type: object
+    properties:
+      shipment_request_load_id:
+        description: ''
+        type: integer
+        format: int32
       name:
+        description: ''
+        type: string
+      description:
         description: ''
         type: string
       type_of_load:
@@ -675,8 +752,13 @@ definitions:
         description: ''
         type: integer
         format: int32
+      requirements:
+        description: ''
+        $ref: '#/definitions/Requirements45'
     required:
+    - shipment_request_load_id
     - name
+    - description
     - type_of_load
     - weight
     - height
@@ -684,165 +766,37 @@ definitions:
     - length
     - volume
     - amount
-  Carrier:
-    title: Carrier
+    - requirements
+  Requirements45:
+    title: Requirements45
     type: object
     properties:
-      name:
+      required_adr_classes:
         description: ''
-        type: string
-      vat_id:
+        type: array
+        items:
+          type: string
+      required_ways_of_loading:
         description: ''
-        type: string
-      language:
-        description: ''
-        type: string
-      address:
-        description: ''
-        $ref: '#/definitions/Address'
-      contact_person:
-        description: ''
-        $ref: '#/definitions/ContactPerson'
-    required:
-    - name
-    - vat_id
-    - language
-    - address
-    - contact_person
-  ContactPerson:
-    title: ContactPerson
-    type: object
-    properties:
-      contact_id:
+        type: array
+        items:
+          type: string
+      required_truck_bodies:
         description: ''
         type: integer
         format: int32
-      family_name:
+      is_truck_crane_required:
         description: ''
-        type: string
-      given_name:
+        type: boolean
+      is_lift_required:
         description: ''
-        type: string
-      email:
+        type: boolean
+      is_for_clearance:
         description: ''
-        type: string
-      telephone:
+        type: boolean
+      is_tir_cable_required:
         description: ''
-        type: string
-      fax:
-        description: ''
-        type: string
-    required:
-    - contact_id
-    - family_name
-    - given_name
-    - email
-    - telephone
-    - fax
-  Payer:
-    title: Payer
-    type: object
-    properties:
-      name:
-        description: ''
-        type: string
-      vat_id:
-        description: ''
-        type: string
-      language:
-        description: ''
-        type: string
-      address:
-        description: ''
-        $ref: '#/definitions/Address'
-      contact_person:
-        description: ''
-        $ref: '#/definitions/ContactPerson'
-    required:
-    - name
-    - vat_id
-    - language
-    - address
-    - contact_person
-  Payment:
-    title: Payment
-    type: object
-    properties:
-      price:
-        description: ''
-        $ref: '#/definitions/Price'
-      interval_of_days:
-        description: ''
-        type: string
-    required:
-    - price
-    - interval_of_days
-  Price:
-    title: Price
-    type: object
-    properties:
-      value:
-        description: ''
-        type: integer
-        format: int32
-      currency:
-        description: ''
-        type: string
-    required:
-    - value
-    - currency
-  Vehicle:
-    title: Vehicle
-    type: object
-    properties:
-      registration_plate_number:
-        description: ''
-        type: string
-      semi_trailer:
-        description: ''
-        $ref: '#/definitions/SemiTrailer'
-    required:
-    - registration_plate_number
-    - semi_trailer
-  SemiTrailer:
-    title: SemiTrailer
-    type: object
-    properties:
-      registration_plate_number:
-        description: ''
-        type: string
-    required:
-    - registration_plate_number
-  Driver:
-    title: Driver
-    type: object
-    properties:
-      employee_id:
-        description: ''
-        type: integer
-        format: int32
-      family_name:
-        description: ''
-        type: string
-      given_name:
-        description: ''
-        type: string
-      identity_document_number:
-        description: ''
-        type: string
-      telephone:
-        description: ''
-        type: string
-    required:
-    - employee_id
-    - family_name
-    - given_name
-    - identity_document_number
-    - telephone
-  Requirements50:
-    title: Requirements50
-    type: object
-    properties:
+        type: boolean
       is_ftl:
         description: ''
         type: boolean
@@ -852,37 +806,14 @@ definitions:
       shipping_remarks:
         description: ''
         type: string
-      required_ways_of_loading:
-        description: ''
-        type: array
-        items:
-          type: string
-      required_truck_bodies:
-        description: ''
-        type: array
-        items:
-          type: string
-      is_truck_crane_required:
-        description: ''
-        type: boolean
-      is_lift_required:
-        description: ''
-        type: boolean
-      is_tir_cable_required:
-        description: ''
-        type: boolean
-      required_adr_classes:
-        description: ''
-        type: array
-        items:
-          type: string
     required:
-    - is_ftl
-    - is_tracking_system_required
-    - shipping_remarks
+    - required_adr_classes
     - required_ways_of_loading
     - required_truck_bodies
     - is_truck_crane_required
     - is_lift_required
+    - is_for_clearance
     - is_tir_cable_required
-    - required_adr_classes
+    - is_ftl
+    - is_tracking_system_required
+    - shipping_remarks
