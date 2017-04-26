@@ -7,7 +7,7 @@ info:
     name: MIT
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
 host: '{DefaultParameterValue}'
-basePath: /api/rest/v1
+basePath: /
 schemes:
 - http
 consumes:
@@ -46,7 +46,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /freight-shipper/3335/freight:
+  /freight-shipper/{shipper_id}/freight:
     get:
       description: 'TODO: Add Description'
       summary: Get All Shipper Freights
@@ -55,26 +55,17 @@ paths:
       operationId: Get All Shipper Freights
       produces:
       - application/json
-      parameters: []
+      parameters:
+      - name: shipper_id
+        in: path
+        required: true
+        type: string
+        description: ''
       responses:
         200:
           description: ''
       security: []
-      x-unitTests:
-      - request:
-          method: GET
-          uri: /freight-shipper/3335/freight
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Get All Shipper Freights
-        x-testDescription: 'TODO: Add Description'
+      x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -105,7 +96,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /freight/301:
+  /api/rest/v1/freight/301:
     put:
       description: 'TODO: Add Description'
       summary: Edit Freight
@@ -133,7 +124,7 @@ paths:
       x-unitTests:
       - request:
           method: PUT
-          uri: /freight/301
+          uri: /api/rest/v1/freight/301
           headers:
             Content-Type: application/json
           body: >-
@@ -292,7 +283,7 @@ paths:
       x-unitTests:
       - request:
           method: DELETE
-          uri: /freight/301
+          uri: /api/rest/v1/freight/301
           headers:
             Content-Type: application/json
           body: >-
@@ -795,7 +786,7 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Load'
+          $ref: '#/definitions/Load27'
     required:
     - number
     - status
@@ -827,6 +818,104 @@ definitions:
     required:
     - value
     - currency
+  Load27:
+    title: Load27
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      description:
+        description: ''
+        type: string
+      type_of_load:
+        description: ''
+        type: string
+      weight:
+        description: ''
+        $ref: '#/definitions/Weight'
+      height:
+        description: ''
+        $ref: '#/definitions/Height'
+      width:
+        description: ''
+        $ref: '#/definitions/Width'
+      length:
+        description: ''
+        $ref: '#/definitions/Length'
+      volume:
+        description: ''
+        $ref: '#/definitions/Volume'
+      amount:
+        description: ''
+        type: integer
+        format: int32
+      required_adr_classes:
+        description: ''
+        type: array
+        items:
+          type: string
+      requirements:
+        description: ''
+        $ref: '#/definitions/Requirements33'
+    required:
+    - name
+    - description
+    - type_of_load
+    - weight
+    - height
+    - width
+    - length
+    - volume
+    - amount
+    - required_adr_classes
+    - requirements
+  Requirements33:
+    title: Requirements33
+    type: object
+    properties:
+      required_ways_of_loading:
+        description: ''
+        type: array
+        items:
+          type: string
+      required_truck_bodies:
+        description: ''
+        type: array
+        items:
+          type: integer
+          format: int32
+      is_truck_crane_required:
+        description: ''
+        type: boolean
+      is_lift_required:
+        description: ''
+        type: boolean
+      is_for_clearance:
+        description: ''
+        type: boolean
+      is_tir_cable_required:
+        description: ''
+        type: boolean
+      is_ftl:
+        description: ''
+        type: boolean
+      is_tracking_system_required:
+        description: ''
+        type: boolean
+      shipping_remarks:
+        description: ''
+        type: string
+    required:
+    - required_ways_of_loading
+    - required_truck_bodies
+    - is_truck_crane_required
+    - is_lift_required
+    - is_for_clearance
+    - is_tir_cable_required
+    - is_ftl
+    - is_tracking_system_required
+    - shipping_remarks
   EditFreightrequest:
     title: Edit FreightRequest
     type: object
