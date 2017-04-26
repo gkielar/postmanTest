@@ -20,43 +20,7 @@ consumes:
 produces:
 - application/json
 paths:
-  /shipment-requests/{shipper_id}:
-    post:
-      description: 'TODO: Add Description'
-      summary: Add New ShipmentRequests
-      tags:
-      - Misc
-      operationId: Add New ShipmentRequests
-      produces:
-      - application/json
-      parameters:
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/AddNewShipmentrequestsrequest'
-      - name: Content-Type
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: shipper_id
-        in: path
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security: []
-      x-unitTests: []
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
-  /shipment-requests:
+  /api/rest/v1/shipment-requests:
     get:
       description: 'TODO: Add Description'
       summary: Get All User ShipmentRequests
@@ -79,9 +43,9 @@ paths:
       x-unitTests:
       - request:
           method: GET
-          uri: /shipment-requests
+          uri: /api/rest/v1/shipment-requests
           headers:
-            Authorization: Bearer 1c24bed0e8be4da36f825fc55937f5f7aa560d2a
+            Authorization: Bearer 638e81db0691896de91fbcbbe3ab1dec04fb01c6
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
@@ -98,7 +62,6 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /api/rest/v1/shipment-requests:
     put:
       description: 'TODO: Add Description'
       summary: Edit ShipmentReqests
@@ -124,6 +87,150 @@ paths:
           description: ''
       security: []
       x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+    post:
+      description: 'TODO: Add Description'
+      summary: Add New ShipmentRequests
+      tags:
+      - Misc
+      operationId: Add New ShipmentRequests
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/AddNewShipmentrequestsrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests:
+      - request:
+          method: POST
+          uri: /api/rest/v1/shipment-requests
+          headers:
+            Content-Type: application/json
+            Authorization: Bearer 638e81db0691896de91fbcbbe3ab1dec04fb01c6
+          body: >-
+            {
+              "name" : "Test zamówienia 25.04.17",
+              "number": "123",
+              "status": "in_progress",
+              "freights": [],
+              "spots" : [
+              {
+                  "name": "Hurtownia owoców",
+                  "type": "loading",
+                "timespans": {
+                    "begin": "2018-04-11T10:47:42+0100",
+                    "end": "2018-04-15T10:47:42+0100"
+                },
+                  "place": {
+                    "address": {
+                      "locality": "Opole",
+                      "postal_code": "45-001",
+                      "country": "PL",
+                      "street": "Krakowska",
+                      "number": "1"
+                    },
+                    "coordinates": {
+                      "latitude": -90.0,
+                      "longitude": -180.0
+                    }
+                  }
+                },
+                {
+                  "name": "Lidl",
+                  "type": "unloading",
+                "timespans": {
+                    "begin": "2018-04-15T11:47:42+0100",
+                    "end": "2018-04-16T10:47:42+0100"
+                },
+                  "place": {
+                    "address": {
+                      "locality": "WrocBaw",
+                      "postal_code": "50-064",
+                      "country": "PL",
+                      "street": "RacBawicka",
+                      "number": "2"
+                    },
+                    "coordinates": {
+                      "latitude": -90.0,
+                      "longitude": -180.0
+                    }
+                  }
+                }
+                ],
+                 "loads":[
+                {
+                  "name": "Owoce",
+                  "description": "Test 25.04.17",
+                  "type_of_load": "box",
+                  "weight": {
+                    "value": 33,
+                    "unit_code": "kg"
+                  },
+                  "height": {
+                    "value": 1,
+                    "unit_code": "m"
+                  },
+                  "width": {
+                    "value": 1,
+                    "unit_code": "m"
+                  },
+                  "length": {
+                    "value": 1,
+                    "unit_code": "m"
+                  },
+                  "volume": {
+                    "value": 1,
+                    "unit_code": "l"
+                  },
+                  "amount": 50000,
+                  "requirements": {
+                    "required_adr_classes": ["1"],
+                    "required_ways_of_loading": ["side", "back"],
+                    "required_truck_bodies": ["15", "1"],
+                    "is_truck_crane_required": true,
+                    "is_lift_required": false,
+                    "is_for_clearance": true,
+                    "is_tir_cable_required": true,
+                    "is_ftl": true,
+                    "is_tracking_system_required": true,
+                    "shipping_remarks": "brak wymagaD"
+                  }
+                }
+              ]
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Add New ShipmentRequests
+        x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
