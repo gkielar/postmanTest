@@ -21,47 +21,6 @@ produces:
 - application/json
 paths:
   /api/rest/v1/shipment-requests:
-    get:
-      description: 'TODO: Add Description'
-      summary: Get All User ShipmentRequests
-      tags:
-      - Misc
-      operationId: Get All User ShipmentRequests
-      produces:
-      - application/json
-      parameters:
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security:
-      - auth: []
-      x-unitTests:
-      - request:
-          method: GET
-          uri: /api/rest/v1/shipment-requests
-          headers:
-            Authorization: Bearer 638e81db0691896de91fbcbbe3ab1dec04fb01c6
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Get All User ShipmentRequests
-        x-testDescription: 'TODO: Add Description'
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
     put:
       description: 'TODO: Add Description'
       summary: Edit ShipmentReqests
@@ -270,6 +229,48 @@ paths:
         x-testShouldPass: true
         x-testEnabled: true
         x-testName: Delete ShipmentReqests
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /shipment-requests:
+    get:
+      description: 'TODO: Add Description'
+      summary: Get All User ShipmentRequests
+      tags:
+      - Misc
+      operationId: Get All User ShipmentRequests
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /shipment-requests
+          headers:
+            Authorization: Bearer 7bdb5f50ec459d35936f3129f9194dad3b7271ed
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Get All User ShipmentRequests
         x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
