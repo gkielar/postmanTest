@@ -8,6 +8,11 @@ info:
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
 host: '{DefaultParameterValue}'
 basePath: /
+securityDefinitions:
+  auth:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: ''
 schemes:
 - http
 consumes:
@@ -36,16 +41,23 @@ paths:
         required: true
         type: string
         description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
       responses:
         200:
           description: ''
-      security: []
+      security:
+      - auth: []
       x-unitTests:
       - request:
           method: POST
           uri: /offers
           headers:
             Content-Type: application/json
+            Authorization: Bearer 98d3c4ce848f2520c1b5a097ee5c74acc3a8f952
           body: >-
             {
               "payment" : {
@@ -54,13 +66,11 @@ paths:
                   "currency" : "PLN"
                 }
               },
-              "freight": 282,
+              "freight": 6,
               "comment": "promocja",
-              "carrier" : {
-                "id" : "3334"
-              },
               "status" : "in_progress",
-              "version" : 1
+              "version" : 2,
+              "valid_to" : "2018-04-11T10:47:42+0100"
             }
         expectedResponse:
           x-allowExtraHeaders: true
@@ -181,7 +191,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /freight-carrier/{carrier_id}/freight/273:
+  /freight-carrier:
     get:
       description: 'TODO: Add Description'
       summary: Get All Carrier Offers
@@ -191,16 +201,33 @@ paths:
       produces:
       - application/json
       parameters:
-      - name: carrier_id
-        in: path
+      - name: Authorization
+        in: header
         required: true
         type: string
         description: ''
       responses:
         200:
           description: ''
-      security: []
-      x-unitTests: []
+      security:
+      - auth: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /freight-carrier
+          headers:
+            Authorization: Bearer 4c17461b929e99f82943469e9500f4243cec7767
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Get All Carrier Offers
+        x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -221,9 +248,6 @@ definitions:
       comment:
         description: ''
         type: string
-      carrier:
-        description: ''
-        $ref: '#/definitions/Carrier'
       status:
         description: ''
         type: string
@@ -231,13 +255,16 @@ definitions:
         description: ''
         type: integer
         format: int32
+      valid_to:
+        description: ''
+        type: string
     required:
     - payment
     - freight
     - comment
-    - carrier
     - status
     - version
+    - valid_to
   Payment:
     title: Payment
     type: object
@@ -261,15 +288,6 @@ definitions:
     required:
     - value
     - currency
-  Carrier:
-    title: Carrier
-    type: object
-    properties:
-      id:
-        description: ''
-        type: string
-    required:
-    - id
   EditOfferrequest:
     title: Edit offerRequest
     type: object
@@ -296,3 +314,12 @@ definitions:
     - comment
     - carrier
     - status
+  Carrier:
+    title: Carrier
+    type: object
+    properties:
+      id:
+        description: ''
+        type: string
+    required:
+    - id
