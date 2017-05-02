@@ -20,23 +20,17 @@ consumes:
 produces:
 - application/json
 paths:
-  /api/rest/v1/shipment-requests:
-    put:
+  /shipment-requests:
+    get:
       description: 'TODO: Add Description'
-      summary: Edit ShipmentReqests
+      summary: Get All User ShipmentRequests
       tags:
       - Misc
-      operationId: Edit ShipmentReqests
+      operationId: Get All User ShipmentRequests
       produces:
       - application/json
       parameters:
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/EditShipmentreqestsrequest'
-      - name: Content-Type
+      - name: Authorization
         in: header
         required: true
         type: string
@@ -44,8 +38,25 @@ paths:
       responses:
         200:
           description: ''
-      security: []
-      x-unitTests: []
+      security:
+      - auth: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /shipment-requests
+          headers:
+            Authorization: Bearer 7bdb5f50ec459d35936f3129f9194dad3b7271ed
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Get All User ShipmentRequests
+        x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -84,13 +95,13 @@ paths:
       x-unitTests:
       - request:
           method: POST
-          uri: /api/rest/v1/shipment-requests
+          uri: /shipment-requests
           headers:
             Content-Type: application/json
-            Authorization: Bearer 638e81db0691896de91fbcbbe3ab1dec04fb01c6
+            Authorization: Bearer 72a6352789c63df84012bf8f67efe733ecc74456
           body: >-
             {
-              "name" : "Test zamówienia 25.04.17",
+              "name" : "SR 02.05.2017.2",
               "number": "123",
               "status": "in_progress",
               "freights": [],
@@ -104,10 +115,10 @@ paths:
                 },
                   "place": {
                     "address": {
-                      "locality": "Opole",
-                      "postal_code": "45-001",
+                      "locality": "GdaDsk",
+                      "postal_code": "45001",
                       "country": "PL",
-                      "street": "Krakowska",
+                      "street": "",
                       "number": "1"
                     },
                     "coordinates": {
@@ -141,7 +152,7 @@ paths:
                  "loads":[
                 {
                   "name": "Owoce",
-                  "description": "Test 25.04.17",
+                  "description": "Test 02.05.17",
                   "type_of_load": "box",
                   "weight": {
                     "value": 33,
@@ -195,6 +206,37 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+  /api/rest/v1/shipment-requests:
+    put:
+      description: 'TODO: Add Description'
+      summary: Edit ShipmentReqests
+      tags:
+      - Misc
+      operationId: Edit ShipmentReqests
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/EditShipmentreqestsrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
     delete:
       description: 'TODO: Add Description'
       summary: Delete ShipmentReqests
@@ -229,48 +271,6 @@ paths:
         x-testShouldPass: true
         x-testEnabled: true
         x-testName: Delete ShipmentReqests
-        x-testDescription: 'TODO: Add Description'
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
-  /shipment-requests:
-    get:
-      description: 'TODO: Add Description'
-      summary: Get All User ShipmentRequests
-      tags:
-      - Misc
-      operationId: Get All User ShipmentRequests
-      produces:
-      - application/json
-      parameters:
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security:
-      - auth: []
-      x-unitTests:
-      - request:
-          method: GET
-          uri: /shipment-requests
-          headers:
-            Authorization: Bearer 7bdb5f50ec459d35936f3129f9194dad3b7271ed
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Get All User ShipmentRequests
         x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
