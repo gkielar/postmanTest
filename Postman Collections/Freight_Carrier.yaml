@@ -239,7 +239,6 @@ definitions:
     type: object
     properties:
       payment:
-        description: ''
         $ref: '#/definitions/Payment'
       freight:
         description: ''
@@ -270,7 +269,6 @@ definitions:
     type: object
     properties:
       price:
-        description: ''
         $ref: '#/definitions/Price'
     required:
     - price
@@ -293,7 +291,6 @@ definitions:
     type: object
     properties:
       payment:
-        description: ''
         $ref: '#/definitions/Payment'
       order:
         description: ''
@@ -303,7 +300,6 @@ definitions:
         description: ''
         type: string
       carrier:
-        description: ''
         $ref: '#/definitions/Carrier'
       status:
         description: ''
