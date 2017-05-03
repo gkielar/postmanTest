@@ -227,7 +227,7 @@ paths:
                     ],
                     "required_truck_bodies": [
                       "Bus",
-                      "ChBodnia"
+                      "Ch?odnia"
                     ],
                     "is_truck_crane_required": true,
                     "is_lift_required": false,
@@ -386,7 +386,7 @@ paths:
                     ],
                     "required_truck_bodies": [
                       "Bus",
-                      "ChBodnia"
+                      "Ch?odnia"
                     ],
                     "is_truck_crane_required": true,
                     "is_lift_required": false,
@@ -430,13 +430,11 @@ definitions:
         description: ''
         type: string
       shipper:
-        description: ''
         $ref: '#/definitions/Shipper'
       publish_date:
         description: ''
         type: string
       payment:
-        description: ''
         $ref: '#/definitions/Payment'
       spots:
         description: ''
@@ -462,7 +460,6 @@ definitions:
     type: object
     properties:
       company:
-        description: ''
         $ref: '#/definitions/Company'
     required:
     - company
@@ -480,7 +477,6 @@ definitions:
     type: object
     properties:
       price:
-        description: ''
         $ref: '#/definitions/Price'
     required:
     - price
@@ -509,10 +505,8 @@ definitions:
         description: ''
         type: string
       place:
-        description: ''
         $ref: '#/definitions/Place'
       timespans:
-        description: ''
         $ref: '#/definitions/Timespans'
       companyName:
         description: ''
@@ -527,10 +521,8 @@ definitions:
     type: object
     properties:
       address:
-        description: ''
         $ref: '#/definitions/Address'
       coordinates:
-        description: ''
         $ref: '#/definitions/Coordinates'
     required:
     - address
@@ -602,19 +594,14 @@ definitions:
         description: ''
         type: string
       weight:
-        description: ''
         $ref: '#/definitions/Weight'
       height:
-        description: ''
         $ref: '#/definitions/Height'
       width:
-        description: ''
         $ref: '#/definitions/Width'
       length:
-        description: ''
         $ref: '#/definitions/Length'
       volume:
-        description: ''
         $ref: '#/definitions/Volume'
       amount:
         description: ''
@@ -626,7 +613,6 @@ definitions:
         items:
           type: string
       requirements:
-        description: ''
         $ref: '#/definitions/Requirements'
     required:
     - name
@@ -769,13 +755,11 @@ definitions:
         description: ''
         type: string
       shipper:
-        description: ''
         $ref: '#/definitions/Shipper'
       publish_date:
         description: ''
         type: string
       payment:
-        description: ''
         $ref: '#/definitions/Payment20'
       spots:
         description: ''
@@ -801,7 +785,6 @@ definitions:
     type: object
     properties:
       price:
-        description: ''
         $ref: '#/definitions/Price21'
     required:
     - price
@@ -832,19 +815,14 @@ definitions:
         description: ''
         type: string
       weight:
-        description: ''
         $ref: '#/definitions/Weight'
       height:
-        description: ''
         $ref: '#/definitions/Height'
       width:
-        description: ''
         $ref: '#/definitions/Width'
       length:
-        description: ''
         $ref: '#/definitions/Length'
       volume:
-        description: ''
         $ref: '#/definitions/Volume'
       amount:
         description: ''
@@ -856,7 +834,6 @@ definitions:
         items:
           type: string
       requirements:
-        description: ''
         $ref: '#/definitions/Requirements33'
     required:
     - name
@@ -930,10 +907,8 @@ definitions:
         description: ''
         type: string
       shipper:
-        description: ''
         $ref: '#/definitions/Shipper35'
       payment:
-        description: ''
         $ref: '#/definitions/Payment'
       spots:
         description: ''
@@ -991,19 +966,14 @@ definitions:
         description: ''
         type: string
       load_weight:
-        description: ''
         $ref: '#/definitions/LoadWeight'
       load_height:
-        description: ''
         $ref: '#/definitions/LoadHeight'
       load_width:
-        description: ''
         $ref: '#/definitions/LoadWidth'
       load_length:
-        description: ''
         $ref: '#/definitions/LoadLength'
       load_capacity:
-        description: ''
         $ref: '#/definitions/LoadCapacity'
       amount:
         description: ''
@@ -1015,7 +985,6 @@ definitions:
         items:
           type: string
       requirements:
-        description: ''
         $ref: '#/definitions/Requirements50'
     required:
     - name
@@ -1158,10 +1127,8 @@ definitions:
         description: ''
         type: string
       shipper:
-        description: ''
         $ref: '#/definitions/Shipper35'
       payment:
-        description: ''
         $ref: '#/definitions/Payment'
       spots:
         description: ''
