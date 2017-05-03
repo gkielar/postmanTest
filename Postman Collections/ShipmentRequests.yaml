@@ -107,7 +107,7 @@ paths:
               "freights": [],
               "spots" : [
               {
-                  "name": "Hurtownia owoców",
+                  "name": "Hurtownia owoc?w",
                   "type": "loading",
                 "timespans": {
                     "begin": "2018-04-11T10:47:42+0100",
@@ -115,7 +115,7 @@ paths:
                 },
                   "place": {
                     "address": {
-                      "locality": "GdaDsk",
+                      "locality": "Gda?sk",
                       "postal_code": "45001",
                       "country": "PL",
                       "street": "",
@@ -136,10 +136,10 @@ paths:
                 },
                   "place": {
                     "address": {
-                      "locality": "WrocBaw",
+                      "locality": "Wroc?aw",
                       "postal_code": "50-064",
                       "country": "PL",
-                      "street": "RacBawicka",
+                      "street": "Rac?awicka",
                       "number": "2"
                     },
                     "coordinates": {
@@ -185,7 +185,7 @@ paths:
                     "is_tir_cable_required": true,
                     "is_ftl": true,
                     "is_tracking_system_required": true,
-                    "shipping_remarks": "brak wymagaD"
+                    "shipping_remarks": "brak wymaga?"
                   }
                 }
               ]
@@ -360,10 +360,8 @@ definitions:
         description: ''
         type: string
       timespans:
-        description: ''
         $ref: '#/definitions/Timespans'
       place:
-        description: ''
         $ref: '#/definitions/Place'
     required:
     - name
@@ -388,10 +386,8 @@ definitions:
     type: object
     properties:
       address:
-        description: ''
         $ref: '#/definitions/Address'
       coordinates:
-        description: ''
         $ref: '#/definitions/Coordinates'
     required:
     - address
@@ -450,26 +446,20 @@ definitions:
         description: ''
         type: string
       weight:
-        description: ''
         $ref: '#/definitions/Weight'
       height:
-        description: ''
         $ref: '#/definitions/Height'
       width:
-        description: ''
         $ref: '#/definitions/Width'
       length:
-        description: ''
         $ref: '#/definitions/Length'
       volume:
-        description: ''
         $ref: '#/definitions/Volume'
       amount:
         description: ''
         type: integer
         format: int32
       requirements:
-        description: ''
         $ref: '#/definitions/Requirements'
     required:
     - name
@@ -656,26 +646,20 @@ definitions:
         description: ''
         type: string
       weight:
-        description: ''
         $ref: '#/definitions/Weight'
       height:
-        description: ''
         $ref: '#/definitions/Height'
       width:
-        description: ''
         $ref: '#/definitions/Width'
       length:
-        description: ''
         $ref: '#/definitions/Length'
       volume:
-        description: ''
         $ref: '#/definitions/Volume'
       amount:
         description: ''
         type: integer
         format: int32
       requirements:
-        description: ''
         $ref: '#/definitions/Requirements'
     required:
     - id
@@ -732,7 +716,6 @@ definitions:
         items:
           $ref: '#/definitions/Carrier'
       shipper:
-        description: ''
         $ref: '#/definitions/Shipper'
       spots:
         description: ''
@@ -740,7 +723,6 @@ definitions:
         items:
           $ref: '#/definitions/Spot'
       payment:
-        description: ''
         $ref: '#/definitions/Payment'
       decision_date:
         description: ''
@@ -769,7 +751,6 @@ definitions:
     type: object
     properties:
       company:
-        description: ''
         $ref: '#/definitions/Company'
     required:
     - company
@@ -788,7 +769,6 @@ definitions:
     type: object
     properties:
       company:
-        description: ''
         $ref: '#/definitions/Company31'
     required:
     - company
@@ -806,7 +786,6 @@ definitions:
     type: object
     properties:
       price:
-        description: ''
         $ref: '#/definitions/Price'
     required:
     - price
@@ -842,26 +821,20 @@ definitions:
         description: ''
         type: string
       weight:
-        description: ''
         $ref: '#/definitions/Weight'
       height:
-        description: ''
         $ref: '#/definitions/Height'
       width:
-        description: ''
         $ref: '#/definitions/Width'
       length:
-        description: ''
         $ref: '#/definitions/Length'
       volume:
-        description: ''
         $ref: '#/definitions/Volume'
       amount:
         description: ''
         type: integer
         format: int32
       requirements:
-        description: ''
         $ref: '#/definitions/Requirements45'
     required:
     - shipment_request_load_id
