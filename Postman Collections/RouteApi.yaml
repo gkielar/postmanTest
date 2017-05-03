@@ -186,7 +186,6 @@ definitions:
         items:
           $ref: '#/definitions/Load'
       shipper:
-        description: ''
         $ref: '#/definitions/Shipper'
     required:
     - id
@@ -206,7 +205,6 @@ definitions:
         description: ''
         type: string
       place:
-        description: ''
         $ref: '#/definitions/Place'
       id:
         description: ''
@@ -223,10 +221,8 @@ definitions:
     type: object
     properties:
       address:
-        description: ''
         $ref: '#/definitions/Address'
       coordinates:
-        description: ''
         $ref: '#/definitions/Coordinates'
     required:
     - address
@@ -285,26 +281,20 @@ definitions:
         description: ''
         type: string
       weight:
-        description: ''
         $ref: '#/definitions/Weight'
       height:
-        description: ''
         $ref: '#/definitions/Height'
       width:
-        description: ''
         $ref: '#/definitions/Width'
       length:
-        description: ''
         $ref: '#/definitions/Length'
       volume:
-        description: ''
         $ref: '#/definitions/Volume'
       amount:
         description: ''
         type: integer
         format: int32
       requirements:
-        description: ''
         $ref: '#/definitions/Requirements'
     required:
     - id
@@ -446,7 +436,6 @@ definitions:
         description: ''
         type: string
       company:
-        description: ''
         $ref: '#/definitions/Company'
     required:
     - source
@@ -475,7 +464,6 @@ definitions:
         description: ''
         type: string
       address:
-        description: ''
         $ref: '#/definitions/Address'
       contact_persons:
         description: ''
@@ -550,7 +538,6 @@ definitions:
         items:
           $ref: '#/definitions/Load21'
       shipper:
-        description: ''
         $ref: '#/definitions/Shipper28'
     required:
     - route_id
@@ -570,7 +557,6 @@ definitions:
         description: ''
         type: string
       place:
-        description: ''
         $ref: '#/definitions/Place18'
       spot_id:
         description: ''
@@ -587,10 +573,8 @@ definitions:
     type: object
     properties:
       address:
-        description: ''
         $ref: '#/definitions/Address19'
       coordinates:
-        description: ''
         $ref: '#/definitions/Coordinates'
     required:
     - address
@@ -633,19 +617,14 @@ definitions:
         description: ''
         type: string
       load_weight:
-        description: ''
         $ref: '#/definitions/LoadWeight'
       load_height:
-        description: ''
         $ref: '#/definitions/LoadHeight'
       load_width:
-        description: ''
         $ref: '#/definitions/LoadWidth'
       load_length:
-        description: ''
         $ref: '#/definitions/LoadLength'
       load_capacity:
-        description: ''
         $ref: '#/definitions/LoadCapacity'
       amount:
         description: ''
@@ -657,7 +636,6 @@ definitions:
         items:
           type: string
       requirements:
-        description: ''
         $ref: '#/definitions/Requirements27'
     required:
     - load_id
@@ -814,7 +792,6 @@ definitions:
         description: ''
         type: string
       address:
-        description: ''
         $ref: '#/definitions/Address19'
       contact_persons:
         description: ''
