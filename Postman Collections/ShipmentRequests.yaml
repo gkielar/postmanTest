@@ -98,98 +98,8 @@ paths:
           uri: /shipment-requests
           headers:
             Content-Type: application/json
-            Authorization: Bearer 72a6352789c63df84012bf8f67efe733ecc74456
-          body: >-
-            {
-              "name" : "SR 02.05.2017.2",
-              "number": "123",
-              "status": "in_progress",
-              "freights": [],
-              "spots" : [
-              {
-                  "name": "Hurtownia owoc?w",
-                  "type": "loading",
-                "timespans": {
-                    "begin": "2018-04-11T10:47:42+0100",
-                    "end": "2018-04-15T10:47:42+0100"
-                },
-                  "place": {
-                    "address": {
-                      "locality": "Gda?sk",
-                      "postal_code": "45001",
-                      "country": "PL",
-                      "street": "",
-                      "number": "1"
-                    },
-                    "coordinates": {
-                      "latitude": -90.0,
-                      "longitude": -180.0
-                    }
-                  }
-                },
-                {
-                  "name": "Lidl",
-                  "type": "unloading",
-                "timespans": {
-                    "begin": "2018-04-15T11:47:42+0100",
-                    "end": "2018-04-16T10:47:42+0100"
-                },
-                  "place": {
-                    "address": {
-                      "locality": "Wroc?aw",
-                      "postal_code": "50-064",
-                      "country": "PL",
-                      "street": "Rac?awicka",
-                      "number": "2"
-                    },
-                    "coordinates": {
-                      "latitude": -90.0,
-                      "longitude": -180.0
-                    }
-                  }
-                }
-                ],
-                 "loads":[
-                {
-                  "name": "Owoce",
-                  "description": "Test 02.05.17",
-                  "type_of_load": "box",
-                  "weight": {
-                    "value": 33,
-                    "unit_code": "kg"
-                  },
-                  "height": {
-                    "value": 1,
-                    "unit_code": "m"
-                  },
-                  "width": {
-                    "value": 1,
-                    "unit_code": "m"
-                  },
-                  "length": {
-                    "value": 1,
-                    "unit_code": "m"
-                  },
-                  "volume": {
-                    "value": 1,
-                    "unit_code": "l"
-                  },
-                  "amount": 50000,
-                  "requirements": {
-                    "required_adr_classes": ["1"],
-                    "required_ways_of_loading": ["side", "back"],
-                    "required_truck_bodies": ["15", "1"],
-                    "is_truck_crane_required": true,
-                    "is_lift_required": false,
-                    "is_for_clearance": true,
-                    "is_tir_cable_required": true,
-                    "is_ftl": true,
-                    "is_tracking_system_required": true,
-                    "shipping_remarks": "brak wymaga?"
-                  }
-                }
-              ]
-            }
+            Authorization: Bearer e015ae7a27a247e8e7a1008022eee8b75ea3bbb6
+          body: "{\n  \"name\" : \"Fruits\",\n  \"number\": \"55555\",\n  \"status\": \"in_progress\",\n  \"freights\": [],\n  \"spots\" : [\n  {\n      \"name\": \"Wholesale fruit\",\n      \"type\": \"loading\",\n    \"timespans\": {\n        \"begin\": \"2018-04-11T10:47:42+0100\",\n        \"end\": \"2018-04-15T10:47:42+0100\"\n    },\n      \"place\": {\n        \"address\": {\n          \"locality\": \"Munchen\",\n          \"postal_code\": \"80331\",\n          \"country\": \"DE\",\n          \"street\": \"\",\n          \"number\": \"1\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      }\n    },\n    {\n      \"name\": \"Lidl\",\n      \"type\": \"unloading\",\n    \"timespans\": {\n        \"begin\": \"2018-04-15T11:47:42+0100\",\n        \"end\": \"2018-04-16T10:47:42+0100\"\n    },\n      \"place\": {\n        \"address\": {\n          \"locality\": \"Wroc?aw\",\n          \"postal_code\": \"50-064\",\n          \"country\": \"PL\",\n          \"street\": \"Rac?awicka\",\n          \"number\": \"2\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      }\n    }\n    ],\n     \"loads\":[\n    {\n      \"name\": \"Fruits\",\n      \"description\": \"Test 06.05.17\",\n      \"type_of_load\": \"box\",\n      \"weight\": {\n        \"value\": 33,\n        \"unit_code\": \"kg\"\n      },\n      \"height\": {\n        \"value\": 26,\n        \"unit_code\": \"m\"\n      },\n      \"width\": {\n        \"value\": 16,\n        \"unit_code\": \"m\"\n      },\n      \"length\": {\n        \"value\": 16,\n        \"unit_code\": \"m\"\n      },\n      \"volume\": {\n        \"value\": 16,\n        \"unit_code\": \"l\"\n      },\n      \"amount\": 50000,\n      \"requirements\": {\n        \"required_adr_classes\": [\"1\"],\n        \"required_ways_of_loading\": [\"side\"],\n        \"required_truck_bodies\": [\"22\"],\n        \"is_truck_crane_required\": true,\n        \"is_lift_required\": false,\n        \"is_for_clearance\": true,\n        \"is_tir_cable_required\": true,\n        \"is_ftl\": true,\n        \"is_tracking_system_required\": true,\n        \"shipping_remarks\": \"brak wymaga?\"\n      }\n    },\n     {\n      \"name\": \"Sweets\",\n      \"description\": \"Test 06.05.17\",\n      \"type_of_load\": \"box\",\n      \"weight\": {\n        \"value\": 45,\n        \"unit_code\": \"kg\"\n      },\n      \"height\": {\n        \"value\": 36,\n        \"unit_code\": \"m\"\n      },\n      \"width\": {\n        \"value\": 46,\n        \"unit_code\": \"m\"\n      },\n      \"length\": {\n        \"value\": 56,\n        \"unit_code\": \"m\"\n      },\n      \"volume\": {\n        \"value\": 16,\n        \"unit_code\": \"l\"\n      },\n      \"amount\": 50000,\n      \"requirements\": {\n        \"required_adr_classes\": [\"1\"],\n        \"required_ways_of_loading\": [\"back\"],\n        \"required_truck_bodies\": [\"11\"],\n        \"is_truck_crane_required\": true,\n        \"is_lift_required\": false,\n        \"is_for_clearance\": true,\n        \"is_tir_cable_required\": true,\n        \"is_ftl\": true,\n        \"is_tracking_system_required\": true,\n        \"shipping_remarks\": \"brak wymaga?\"\n      }\n    }\n  ]\n  \n}"
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
@@ -277,7 +187,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/{shipper_id}/309:
+  /shipment-requests/173:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -298,15 +208,16 @@ paths:
         required: true
         type: string
         description: ''
-      - name: shipper_id
-        in: path
+      - name: Authorization
+        in: header
         required: true
         type: string
         description: ''
       responses:
         200:
           description: ''
-      security: []
+      security:
+      - auth: []
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
@@ -690,8 +601,7 @@ definitions:
     properties:
       id:
         description: ''
-        type: integer
-        format: int32
+        type: string
       number:
         description: ''
         type: string
@@ -864,8 +774,10 @@ definitions:
           type: string
       required_truck_bodies:
         description: ''
-        type: integer
-        format: int32
+        type: array
+        items:
+          type: integer
+          format: int32
       is_truck_crane_required:
         description: ''
         type: boolean
