@@ -8,6 +8,11 @@ info:
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
 host: '{DefaultParameterValue}'
 basePath: /
+securityDefinitions:
+  auth:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: ''
 schemes:
 - http
 consumes:
@@ -16,6 +21,164 @@ produces:
 - application/json
 paths:
   /freight:
+    post:
+      description: 'TODO: Add Description'
+      summary: Add New Freight_first_buy
+      tags:
+      - Misc
+      operationId: Add New Freight_first_buy
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/Add new freightFirstBuyrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: POST
+          uri: /freight
+          headers:
+            Content-Type: application/json
+          body: >-
+            {
+              "number": "123",
+              "status": "in_progress",
+              "type": "first_buy",
+              "shipper": {
+                "company" : {
+                  "id": "3333"
+                }
+              },
+              "publish_date" : "2017-04-11T18:40:32+00:00",
+              "payment": {
+                "price": {
+                  "value": 500,
+                  "currency": "PLN"
+                }
+              },
+              "spots": [
+                {
+                  "name": "ZaBadunek1",
+                  "type": "loading",
+                  "place": {
+                    "address": {
+                      "locality": "Opole",
+                      "postal_code": "45-001",
+                      "country": "PL",
+                      "street": "Testowa",
+                      "number": "1"
+                    },
+                    "coordinates": {
+                      "latitude": -90.0,
+                      "longitude": -180.0
+                    }
+                  },
+                    "timespans" : {
+                      "begin" : "2017-04-10T08:40:32+00:00",
+                      "end" : "2017-04-10T09:40:32+00:00"
+                    }
+                },
+                {
+                  "name": "RozBadunek",
+                  "type": "unloading",
+                  "companyName": "Firma",
+                  "place": {
+                    "address": {
+                      "locality": "WrocBaw",
+                      "postal_code": "50-064",
+                      "country": "PL",
+                      "street": "Testowa",
+                      "number": "1"
+                    },
+                    "coordinates": {
+                      "latitude": 52.229676,
+                      "longitude": 180.0
+                    }
+                  },
+                    "timespans" : {
+                      "begin" : "2017-04-11T18:40:32+00:00",
+                      "end" : "2017-04-11T19:40:32+00:00"
+                    }
+                }
+              ],
+              "loads": [
+                {
+                  "name": "Aadunki",
+                  "description": "test 20.04.17",
+                  "type_of_load": "type3",
+                  "weight": {
+                    "value": 20.0,
+                    "unit_code": "kg"
+                  },
+                  "height": {
+                    "value": 20.0,
+                    "unit_code": "kg"
+                  },
+                  "width": {
+                    "value": 20.0,
+                    "unit_code": "kg"
+                  },
+                  "length": {
+                    "value": 20.0,
+                    "unit_code": "kg"
+                  },
+                  "volume": {
+                    "value": 1.0,
+                    "unit_code": "kg"
+                  },
+                  "amount": 2323111,
+                  "required_adr_classes": [
+                    "1"
+                  ],
+                  "requirements": {
+                    "required_ways_of_loading": [
+                      "side",
+                      "back"
+                    ],
+                    "required_truck_bodies": [
+                      "Bus",
+                      "ChBodnia"
+                    ],
+                    "is_truck_crane_required": true,
+                    "is_lift_required": false,
+                    "is_for_clearance": true,
+                    "is_tir_cable_required": true,
+                    "is_ftl": true,
+                    "is_tracking_system_required": true,
+                    "shipping_remarks": "brak dodatkowych wymagaD"
+                  }
+                }
+              ]
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Add New Freight_first_buy
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /freight-shipper:
     post:
       description: 'TODO: Add Description'
       summary: Add New Freight_auction
@@ -36,17 +199,23 @@ paths:
         required: true
         type: string
         description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
       responses:
         200:
           description: ''
-      security: []
+      security:
+      - auth: []
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /freight-shipper/{shipper_id}/freight:
+  /freight-shipper/173:
     get:
       description: 'TODO: Add Description'
       summary: Get All Shipper Freights
@@ -56,16 +225,33 @@ paths:
       produces:
       - application/json
       parameters:
-      - name: shipper_id
-        in: path
+      - name: Authorization
+        in: header
         required: true
         type: string
         description: ''
       responses:
         200:
           description: ''
-      security: []
-      x-unitTests: []
+      security:
+      - auth: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /freight-shipper/173
+          headers:
+            Authorization: Bearer e015ae7a27a247e8e7a1008022eee8b75ea3bbb6
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Get All Shipper Freights
+        x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -227,7 +413,7 @@ paths:
                     ],
                     "required_truck_bodies": [
                       "Bus",
-                      "Ch?odnia"
+                      "ChBodnia"
                     ],
                     "is_truck_crane_required": true,
                     "is_lift_required": false,
@@ -386,7 +572,7 @@ paths:
                     ],
                     "required_truck_bodies": [
                       "Bus",
-                      "Ch?odnia"
+                      "ChBodnia"
                     ],
                     "is_truck_crane_required": true,
                     "is_lift_required": false,
