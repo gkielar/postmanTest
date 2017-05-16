@@ -191,7 +191,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /freight-carrier/212:
+  /freight-carrier:
     get:
       description: 'TODO: Add Description'
       summary: Get All Carrier Offers
@@ -214,7 +214,7 @@ paths:
       x-unitTests:
       - request:
           method: GET
-          uri: /freight-carrier/212
+          uri: /freight-carrier
           headers:
             Authorization: Bearer f418f37aa3bdef085d933d4deebb603f9a5df6f0
         expectedResponse:
