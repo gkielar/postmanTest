@@ -98,8 +98,8 @@ paths:
           uri: /shipment-requests
           headers:
             Content-Type: application/json
-            Authorization: Bearer d6b6582a036b592b1c01d03767799631c872ec1a
-          body: "{\n  \"name\" : \"SR 08.05.17.1314\",\n  \"number\": \"55555\",\n  \"status\": \"in_progress\",\n  \"freights\": [],\n  \"spots\" : [\n  {\n      \"name\": \"Wholesale fruit\",\n      \"type\": \"loading\",\n    \"timespans\": {\n        \"begin\": \"2018-04-11T10:47:42+0100\",\n        \"end\": \"2018-04-15T10:47:42+0100\"\n    },\n      \"place\": {\n        \"address\": {\n          \"locality\": \"Munchen\",\n          \"postal_code\": \"80331\",\n          \"country\": \"DE\",\n          \"street\": \"\",\n          \"number\": \"1\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      }\n    },\n    {\n      \"name\": \"Lidl\",\n      \"type\": \"unloading\",\n    \"timespans\": {\n        \"begin\": \"2018-04-15T11:47:42+0100\",\n        \"end\": \"2018-04-16T10:47:42+0100\"\n    },\n      \"place\": {\n        \"address\": {\n          \"locality\": \"WrocBaw\",\n          \"postal_code\": \"50-064\",\n          \"country\": \"PL\",\n          \"street\": \"RacBawicka\",\n          \"number\": \"2\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      }\n    }\n    ],\n     \"loads\":[\n    {\n      \"name\": \"Fruits\",\n      \"description\": \"apples\",\n      \"type_of_load\": \"box\",\n      \"weight\": {\n        \"value\": 33,\n        \"unit_code\": \"kg\"\n      },\n      \"height\": {\n        \"value\": 26,\n        \"unit_code\": \"m\"\n      },\n      \"width\": {\n        \"value\": 16,\n        \"unit_code\": \"m\"\n      },\n      \"length\": {\n        \"value\": 16,\n        \"unit_code\": \"m\"\n      },\n      \"volume\": {\n        \"value\": 16,\n        \"unit_code\": \"l\"\n      },\n      \"amount\": 50000,\n      \"requirements\": {\n        \"required_adr_classes\": [\"1\"],\n        \"required_ways_of_loading\": [\"side\"],\n        \"required_truck_bodies\": [\"22\"],\n        \"is_truck_crane_required\": true,\n        \"is_lift_required\": false,\n        \"is_for_clearance\": true,\n        \"is_tir_cable_required\": true,\n        \"is_ftl\": true,\n        \"is_tracking_system_required\": true,\n        \"shipping_remarks\": \"brak wymagaD\"\n      }\n    },\n     {\n      \"name\": \"Vegetables\",\n      \"description\": \"carrots\",\n      \"type_of_load\": \"box\",\n      \"weight\": {\n        \"value\": 45,\n        \"unit_code\": \"kg\"\n      },\n      \"height\": {\n        \"value\": 36,\n        \"unit_code\": \"m\"\n      },\n      \"width\": {\n        \"value\": 46,\n        \"unit_code\": \"m\"\n      },\n      \"length\": {\n        \"value\": 56,\n        \"unit_code\": \"m\"\n      },\n      \"volume\": {\n        \"value\": 16,\n        \"unit_code\": \"l\"\n      },\n      \"amount\": 50000,\n      \"requirements\": {\n        \"required_adr_classes\": [\"1\"],\n        \"required_ways_of_loading\": [\"back\"],\n        \"required_truck_bodies\": [\"11\"],\n        \"is_truck_crane_required\": true,\n        \"is_lift_required\": false,\n        \"is_for_clearance\": true,\n        \"is_tir_cable_required\": true,\n        \"is_ftl\": true,\n        \"is_tracking_system_required\": true,\n        \"shipping_remarks\": \"brak wymagaD\"\n      }\n    }\n  ]\n  \n}"
+            Authorization: Bearer dea27b4e34f4df23bd60316ec5f28182664a25a3
+          body: "{\n  \"name\" : \"19.05.2017.1345\",\n  \"number\": \"55555\",\n  \"status\": \"in_progress\",\n  \"freights\": [],\n  \"ready_to_send\": \"2018-04-11T10:47:42+0100\",\n  \"spots\" : [\n  {\n      \"name\": \"Wholesale fruit\",\n      \"type\": \"loading\",\n    \"timespans\": {\n        \"begin\": \"2018-04-11T10:47:42+0100\",\n        \"end\": \"2018-04-15T10:47:42+0100\"\n    },\n      \"place\": {\n        \"address\": {\n          \"locality\": \"Munchen\",\n          \"postal_code\": \"80331\",\n          \"country\": \"DE\",\n          \"street\": \"Street\",\n          \"number\": \"1\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      }\n    },\n    {\n      \"name\": \"Lidl\",\n      \"type\": \"unloading\",\n    \"timespans\": {\n        \"begin\": \"2018-04-15T11:47:42+0100\",\n        \"end\": \"2018-04-16T10:47:42+0100\"\n    },\n      \"place\": {\n        \"address\": {\n          \"locality\": \"WrocBaw\",\n          \"postal_code\": \"50-064\",\n          \"country\": \"PL\",\n          \"street\": \"RacBawicka\",\n          \"number\": \"2\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      }\n    }\n    ],\n     \"loads\":[\n    {\n      \"name\": \"Fruits\",\n      \"description\": \"apples\",\n      \"type_of_load\": \"box\",\n      \"weight\": {\n        \"value\": 33,\n        \"unit_code\": \"kg\"\n      },\n      \"height\": {\n        \"value\": 26,\n        \"unit_code\": \"m\"\n      },\n      \"width\": {\n        \"value\": 16,\n        \"unit_code\": \"m\"\n      },\n      \"length\": {\n        \"value\": 16,\n        \"unit_code\": \"m\"\n      },\n      \"volume\": {\n        \"value\": 16,\n        \"unit_code\": \"l\"\n      },\n      \"amount\": 50000,\n      \"requirements\": {\n        \"required_adr_classes\": [\"1\"],\n        \"required_ways_of_loading\": [\"side\"],\n        \"required_truck_bodies\": [\"22\"],\n        \"is_truck_crane_required\": true,\n        \"is_lift_required\": false,\n        \"is_for_clearance\": true,\n        \"is_tir_cable_required\": true,\n        \"is_ftl\": true,\n        \"is_tracking_system_required\": true,\n        \"shipping_remarks\": \"brak wymagaD\"\n      }\n    },\n     {\n      \"name\": \"Vegetables\",\n      \"description\": \"carrots\",\n      \"type_of_load\": \"box\",\n      \"weight\": {\n        \"value\": 45,\n        \"unit_code\": \"kg\"\n      },\n      \"height\": {\n        \"value\": 36,\n        \"unit_code\": \"m\"\n      },\n      \"width\": {\n        \"value\": 46,\n        \"unit_code\": \"m\"\n      },\n      \"length\": {\n        \"value\": 56,\n        \"unit_code\": \"m\"\n      },\n      \"volume\": {\n        \"value\": 16,\n        \"unit_code\": \"l\"\n      },\n      \"amount\": 50000,\n      \"requirements\": {\n        \"required_adr_classes\": [\"1\"],\n        \"required_ways_of_loading\": [\"back\"],\n        \"required_truck_bodies\": [\"11\"],\n        \"is_truck_crane_required\": true,\n        \"is_lift_required\": false,\n        \"is_for_clearance\": true,\n        \"is_tir_cable_required\": true,\n        \"is_ftl\": true,\n        \"is_tracking_system_required\": true,\n        \"shipping_remarks\": \"brak wymagaD\"\n      }\n    }\n  ]\n  \n}"
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
@@ -187,7 +187,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/191:
+  /shipment-requests/255:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -218,25 +218,7 @@ paths:
           description: ''
       security:
       - auth: []
-      x-unitTests:
-      - request:
-          method: PATCH
-          uri: /shipment-requests/191
-          headers:
-            Content-Type: application/json
-            Authorization: Bearer f012dc235a88fe490ad5e32c65135330ae6be06e
-          body: "{\n  \"freights\": [\n    {\n      \"id\": 239,\n      \"number\": \"123\",\n      \"publish_date\": \"2019-04-15T10:47:42+0100\",\n      \"publish_type\": \"type1\",\n      \"send_to_stock\": false,\n      \"type\" : \"auction\",\n      \"status\" : \"accepted\",\n       \"carriers\": [\n       {\n         \"company\": {\n           \"id\": 4122\n         }\n       }\n       ],\n      \"shipper\" : {\n          \"company\" : {\n            \"id\": \"3333\"\n      }\n  },\n    \"spots\" : [\n  {\n      \"name\": \"Wholesale fruit\",\n      \"type\": \"loading\",\n    \"timespans\": {\n        \"begin\": \"2018-04-15T10:27:42+0100\",\n        \"end\": \"2018-04-15T10:37:42+0100\"\n    },\n      \"place\": {\n        \"address\": {\n          \"locality\": \"Munchen\",\n          \"postal_code\": \"80331\",\n          \"country\": \"DE\",\n          \"street\": \"Street\",\n          \"number\": \"2\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      }\n    },\n    {\n      \"name\": \"Lidl\",\n      \"type\": \"unloading\",\n    \"timespans\": {\n        \"begin\": \"2018-04-16T10:47:42+0100\",\n        \"end\": \"2018-04-16T10:48:42+0100\"\n    },\n      \"place\": {\n        \"address\": {\n          \"locality\": \"WrocBaw\",\n          \"postal_code\": \"50-064\",\n          \"country\": \"PL\",\n          \"street\": \"Zwidnicka\",\n          \"number\": \"1\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      }\n    },\n    {\n      \"name\": \"Wholesale fruit\",\n      \"type\": \"loading\",\n    \"timespans\": {\n        \"begin\": \"2018-04-15T10:27:42+0100\",\n        \"end\": \"2018-04-15T10:37:42+0100\"\n    },\n      \"place\": {\n        \"address\": {\n          \"locality\": \"Munchen\",\n          \"postal_code\": \"80331\",\n          \"country\": \"DE\",\n          \"street\": \"Street\",\n          \"number\": \"2\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      }\n    },\n    {\n      \"name\": \"Lidl\",\n      \"type\": \"unloading\",\n    \"timespans\": {\n        \"begin\": \"2018-04-16T10:47:42+0100\",\n        \"end\": \"2018-04-16T10:48:42+0100\"\n    },\n      \"place\": {\n        \"address\": {\n          \"locality\": \"WrocBaw\",\n          \"postal_code\": \"50-064\",\n          \"country\": \"PL\",\n          \"street\": \"Zwidnicka\",\n          \"number\": \"1\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      }\n    }\n    ],\n    \n      \"payment\" : {\n    \"price\" : {\n      \"value\" : 5000,\n      \"currency\" : \"PLN\"\n    }\n  },\n      \"decision_date\": \"2019-04-15T10:47:42+0100\",\n        \"loads\":\n        [\n            {\n            \"shipment_request_load_id\": 242,\n              \"name\": \"Fruits\",\n              \"description\": \"apples\",\n              \"type_of_load\": \"box\",\n              \"weight\": {\n                \"value\": 33,\n                \"unit_code\": \"kg\"\n              },\n              \"height\": {\n                \"value\": 26,\n                \"unit_code\": \"m\"\n              },\n              \"width\": {\n                \"value\": 16,\n                \"unit_code\": \"m\"\n              },\n              \"length\": {\n                \"value\": 16,\n                \"unit_code\": \"m\"\n              },\n              \"volume\": {\n                \"value\": 16,\n                \"unit_code\": \"l\"\n              },\n              \"amount\": 50000,\n              \"requirements\": {\n                \"required_adr_classes\": [\"1\"],\n                \"required_ways_of_loading\": [\"side\"],\n                \"required_truck_bodies\": [22],\n                \"is_truck_crane_required\": true,\n                \"is_lift_required\": false,\n                \"is_for_clearance\": true,\n                \"is_tir_cable_required\": true,\n                \"is_ftl\": true,\n                \"is_tracking_system_required\": true,\n                \"shipping_remarks\": \"brak dodatkowych wymagaD\"\n              }\n    },\n    {\n            \"shipment_request_load_id\": 242,\n              \"name\": \"Vegetables\",\n              \"description\": \"carrots\",\n              \"type_of_load\": \"box\",\n              \"weight\": {\n                \"value\": 45,\n                \"unit_code\": \"kg\"\n              },\n              \"height\": {\n                \"value\": 26,\n                \"unit_code\": \"m\"\n              },\n              \"width\": {\n                \"value\": 16,\n                \"unit_code\": \"m\"\n              },\n              \"length\": {\n                \"value\": 16,\n                \"unit_code\": \"m\"\n              },\n              \"volume\": {\n                \"value\": 16,\n                \"unit_code\": \"l\"\n              },\n              \"amount\": 50000,\n              \"requirements\": {\n                \"required_adr_classes\": [\"1\"],\n                \"required_ways_of_loading\": [\"back\"],\n                \"required_truck_bodies\": [11],\n                \"is_truck_crane_required\": true,\n                \"is_lift_required\": false,\n                \"is_for_clearance\": true,\n                \"is_tir_cable_required\": true,\n                \"is_ftl\": true,\n                \"is_tracking_system_required\": true,\n                \"shipping_remarks\": \"brak dodatkowych wymagaD\"\n              }\n    }\n  ]\n    }\n    ]\n}"
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: SR add/update Freights
-        x-testDescription: 'TODO: Add Description'
+      x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -261,6 +243,9 @@ definitions:
         type: array
         items:
           type: string
+      ready_to_send:
+        description: ''
+        type: string
       spots:
         description: ''
         type: array
@@ -276,6 +261,7 @@ definitions:
     - number
     - status
     - freights
+    - ready_to_send
     - spots
     - loads
   Spot:
@@ -644,8 +630,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Carrier'
-      shipper:
-        $ref: '#/definitions/Shipper'
       spots:
         description: ''
         type: array
@@ -660,7 +644,7 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Load39'
+          $ref: '#/definitions/Load37'
     required:
     - id
     - number
@@ -670,7 +654,6 @@ definitions:
     - type
     - status
     - carriers
-    - shipper
     - spots
     - payment
     - decision_date
@@ -693,23 +676,6 @@ definitions:
         format: int32
     required:
     - id
-  Shipper:
-    title: Shipper
-    type: object
-    properties:
-      company:
-        $ref: '#/definitions/Company31'
-    required:
-    - company
-  Company31:
-    title: Company31
-    type: object
-    properties:
-      id:
-        description: ''
-        type: string
-    required:
-    - id
   Payment:
     title: Payment
     type: object
@@ -724,16 +690,15 @@ definitions:
     properties:
       value:
         description: ''
-        type: integer
-        format: int32
+        type: string
       currency:
         description: ''
         type: string
     required:
     - value
     - currency
-  Load39:
-    title: Load39
+  Load37:
+    title: Load37
     type: object
     properties:
       shipment_request_load_id:
@@ -764,7 +729,7 @@ definitions:
         type: integer
         format: int32
       requirements:
-        $ref: '#/definitions/Requirements45'
+        $ref: '#/definitions/Requirements43'
     required:
     - shipment_request_load_id
     - name
@@ -777,8 +742,8 @@ definitions:
     - volume
     - amount
     - requirements
-  Requirements45:
-    title: Requirements45
+  Requirements43:
+    title: Requirements43
     type: object
     properties:
       required_adr_classes:
