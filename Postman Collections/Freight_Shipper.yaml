@@ -1,1336 +1,202 @@
-swagger: '2.0'
-info:
-  version: '1.0'
-  title: FreightDevApi_Shipper
-  description: 'TODO: Add Description'
-  license:
-    name: MIT
-    url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
-host: '{DefaultParameterValue}'
-basePath: /
-securityDefinitions:
-  auth:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: ''
-schemes:
-- http
-consumes:
-- application/json
-produces:
-- application/json
-paths:
-  /freight:
-    post:
-      description: 'TODO: Add Description'
-      summary: Add New Freight_first_buy
-      tags:
-      - Misc
-      operationId: Add New Freight_first_buy
-      produces:
-      - application/json
-      parameters:
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/Add new freightFirstBuyrequest'
-      - name: Content-Type
-        in: header
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security: []
-      x-unitTests:
-      - request:
-          method: POST
-          uri: /freight
-          headers:
-            Content-Type: application/json
-          body: >-
-            {
-              "number": "123",
-              "status": "in_progress",
-              "type": "first_buy",
-              "shipper": {
-                "company" : {
-                  "id": "3333"
-                }
-              },
-              "publish_date" : "2017-04-11T18:40:32+00:00",
-              "payment": {
-                "price": {
-                  "value": 500,
-                  "currency": "PLN"
-                }
-              },
-              "spots": [
-                {
-                  "name": "ZaBadunek1",
-                  "type": "loading",
-                  "place": {
-                    "address": {
-                      "locality": "Opole",
-                      "postal_code": "45-001",
-                      "country": "PL",
-                      "street": "Testowa",
-                      "number": "1"
-                    },
-                    "coordinates": {
-                      "latitude": -90.0,
-                      "longitude": -180.0
-                    }
-                  },
-                    "timespans" : {
-                      "begin" : "2017-04-10T08:40:32+00:00",
-                      "end" : "2017-04-10T09:40:32+00:00"
-                    }
-                },
-                {
-                  "name": "RozBadunek",
-                  "type": "unloading",
-                  "companyName": "Firma",
-                  "place": {
-                    "address": {
-                      "locality": "WrocBaw",
-                      "postal_code": "50-064",
-                      "country": "PL",
-                      "street": "Testowa",
-                      "number": "1"
-                    },
-                    "coordinates": {
-                      "latitude": 52.229676,
-                      "longitude": 180.0
-                    }
-                  },
-                    "timespans" : {
-                      "begin" : "2017-04-11T18:40:32+00:00",
-                      "end" : "2017-04-11T19:40:32+00:00"
-                    }
-                }
-              ],
-              "loads": [
-                {
-                  "name": "Aadunki",
-                  "description": "test 20.04.17",
-                  "type_of_load": "type3",
-                  "weight": {
-                    "value": 20.0,
-                    "unit_code": "kg"
-                  },
-                  "height": {
-                    "value": 20.0,
-                    "unit_code": "kg"
-                  },
-                  "width": {
-                    "value": 20.0,
-                    "unit_code": "kg"
-                  },
-                  "length": {
-                    "value": 20.0,
-                    "unit_code": "kg"
-                  },
-                  "volume": {
-                    "value": 1.0,
-                    "unit_code": "kg"
-                  },
-                  "amount": 2323111,
-                  "required_adr_classes": [
-                    "1"
-                  ],
-                  "requirements": {
-                    "required_ways_of_loading": [
-                      "side",
-                      "back"
-                    ],
-                    "required_truck_bodies": [
-                      "Bus",
-                      "ChBodnia"
-                    ],
-                    "is_truck_crane_required": true,
-                    "is_lift_required": false,
-                    "is_for_clearance": true,
-                    "is_tir_cable_required": true,
-                    "is_ftl": true,
-                    "is_tracking_system_required": true,
-                    "shipping_remarks": "brak dodatkowych wymagaD"
-                  }
-                }
-              ]
-            }
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Add New Freight_first_buy
-        x-testDescription: 'TODO: Add Description'
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
-  /freight-shipper:
-    post:
-      description: 'TODO: Add Description'
-      summary: Add New Freight_auction
-      tags:
-      - Misc
-      operationId: Add New Freight_auction
-      produces:
-      - application/json
-      parameters:
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/Add new freightAuctionrequest'
-      - name: Content-Type
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security:
-      - auth: []
-      x-unitTests: []
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
-  /freight-shipper/173:
-    get:
-      description: 'TODO: Add Description'
-      summary: Get All Shipper Freights
-      tags:
-      - Misc
-      operationId: Get All Shipper Freights
-      produces:
-      - application/json
-      parameters:
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security:
-      - auth: []
-      x-unitTests:
-      - request:
-          method: GET
-          uri: /freight-shipper/173
-          headers:
-            Authorization: Bearer e015ae7a27a247e8e7a1008022eee8b75ea3bbb6
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Get All Shipper Freights
-        x-testDescription: 'TODO: Add Description'
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
-  /freight-shipper/{shipper_id}/freight/1:
-    get:
-      description: 'TODO: Add Description'
-      summary: Get One Freight
-      tags:
-      - Misc
-      operationId: Get One Freight
-      produces:
-      - application/json
-      parameters:
-      - name: shipper_id
-        in: path
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security: []
-      x-unitTests: []
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
-  /api/rest/v1/freight/301:
-    put:
-      description: 'TODO: Add Description'
-      summary: Edit Freight
-      tags:
-      - Misc
-      operationId: Edit Freight
-      produces:
-      - application/json
-      parameters:
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/EditFreightrequest'
-      - name: Content-Type
-        in: header
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security: []
-      x-unitTests:
-      - request:
-          method: PUT
-          uri: /api/rest/v1/freight/301
-          headers:
-            Content-Type: application/json
-          body: >-
-            {
-              "number": "12345",
-              "status": "in_progress",
-              "type": "auction",
-              "shipper": {
-                "company_id": "b508522b-1296-39a0-ae13-d7c41ed8a412",
-                "contact_persons": [
-                  {
-                    "person_id": "585c75b3-779a-370b-992c-1f250272ff68"
-                  }
-                ]
-              },
-              "payment": {
-                "price": {
-                  "value": 500,
-                  "currency": "PLN"
-                }
-              },
-              "spots": [
-                {
-                  "name": "Super",
-                  "type": "loading",
-                  "place": {
-                    "address": {
-                      "locality": "Locality",
-                      "postal_code": "Postal Code",
-                      "country": "PL",
-                      "street": "Testowa",
-                      "number": "23"
-                    },
-                    "coordinates": {
-                      "latitude": -90.0,
-                      "longitude": -180.0
-                    }
-                  },
-                    "timespans" : {
-                      "begin" : "2017-04-10T08:40:32+00:00",
-                      "end" : "2017-04-10T09:40:32+00:00"
-                    }
-                },
-                {
-                  "name": "Fajny",
-                  "type": "unloading",
-                  "companyName": "Company Name",
-                  "place": {
-                    "address": {
-                      "locality": "Locality",
-                      "postal_code": "Postal Code",
-                      "country": "PL",
-                      "street": "Testowa",
-                      "number": "23"
-                    },
-                    "coordinates": {
-                      "latitude": 52.229676,
-                      "longitude": 180.0
-                    }
-                  },
-                    "timespans" : {
-                      "begin" : "2017-04-11T18:40:32+00:00",
-                      "end" : "2017-04-11T19:40:32+00:00"
-                    }
-                }
-              ],
-              "loads": [
-                {
-                  "name": "",
-                  "description": "Opis",
-                  "load_type": "type3",
-                  "load_weight": {
-                    "value": 1.0,
-                    "unit_code": "sasas"
-                  },
-                  "load_height": {
-                    "value": 1.0,
-                    "unit_code": "sasas"
-                  },
-                  "load_width": {
-                    "value": 1.0,
-                    "unit_code": "sasas"
-                  },
-                  "load_length": {
-                    "value": 1.0,
-                    "unit_code": "sasas"
-                  },
-                  "load_capacity": {
-                    "value": 1.0,
-                    "unit_code": "sasas"
-                  },
-                  "amount": 2323111,
-                  "required_adr_classes": [
-                    "1"
-                  ],
-                  "requirements": {
-                    "required_ways_of_loading": [
-                      "side",
-                      "back"
-                    ],
-                    "required_truck_bodies": [
-                      "Bus",
-                      "ChBodnia"
-                    ],
-                    "is_truck_crane_required": true,
-                    "is_lift_required": false,
-                    "is_for_clearance": true,
-                    "is_tir_cable_required": true,
-                    "is_ftl": true,
-                    "is_gps_required": true,
-                    "shipping_remarks": "sad"
-                  }
-                }
-              ]
-            }
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Edit Freight
-        x-testDescription: 'TODO: Add Description'
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
-    delete:
-      description: 'TODO: Add Description'
-      summary: Delete Freight
-      tags:
-      - Misc
-      operationId: Delete Freight
-      produces:
-      - application/json
-      parameters:
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/DeleteFreightrequest'
-      - name: Content-Type
-        in: header
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security: []
-      x-unitTests:
-      - request:
-          method: DELETE
-          uri: /api/rest/v1/freight/301
-          headers:
-            Content-Type: application/json
-          body: >-
-            {
-              "number": "12345",
-              "status": "in_progress",
-              "type": "first_buy",
-              "shipper": {
-                "company_id": "b508522b-1296-39a0-ae13-d7c41ed8a412",
-                "contact_persons": [
-                  {
-                    "person_id": "585c75b3-779a-370b-992c-1f250272ff68"
-                  }
-                ]
-              },
-              "payment": {
-                "price": {
-                  "value": 123,
-                  "currency": "PLN"
-                }
-              },
-              "spots": [
-                {
-                  "name": "Super",
-                  "type": "loading",
-                  "place": {
-                    "address": {
-                      "locality": "Locality",
-                      "postal_code": "Postal Code",
-                      "country": "PL",
-                      "street": "Testowa",
-                      "number": "23"
-                    },
-                    "coordinates": {
-                      "latitude": -89.1,
-                      "longitude": -179.1
-                    }
-                  },
-                  "timespans": {
-                    "begin": "2017-04-10T08:40:32+00:00",
-                    "end": "2017-04-10T09:40:32+00:00"
-                  }
-                },
-                {
-                  "name": "Fajny",
-                  "type": "unloading",
-                  "companyName": "Company Name",
-                  "place": {
-                    "address": {
-                      "locality": "Locality",
-                      "postal_code": "Postal Code",
-                      "country": "PL",
-                      "street": "Testowa",
-                      "number": "23"
-                    },
-                    "coordinates": {
-                      "latitude": 52.2296,
-                      "longitude": 178.2
-                    }
-                  },
-                  "timespans": {
-                    "begin": "2017-04-11T18:40:32+00:00",
-                    "end": "2017-04-11T19:40:32+00:00"
-                  }
-                }
-              ],
-              "loads": [
-                {
-                  "name": "",
-                  "description": "Opis",
-                  "load_type": "type3",
-                  "load_weight": {
-                    "value": 1.2,
-                    "unit_code": "sasas"
-                  },
-                  "load_height": {
-                    "value": 1.2,
-                    "unit_code": "sasas"
-                  },
-                  "load_width": {
-                    "value": 1.2,
-                    "unit_code": "sasas"
-                  },
-                  "load_length": {
-                    "value": 1.2,
-                    "unit_code": "sasas"
-                  },
-                  "load_capacity": {
-                    "value": 1.2,
-                    "unit_code": "sasas"
-                  },
-                  "amount": 2323111,
-                  "required_adr_classes": [
-                    "1"
-                  ],
-                  "requirements": {
-                    "required_ways_of_loading": [
-                      "side",
-                      "back"
-                    ],
-                    "required_truck_bodies": [
-                      "Bus",
-                      "ChBodnia"
-                    ],
-                    "is_truck_crane_required": true,
-                    "is_lift_required": false,
-                    "is_for_clearance": true,
-                    "is_tir_cable_required": true,
-                    "is_ftl": true,
-                    "is_gps_required": true,
-                    "shipping_remarks": "sad"
-                  }
-                }
-              ]
-            }
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Delete Freight
-        x-testDescription: 'TODO: Add Description'
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
-definitions:
-  Add new freightFirstBuyrequest:
-    title: Add New Freight_first_buyRequest
-    type: object
-    properties:
-      number:
-        description: ''
-        type: string
-      status:
-        description: ''
-        type: string
-      type:
-        description: ''
-        type: string
-      shipper:
-        $ref: '#/definitions/Shipper'
-      publish_date:
-        description: ''
-        type: string
-      payment:
-        $ref: '#/definitions/Payment'
-      spots:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Spot'
-      loads:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Load'
-    required:
-    - number
-    - status
-    - type
-    - shipper
-    - publish_date
-    - payment
-    - spots
-    - loads
-  Shipper:
-    title: Shipper
-    type: object
-    properties:
-      company:
-        $ref: '#/definitions/Company'
-    required:
-    - company
-  Company:
-    title: Company
-    type: object
-    properties:
-      id:
-        description: ''
-        type: string
-    required:
-    - id
-  Payment:
-    title: Payment
-    type: object
-    properties:
-      price:
-        $ref: '#/definitions/Price'
-    required:
-    - price
-  Price:
-    title: Price
-    type: object
-    properties:
-      value:
-        description: ''
-        type: integer
-        format: int32
-      currency:
-        description: ''
-        type: string
-    required:
-    - value
-    - currency
-  Spot:
-    title: Spot
-    type: object
-    properties:
-      name:
-        description: ''
-        type: string
-      type:
-        description: ''
-        type: string
-      place:
-        $ref: '#/definitions/Place'
-      timespans:
-        $ref: '#/definitions/Timespans'
-      companyName:
-        description: ''
-        type: string
-    required:
-    - name
-    - type
-    - place
-    - timespans
-  Place:
-    title: Place
-    type: object
-    properties:
-      address:
-        $ref: '#/definitions/Address'
-      coordinates:
-        $ref: '#/definitions/Coordinates'
-    required:
-    - address
-    - coordinates
-  Address:
-    title: Address
-    type: object
-    properties:
-      locality:
-        description: ''
-        type: string
-      postal_code:
-        description: ''
-        type: string
-      country:
-        description: ''
-        type: string
-      street:
-        description: ''
-        type: string
-      number:
-        description: ''
-        type: string
-    required:
-    - locality
-    - postal_code
-    - country
-    - street
-    - number
-  Coordinates:
-    title: Coordinates
-    type: object
-    properties:
-      latitude:
-        description: ''
-        type: number
-        format: double
-      longitude:
-        description: ''
-        type: number
-        format: double
-    required:
-    - latitude
-    - longitude
-  Timespans:
-    title: Timespans
-    type: object
-    properties:
-      begin:
-        description: ''
-        type: string
-      end:
-        description: ''
-        type: string
-    required:
-    - begin
-    - end
-  Load:
-    title: Load
-    type: object
-    properties:
-      name:
-        description: ''
-        type: string
-      description:
-        description: ''
-        type: string
-      type_of_load:
-        description: ''
-        type: string
-      weight:
-        $ref: '#/definitions/Weight'
-      height:
-        $ref: '#/definitions/Height'
-      width:
-        $ref: '#/definitions/Width'
-      length:
-        $ref: '#/definitions/Length'
-      volume:
-        $ref: '#/definitions/Volume'
-      amount:
-        description: ''
-        type: integer
-        format: int32
-      required_adr_classes:
-        description: ''
-        type: array
-        items:
-          type: string
-      requirements:
-        $ref: '#/definitions/Requirements'
-    required:
-    - name
-    - description
-    - type_of_load
-    - weight
-    - height
-    - width
-    - length
-    - volume
-    - amount
-    - required_adr_classes
-    - requirements
-  Weight:
-    title: Weight
-    type: object
-    properties:
-      value:
-        description: ''
-        type: number
-        format: double
-      unit_code:
-        description: ''
-        type: string
-    required:
-    - value
-    - unit_code
-  Height:
-    title: Height
-    type: object
-    properties:
-      value:
-        description: ''
-        type: number
-        format: double
-      unit_code:
-        description: ''
-        type: string
-    required:
-    - value
-    - unit_code
-  Width:
-    title: Width
-    type: object
-    properties:
-      value:
-        description: ''
-        type: number
-        format: double
-      unit_code:
-        description: ''
-        type: string
-    required:
-    - value
-    - unit_code
-  Length:
-    title: Length
-    type: object
-    properties:
-      value:
-        description: ''
-        type: number
-        format: double
-      unit_code:
-        description: ''
-        type: string
-    required:
-    - value
-    - unit_code
-  Volume:
-    title: Volume
-    type: object
-    properties:
-      value:
-        description: ''
-        type: number
-        format: double
-      unit_code:
-        description: ''
-        type: string
-    required:
-    - value
-    - unit_code
-  Requirements:
-    title: Requirements
-    type: object
-    properties:
-      required_ways_of_loading:
-        description: ''
-        type: array
-        items:
-          type: string
-      required_truck_bodies:
-        description: ''
-        type: array
-        items:
-          type: string
-      is_truck_crane_required:
-        description: ''
-        type: boolean
-      is_lift_required:
-        description: ''
-        type: boolean
-      is_for_clearance:
-        description: ''
-        type: boolean
-      is_tir_cable_required:
-        description: ''
-        type: boolean
-      is_ftl:
-        description: ''
-        type: boolean
-      is_tracking_system_required:
-        description: ''
-        type: boolean
-      shipping_remarks:
-        description: ''
-        type: string
-    required:
-    - required_ways_of_loading
-    - required_truck_bodies
-    - is_truck_crane_required
-    - is_lift_required
-    - is_for_clearance
-    - is_tir_cable_required
-    - is_ftl
-    - is_tracking_system_required
-    - shipping_remarks
-  Add new freightAuctionrequest:
-    title: Add New Freight_auctionRequest
-    type: object
-    properties:
-      number:
-        description: ''
-        type: string
-      status:
-        description: ''
-        type: string
-      type:
-        description: ''
-        type: string
-      shipper:
-        $ref: '#/definitions/Shipper'
-      publish_date:
-        description: ''
-        type: string
-      payment:
-        $ref: '#/definitions/Payment20'
-      spots:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Spot'
-      loads:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Load27'
-    required:
-    - number
-    - status
-    - type
-    - shipper
-    - publish_date
-    - payment
-    - spots
-    - loads
-  Payment20:
-    title: Payment20
-    type: object
-    properties:
-      price:
-        $ref: '#/definitions/Price21'
-    required:
-    - price
-  Price21:
-    title: Price21
-    type: object
-    properties:
-      value:
-        description: ''
-        type: string
-      currency:
-        description: ''
-        type: string
-    required:
-    - value
-    - currency
-  Load27:
-    title: Load27
-    type: object
-    properties:
-      name:
-        description: ''
-        type: string
-      description:
-        description: ''
-        type: string
-      type_of_load:
-        description: ''
-        type: string
-      weight:
-        $ref: '#/definitions/Weight'
-      height:
-        $ref: '#/definitions/Height'
-      width:
-        $ref: '#/definitions/Width'
-      length:
-        $ref: '#/definitions/Length'
-      volume:
-        $ref: '#/definitions/Volume'
-      amount:
-        description: ''
-        type: integer
-        format: int32
-      required_adr_classes:
-        description: ''
-        type: array
-        items:
-          type: string
-      requirements:
-        $ref: '#/definitions/Requirements33'
-    required:
-    - name
-    - description
-    - type_of_load
-    - weight
-    - height
-    - width
-    - length
-    - volume
-    - amount
-    - required_adr_classes
-    - requirements
-  Requirements33:
-    title: Requirements33
-    type: object
-    properties:
-      required_ways_of_loading:
-        description: ''
-        type: array
-        items:
-          type: string
-      required_truck_bodies:
-        description: ''
-        type: array
-        items:
-          type: integer
-          format: int32
-      is_truck_crane_required:
-        description: ''
-        type: boolean
-      is_lift_required:
-        description: ''
-        type: boolean
-      is_for_clearance:
-        description: ''
-        type: boolean
-      is_tir_cable_required:
-        description: ''
-        type: boolean
-      is_ftl:
-        description: ''
-        type: boolean
-      is_tracking_system_required:
-        description: ''
-        type: boolean
-      shipping_remarks:
-        description: ''
-        type: string
-    required:
-    - required_ways_of_loading
-    - required_truck_bodies
-    - is_truck_crane_required
-    - is_lift_required
-    - is_for_clearance
-    - is_tir_cable_required
-    - is_ftl
-    - is_tracking_system_required
-    - shipping_remarks
-  EditFreightrequest:
-    title: Edit FreightRequest
-    type: object
-    properties:
-      number:
-        description: ''
-        type: string
-      status:
-        description: ''
-        type: string
-      type:
-        description: ''
-        type: string
-      shipper:
-        $ref: '#/definitions/Shipper35'
-      payment:
-        $ref: '#/definitions/Payment'
-      spots:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Spot'
-      loads:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Load44'
-    required:
-    - number
-    - status
-    - type
-    - shipper
-    - payment
-    - spots
-    - loads
-  Shipper35:
-    title: Shipper35
-    type: object
-    properties:
-      company_id:
-        description: ''
-        type: string
-      contact_persons:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/ContactPerson'
-    required:
-    - company_id
-    - contact_persons
-  ContactPerson:
-    title: ContactPerson
-    type: object
-    properties:
-      person_id:
-        description: ''
-        type: string
-    required:
-    - person_id
-  Load44:
-    title: Load44
-    type: object
-    properties:
-      name:
-        description: ''
-        type: string
-      description:
-        description: ''
-        type: string
-      load_type:
-        description: ''
-        type: string
-      load_weight:
-        $ref: '#/definitions/LoadWeight'
-      load_height:
-        $ref: '#/definitions/LoadHeight'
-      load_width:
-        $ref: '#/definitions/LoadWidth'
-      load_length:
-        $ref: '#/definitions/LoadLength'
-      load_capacity:
-        $ref: '#/definitions/LoadCapacity'
-      amount:
-        description: ''
-        type: integer
-        format: int32
-      required_adr_classes:
-        description: ''
-        type: array
-        items:
-          type: string
-      requirements:
-        $ref: '#/definitions/Requirements50'
-    required:
-    - name
-    - description
-    - load_type
-    - load_weight
-    - load_height
-    - load_width
-    - load_length
-    - load_capacity
-    - amount
-    - required_adr_classes
-    - requirements
-  LoadWeight:
-    title: LoadWeight
-    type: object
-    properties:
-      value:
-        description: ''
-        type: number
-        format: double
-      unit_code:
-        description: ''
-        type: string
-    required:
-    - value
-    - unit_code
-  LoadHeight:
-    title: LoadHeight
-    type: object
-    properties:
-      value:
-        description: ''
-        type: number
-        format: double
-      unit_code:
-        description: ''
-        type: string
-    required:
-    - value
-    - unit_code
-  LoadWidth:
-    title: LoadWidth
-    type: object
-    properties:
-      value:
-        description: ''
-        type: number
-        format: double
-      unit_code:
-        description: ''
-        type: string
-    required:
-    - value
-    - unit_code
-  LoadLength:
-    title: LoadLength
-    type: object
-    properties:
-      value:
-        description: ''
-        type: number
-        format: double
-      unit_code:
-        description: ''
-        type: string
-    required:
-    - value
-    - unit_code
-  LoadCapacity:
-    title: LoadCapacity
-    type: object
-    properties:
-      value:
-        description: ''
-        type: number
-        format: double
-      unit_code:
-        description: ''
-        type: string
-    required:
-    - value
-    - unit_code
-  Requirements50:
-    title: Requirements50
-    type: object
-    properties:
-      required_ways_of_loading:
-        description: ''
-        type: array
-        items:
-          type: string
-      required_truck_bodies:
-        description: ''
-        type: array
-        items:
-          type: string
-      is_truck_crane_required:
-        description: ''
-        type: boolean
-      is_lift_required:
-        description: ''
-        type: boolean
-      is_for_clearance:
-        description: ''
-        type: boolean
-      is_tir_cable_required:
-        description: ''
-        type: boolean
-      is_ftl:
-        description: ''
-        type: boolean
-      is_gps_required:
-        description: ''
-        type: boolean
-      shipping_remarks:
-        description: ''
-        type: string
-    required:
-    - required_ways_of_loading
-    - required_truck_bodies
-    - is_truck_crane_required
-    - is_lift_required
-    - is_for_clearance
-    - is_tir_cable_required
-    - is_ftl
-    - is_gps_required
-    - shipping_remarks
-  DeleteFreightrequest:
-    title: Delete FreightRequest
-    type: object
-    properties:
-      number:
-        description: ''
-        type: string
-      status:
-        description: ''
-        type: string
-      type:
-        description: ''
-        type: string
-      shipper:
-        $ref: '#/definitions/Shipper35'
-      payment:
-        $ref: '#/definitions/Payment'
-      spots:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Spot'
-      loads:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Load44'
-    required:
-    - number
-    - status
-    - type
-    - shipper
-    - payment
-    - spots
-    - loads
+{
+  "variables": [],
+  "info": {
+    "name": "FreightDevApi_Shipper",
+    "_postman_id": "1521091-c648b4c3-81c9-416a-4618-85e032220ae3",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "1521091-544c8842-2aa3-0150-0f8d-4b23174012e2",
+      "name": "Add New Freight_first_buy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 201\"] = responseCode.code === 201;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "{{freight_url}}/freight",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"number\": \"123\",\n  \"status\": \"in_progress\",\n  \"type\": \"first_buy\",\n  \"shipper\": {\n    \"company\" : {\n      \"id\": \"3333\"\n    }\n  },\n  \"publish_date\" : \"2017-04-11T18:40:32+00:00\",\n  \"payment\": {\n    \"price\": {\n      \"value\": 500,\n      \"currency\": \"PLN\"\n    }\n  },\n  \"spots\": [\n    {\n      \"name\": \"ZaBadunek1\",\n      \"type\": \"loading\",\n      \"place\": {\n        \"address\": {\n          \"locality\": \"Opole\",\n          \"postal_code\": \"45-001\",\n          \"country\": \"PL\",\n          \"street\": \"Testowa\",\n          \"number\": \"1\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      },\n        \"timespans\" : {\n          \"begin\" : \"2017-04-10T08:40:32+00:00\",\n          \"end\" : \"2017-04-10T09:40:32+00:00\"\n        }\n    },\n    {\n      \"name\": \"RozBadunek\",\n      \"type\": \"unloading\",\n      \"companyName\": \"Firma\",\n      \"place\": {\n        \"address\": {\n          \"locality\": \"WrocBaw\",\n          \"postal_code\": \"50-064\",\n          \"country\": \"PL\",\n          \"street\": \"Testowa\",\n          \"number\": \"1\"\n        },\n        \"coordinates\": {\n          \"latitude\": 52.229676,\n          \"longitude\": 180.0\n        }\n      },\n        \"timespans\" : {\n          \"begin\" : \"2017-04-11T18:40:32+00:00\",\n          \"end\" : \"2017-04-11T19:40:32+00:00\"\n        }\n    }\n  ],\n  \"loads\": [\n    {\n      \"name\": \"Aadunki\",\n      \"description\": \"test 20.04.17\",\n      \"type_of_load\": \"type3\",\n      \"weight\": {\n        \"value\": 20.0,\n        \"unit_code\": \"kg\"\n      },\n      \"height\": {\n        \"value\": 20.0,\n        \"unit_code\": \"kg\"\n      },\n      \"width\": {\n        \"value\": 20.0,\n        \"unit_code\": \"kg\"\n      },\n      \"length\": {\n        \"value\": 20.0,\n        \"unit_code\": \"kg\"\n      },\n      \"volume\": {\n        \"value\": 1.0,\n        \"unit_code\": \"kg\"\n      },\n      \"amount\": 2323111,\n      \"required_adr_classes\": [\n        \"1\"\n      ],\n      \"requirements\": {\n        \"required_ways_of_loading\": [\n          \"side\",\n          \"back\"\n        ],\n        \"required_truck_bodies\": [\n          \"Bus\",\n          \"ChBodnia\"\n        ],\n        \"is_truck_crane_required\": true,\n        \"is_lift_required\": false,\n        \"is_for_clearance\": true,\n        \"is_tir_cable_required\": true,\n        \"is_ftl\": true,\n        \"is_tracking_system_required\": true,\n        \"shipping_remarks\": \"brak dodatkowych wymagaD\"\n      }\n    }\n  ]\n}"
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "1521091-1786e657-33a5-520e-62f9-de59ce7c5012",
+      "name": "Add New Freight_auction",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 201\"] = responseCode.code === 201;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "{{freight_url}}/freight-shipper",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer f85213d92586b1f8b686aa507e7ff250351cbe8e",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"number\": \"123\",\n  \"status\": \"in_progress\",\n  \"type\": \"auction\",\n  \"shipper\": {\n    \"company\" : {\n      \"id\": \"3333\"\n    }\n  },\n  \"publish_date\" : \"2017-04-11T18:40:32+00:00\",\n  \"payment\": {\n    \"price\": {\n      \"value\": null,\n      \"currency\": null\n    }\n  },\n  \"spots\": [\n    {\n      \"name\": \"ZaBadunek1\",\n      \"type\": \"loading\",\n      \"place\": {\n        \"address\": {\n          \"locality\": \"Opole\",\n          \"postal_code\": \"45-001\",\n          \"country\": \"PL\",\n          \"street\": \"Testowa\",\n          \"number\": \"1\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      },\n        \"timespans\" : {\n          \"begin\" : \"2017-04-10T08:40:32+00:00\",\n          \"end\" : \"2017-04-10T09:40:32+00:00\"\n        }\n    },\n    {\n      \"name\": \"RozBadunek\",\n      \"type\": \"unloading\",\n      \"companyName\": \"Company Name\",\n      \"place\": {\n        \"address\": {\n          \"locality\": \"WrocBaw\",\n          \"postal_code\": \"50-064\",\n          \"country\": \"PL\",\n          \"street\": \"Testowa\",\n          \"number\": \"1\"\n        },\n        \"coordinates\": {\n          \"latitude\": 52.229676,\n          \"longitude\": 180.0\n        }\n      },\n        \"timespans\" : {\n          \"begin\" : \"2017-04-11T18:40:32+00:00\",\n          \"end\" : \"2017-04-11T19:40:32+00:00\"\n        }\n    }\n  ],\n  \"loads\": [\n    {\n      \"name\": \"Aadunki\",\n      \"description\": \"test 20.04.17\",\n      \"type_of_load\": \"box\",\n      \"weight\": {\n        \"value\": 20.0,\n        \"unit_code\": \"kg\"\n      },\n      \"height\": {\n        \"value\": 20.0,\n        \"unit_code\": \"kg\"\n      },\n      \"width\": {\n        \"value\": 20.0,\n        \"unit_code\": \"kg\"\n      },\n      \"length\": {\n        \"value\": 20.0,\n        \"unit_code\": \"kg\"\n      },\n      \"volume\": {\n        \"value\": 1.0,\n        \"unit_code\": \"kg\"\n      },\n      \"amount\": 2323111,\n      \"required_adr_classes\": [\n        \"1\"\n      ],\n      \"requirements\": {\n        \"required_ways_of_loading\": [\n          \"side\",\n          \"back\"\n        ],\n        \"required_truck_bodies\": [1, 15],\n        \"is_truck_crane_required\": true,\n        \"is_lift_required\": false,\n        \"is_for_clearance\": true,\n        \"is_tir_cable_required\": true,\n        \"is_ftl\": true,\n        \"is_tracking_system_required\": true,\n        \"shipping_remarks\": \"brak dodatkowych wymagaD\"\n      }\n    }\n  ]\n}"
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "1521091-8c662d67-57d1-4ac7-011f-cfa1a31644a8",
+      "name": "Get All Shipper Freights",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "{{freight_url}}/freight-shipper/173",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer e015ae7a27a247e8e7a1008022eee8b75ea3bbb6",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "1521091-e970387d-6073-c173-823f-aed994838fe4",
+      "name": "Get One Freight",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "{{freight_url}}/freight-shipper/{{shipper_id}}/freight/1",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "1521091-bcca2697-113b-f7cf-d8fc-db3bc65463c6",
+      "name": "Edit Freight",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "{{freight_url}}/api/rest/v1/freight/301",
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"number\": \"12345\",\n  \"status\": \"in_progress\",\n  \"type\": \"auction\",\n  \"shipper\": {\n    \"company_id\": \"b508522b-1296-39a0-ae13-d7c41ed8a412\",\n    \"contact_persons\": [\n      {\n        \"person_id\": \"585c75b3-779a-370b-992c-1f250272ff68\"\n      }\n    ]\n  },\n  \"payment\": {\n    \"price\": {\n      \"value\": 500,\n      \"currency\": \"PLN\"\n    }\n  },\n  \"spots\": [\n    {\n      \"name\": \"Super\",\n      \"type\": \"loading\",\n      \"place\": {\n        \"address\": {\n          \"locality\": \"Locality\",\n          \"postal_code\": \"Postal Code\",\n          \"country\": \"PL\",\n          \"street\": \"Testowa\",\n          \"number\": \"23\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      },\n        \"timespans\" : {\n          \"begin\" : \"2017-04-10T08:40:32+00:00\",\n          \"end\" : \"2017-04-10T09:40:32+00:00\"\n        }\n    },\n    {\n      \"name\": \"Fajny\",\n      \"type\": \"unloading\",\n      \"companyName\": \"Company Name\",\n      \"place\": {\n        \"address\": {\n          \"locality\": \"Locality\",\n          \"postal_code\": \"Postal Code\",\n          \"country\": \"PL\",\n          \"street\": \"Testowa\",\n          \"number\": \"23\"\n        },\n        \"coordinates\": {\n          \"latitude\": 52.229676,\n          \"longitude\": 180.0\n        }\n      },\n        \"timespans\" : {\n          \"begin\" : \"2017-04-11T18:40:32+00:00\",\n          \"end\" : \"2017-04-11T19:40:32+00:00\"\n        }\n    }\n  ],\n  \"loads\": [\n    {\n      \"name\": \"\",\n      \"description\": \"Opis\",\n      \"load_type\": \"type3\",\n      \"load_weight\": {\n        \"value\": 1.0,\n        \"unit_code\": \"sasas\"\n      },\n      \"load_height\": {\n        \"value\": 1.0,\n        \"unit_code\": \"sasas\"\n      },\n      \"load_width\": {\n        \"value\": 1.0,\n        \"unit_code\": \"sasas\"\n      },\n      \"load_length\": {\n        \"value\": 1.0,\n        \"unit_code\": \"sasas\"\n      },\n      \"load_capacity\": {\n        \"value\": 1.0,\n        \"unit_code\": \"sasas\"\n      },\n      \"amount\": 2323111,\n      \"required_adr_classes\": [\n        \"1\"\n      ],\n      \"requirements\": {\n        \"required_ways_of_loading\": [\n          \"side\",\n          \"back\"\n        ],\n        \"required_truck_bodies\": [\n          \"Bus\",\n          \"ChBodnia\"\n        ],\n        \"is_truck_crane_required\": true,\n        \"is_lift_required\": false,\n        \"is_for_clearance\": true,\n        \"is_tir_cable_required\": true,\n        \"is_ftl\": true,\n        \"is_gps_required\": true,\n        \"shipping_remarks\": \"sad\"\n      }\n    }\n  ]\n}"
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "1521091-cc850491-7b6a-486b-ea1a-0bb33be9b0ec",
+      "name": "Delete Freight",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 405\"] = responseCode.code === 405;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "{{freight_url}}/api/rest/v1/freight/301",
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"number\": \"12345\",\n  \"status\": \"in_progress\",\n  \"type\": \"first_buy\",\n  \"shipper\": {\n    \"company_id\": \"b508522b-1296-39a0-ae13-d7c41ed8a412\",\n    \"contact_persons\": [\n      {\n        \"person_id\": \"585c75b3-779a-370b-992c-1f250272ff68\"\n      }\n    ]\n  },\n  \"payment\": {\n    \"price\": {\n      \"value\": 123,\n      \"currency\": \"PLN\"\n    }\n  },\n  \"spots\": [\n    {\n      \"name\": \"Super\",\n      \"type\": \"loading\",\n      \"place\": {\n        \"address\": {\n          \"locality\": \"Locality\",\n          \"postal_code\": \"Postal Code\",\n          \"country\": \"PL\",\n          \"street\": \"Testowa\",\n          \"number\": \"23\"\n        },\n        \"coordinates\": {\n          \"latitude\": -89.1,\n          \"longitude\": -179.1\n        }\n      },\n      \"timespans\": {\n        \"begin\": \"2017-04-10T08:40:32+00:00\",\n        \"end\": \"2017-04-10T09:40:32+00:00\"\n      }\n    },\n    {\n      \"name\": \"Fajny\",\n      \"type\": \"unloading\",\n      \"companyName\": \"Company Name\",\n      \"place\": {\n        \"address\": {\n          \"locality\": \"Locality\",\n          \"postal_code\": \"Postal Code\",\n          \"country\": \"PL\",\n          \"street\": \"Testowa\",\n          \"number\": \"23\"\n        },\n        \"coordinates\": {\n          \"latitude\": 52.2296,\n          \"longitude\": 178.2\n        }\n      },\n      \"timespans\": {\n        \"begin\": \"2017-04-11T18:40:32+00:00\",\n        \"end\": \"2017-04-11T19:40:32+00:00\"\n      }\n    }\n  ],\n  \"loads\": [\n    {\n      \"name\": \"\",\n      \"description\": \"Opis\",\n      \"load_type\": \"type3\",\n      \"load_weight\": {\n        \"value\": 1.2,\n        \"unit_code\": \"sasas\"\n      },\n      \"load_height\": {\n        \"value\": 1.2,\n        \"unit_code\": \"sasas\"\n      },\n      \"load_width\": {\n        \"value\": 1.2,\n        \"unit_code\": \"sasas\"\n      },\n      \"load_length\": {\n        \"value\": 1.2,\n        \"unit_code\": \"sasas\"\n      },\n      \"load_capacity\": {\n        \"value\": 1.2,\n        \"unit_code\": \"sasas\"\n      },\n      \"amount\": 2323111,\n      \"required_adr_classes\": [\n        \"1\"\n      ],\n      \"requirements\": {\n        \"required_ways_of_loading\": [\n          \"side\",\n          \"back\"\n        ],\n        \"required_truck_bodies\": [\n          \"Bus\",\n          \"ChBodnia\"\n        ],\n        \"is_truck_crane_required\": true,\n        \"is_lift_required\": false,\n        \"is_for_clearance\": true,\n        \"is_tir_cable_required\": true,\n        \"is_ftl\": true,\n        \"is_gps_required\": true,\n        \"shipping_remarks\": \"sad\"\n      }\n    }\n  ]\n}"
+        },
+        "description": ""
+      },
+      "response": []
+    }
+  ]
+}
