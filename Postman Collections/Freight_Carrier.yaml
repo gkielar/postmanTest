@@ -57,21 +57,8 @@ paths:
           uri: /offers
           headers:
             Content-Type: application/json
-            Authorization: Bearer 98d3c4ce848f2520c1b5a097ee5c74acc3a8f952
-          body: >-
-            {
-              "payment" : {
-                "price" : {
-                  "value" : 1500,
-                  "currency" : "PLN"
-                }
-              },
-              "freight": 6,
-              "comment": "promocja",
-              "status" : "in_progress",
-              "version" : 2,
-              "valid_to" : "2018-04-11T10:47:42+0100"
-            }
+            Authorization: Bearer 8f5df691fb7b59b16ec22dc29a81f09e85f3f020
+          body: "{\n  \"payment\" : {\n    \"price\" : {\n      \"value\" : 1500,\n      \"currency\" : \"PLN\"\n    }\n  },\n  \"freight\": 169,\n  \"comment\": \"sale\",\n  \"version\" : 1\n  \n}"
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
@@ -247,23 +234,15 @@ definitions:
       comment:
         description: ''
         type: string
-      status:
-        description: ''
-        type: string
       version:
         description: ''
         type: integer
         format: int32
-      valid_to:
-        description: ''
-        type: string
     required:
     - payment
     - freight
     - comment
-    - status
     - version
-    - valid_to
   Payment:
     title: Payment
     type: object
