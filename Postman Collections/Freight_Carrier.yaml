@@ -6,7 +6,7 @@ info:
   license:
     name: MIT
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
-host: '{DefaultParameterValue}'
+host: example.com
 basePath: /
 securityDefinitions:
   auth:
