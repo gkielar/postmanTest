@@ -6,7 +6,7 @@ info:
   license:
     name: MIT
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
-host: '{DefaultParameterValue}'
+host: example.com
 basePath: /
 securityDefinitions:
   auth:
@@ -98,8 +98,105 @@ paths:
           uri: /shipment-requests
           headers:
             Content-Type: application/json
-            Authorization: Bearer 8b06a4eb89c81b12865471ef2fb91e4696fd36bc
-          body: "{\n  \"name\" : \"24.05.2017.1155\",\n  \"number\": \"55555\",\n  \"status\": \"in_progress\",\n  \"freights\": [],\n  \"ready_to_send\": \"2018-04-11T10:47:42+0100\",\n  \"spots\" : [\n  {\n      \"name\": \"Wholesale fruit\",\n      \"type\": \"loading\",\n    \"timespans\": {\n        \"begin\": \"2018-04-11T10:47:42+0100\",\n        \"end\": \"2018-04-15T10:47:42+0100\"\n    },\n      \"place\": {\n        \"address\": {\n          \"locality\": \"Munchen\",\n          \"postal_code\": \"80331\",\n          \"country\": \"DE\",\n          \"street\": \"Street\",\n          \"number\": \"1\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      }\n    },\n    {\n      \"name\": \"Lidl\",\n      \"type\": \"unloading\",\n    \"timespans\": {\n        \"begin\": \"2018-04-15T11:47:42+0100\",\n        \"end\": \"2018-04-16T10:47:42+0100\"\n    },\n      \"place\": {\n        \"address\": {\n          \"locality\": \"WrocBaw\",\n          \"postal_code\": \"50-064\",\n          \"country\": \"PL\",\n          \"street\": \"RacBawicka\",\n          \"number\": \"2\"\n        },\n        \"coordinates\": {\n          \"latitude\": -90.0,\n          \"longitude\": -180.0\n        }\n      }\n    }\n    ],\n     \"loads\":[\n    {\n      \"name\": \"Fruits\",\n      \"description\": \"apples\",\n      \"type_of_load\": \"box\",\n      \"weight\": {\n        \"value\": 33,\n        \"unit_code\": \"kg\"\n      },\n      \"height\": {\n        \"value\": 26,\n        \"unit_code\": \"m\"\n      },\n      \"width\": {\n        \"value\": 16,\n        \"unit_code\": \"m\"\n      },\n      \"length\": {\n        \"value\": 16,\n        \"unit_code\": \"m\"\n      },\n      \"volume\": {\n        \"value\": 16,\n        \"unit_code\": \"l\"\n      },\n      \"amount\": 50000,\n      \"requirements\": {\n        \"required_adr_classes\": [\"4.1\"],\n        \"required_ways_of_loading\": [\"side\"],\n        \"required_truck_bodies\": [\"22\"],\n        \"is_truck_crane_required\": true,\n        \"is_lift_required\": false,\n        \"is_for_clearance\": true,\n        \"is_tir_cable_required\": true,\n        \"is_ftl\": true,\n        \"is_tracking_system_required\": true,\n        \"shipping_remarks\": \"brak wymagaD\"\n      }\n    },\n     {\n      \"name\": \"Vegetables\",\n      \"description\": \"carrots\",\n      \"type_of_load\": \"box\",\n      \"weight\": {\n        \"value\": 45,\n        \"unit_code\": \"kg\"\n      },\n      \"height\": {\n        \"value\": 36,\n        \"unit_code\": \"m\"\n      },\n      \"width\": {\n        \"value\": 46,\n        \"unit_code\": \"m\"\n      },\n      \"length\": {\n        \"value\": 56,\n        \"unit_code\": \"m\"\n      },\n      \"volume\": {\n        \"value\": 16,\n        \"unit_code\": \"l\"\n      },\n      \"amount\": 50000,\n      \"requirements\": {\n        \"required_adr_classes\": [\"1\"],\n        \"required_ways_of_loading\": [\"back\"],\n        \"required_truck_bodies\": [\"11\"],\n        \"is_truck_crane_required\": true,\n        \"is_lift_required\": false,\n        \"is_for_clearance\": true,\n        \"is_tir_cable_required\": true,\n        \"is_ftl\": true,\n        \"is_tracking_system_required\": true,\n        \"shipping_remarks\": \"brak wymagaD\"\n      }\n    }\n  ]\n  \n}"
+            Authorization: Bearer 54b84f08673f600703cfd4aab75eb856668898f2
+          body: >-
+            {
+              "name": "29.05.2017.1530",
+              "number": "123456789",
+              "status": "in_progress",
+              "ready_to_send": "2018-04-11T10:47:42+0100",
+              "freights": [],
+              "spots": [
+                {
+                  "name": "ChemicalsCompany",
+                  "type": "loading",
+                  "timespans": {
+                    "begin": "2018-04-15T10:47:42+0100",
+                    "end": "2018-04-15T10:47:42+0100"
+                  },
+                  "place": {
+                    "address": {
+                      "locality": "Munchen",
+                      "postal_code": "80331",
+                      "country": "DE",
+                      "street": "Street",
+                      "number": "2"
+                    },
+                    "coordinates": {
+                      "latitude": -90.0,
+                      "longitude": -180.0
+                    }
+                  }
+                },
+                {
+                  "name": "Lidl",
+                  "type": "unloading",
+                  "timespans": {
+                    "begin": "2018-04-15T10:47:42+0100",
+                    "end": "2018-04-15T10:47:42+0100"
+                  },
+                  "place": {
+                    "address": {
+                      "locality": "WrocBaw",
+                      "postal_code": "50-064",
+                      "country": "PL",
+                      "street": "Zwidnicka",
+                      "number": "1"
+                    },
+                    "coordinates": {
+                      "latitude": -90.0,
+                      "longitude": -180.0
+                    }
+                  }
+                }
+              ],
+              "loads": [
+                {
+                  "name": "Chemicals",
+                  "description": "Test",
+                  "type_of_load": "box",
+                  "weight": {
+                    "value": 33,
+                    "unit_code": "kg"
+                  },
+                  "height": {
+                    "value": 26,
+                    "unit_code": "kg"
+                  },
+                  "width": {
+                    "value": 16,
+                    "unit_code": "kg"
+                  },
+                  "length": {
+                    "value": 16,
+                    "unit_code": "kg"
+                  },
+                  "volume": {
+                    "value": 16,
+                    "unit_code": "kg"
+                  },
+                  "amount": 50000,
+                  "requirements": {
+                    "required_adr_classes": [
+                      "1"
+                    ],
+                    "required_ways_of_loading": [
+                      "side"
+                    ],
+                    "required_truck_bodies": [
+                      22
+                    ],
+                    "is_truck_crane_required": true,
+                    "is_lift_required": false,
+                    "is_for_clearance": true,
+                    "is_tir_cable_required": true,
+                    "is_ftl": true,
+                    "is_tracking_system_required": true,
+                    "shipping_remarks": "brak dodatkowych wymagaD"
+                  }
+                }
+              ]
+            }
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
@@ -238,14 +335,14 @@ definitions:
       status:
         description: ''
         type: string
+      ready_to_send:
+        description: ''
+        type: string
       freights:
         description: ''
         type: array
         items:
           type: string
-      ready_to_send:
-        description: ''
-        type: string
       spots:
         description: ''
         type: array
@@ -260,8 +357,8 @@ definitions:
     - name
     - number
     - status
-    - freights
     - ready_to_send
+    - freights
     - spots
     - loads
   Spot:
@@ -475,7 +572,8 @@ definitions:
         description: ''
         type: array
         items:
-          type: string
+          type: integer
+          format: int32
       is_truck_crane_required:
         description: ''
         type: boolean
@@ -575,7 +673,7 @@ definitions:
         type: integer
         format: int32
       requirements:
-        $ref: '#/definitions/Requirements'
+        $ref: '#/definitions/Requirements25'
     required:
     - id
     - name
@@ -588,6 +686,57 @@ definitions:
     - volume
     - amount
     - requirements
+  Requirements25:
+    title: Requirements25
+    type: object
+    properties:
+      required_adr_classes:
+        description: ''
+        type: array
+        items:
+          type: string
+      required_ways_of_loading:
+        description: ''
+        type: array
+        items:
+          type: string
+      required_truck_bodies:
+        description: ''
+        type: array
+        items:
+          type: string
+      is_truck_crane_required:
+        description: ''
+        type: boolean
+      is_lift_required:
+        description: ''
+        type: boolean
+      is_for_clearance:
+        description: ''
+        type: boolean
+      is_tir_cable_required:
+        description: ''
+        type: boolean
+      is_ftl:
+        description: ''
+        type: boolean
+      is_tracking_system_required:
+        description: ''
+        type: boolean
+      shipping_remarks:
+        description: ''
+        type: string
+    required:
+    - required_adr_classes
+    - required_ways_of_loading
+    - required_truck_bodies
+    - is_truck_crane_required
+    - is_lift_required
+    - is_for_clearance
+    - is_tir_cable_required
+    - is_ftl
+    - is_tracking_system_required
+    - shipping_remarks
   SrAdd/updateFreightsrequest:
     title: SR add/update FreightsRequest
     type: object
@@ -729,7 +878,7 @@ definitions:
         type: integer
         format: int32
       requirements:
-        $ref: '#/definitions/Requirements43'
+        $ref: '#/definitions/Requirements'
     required:
     - shipment_request_load_id
     - name
@@ -742,55 +891,3 @@ definitions:
     - volume
     - amount
     - requirements
-  Requirements43:
-    title: Requirements43
-    type: object
-    properties:
-      required_adr_classes:
-        description: ''
-        type: array
-        items:
-          type: string
-      required_ways_of_loading:
-        description: ''
-        type: array
-        items:
-          type: string
-      required_truck_bodies:
-        description: ''
-        type: array
-        items:
-          type: integer
-          format: int32
-      is_truck_crane_required:
-        description: ''
-        type: boolean
-      is_lift_required:
-        description: ''
-        type: boolean
-      is_for_clearance:
-        description: ''
-        type: boolean
-      is_tir_cable_required:
-        description: ''
-        type: boolean
-      is_ftl:
-        description: ''
-        type: boolean
-      is_tracking_system_required:
-        description: ''
-        type: boolean
-      shipping_remarks:
-        description: ''
-        type: string
-    required:
-    - required_adr_classes
-    - required_ways_of_loading
-    - required_truck_bodies
-    - is_truck_crane_required
-    - is_lift_required
-    - is_for_clearance
-    - is_tir_cable_required
-    - is_ftl
-    - is_tracking_system_required
-    - shipping_remarks
