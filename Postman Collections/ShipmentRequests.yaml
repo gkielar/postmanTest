@@ -98,11 +98,11 @@ paths:
           uri: /shipment-requests
           headers:
             Content-Type: application/json
-            Authorization: Bearer 54b84f08673f600703cfd4aab75eb856668898f2
+            Authorization: Bearer 5af272aaa602422ecce60cfb7d6a4c855af5ca11
           body: >-
             {
-              "name": "29.05.2017.1530",
-              "number": "123456789",
+              "name": "01.06.2017.1145",
+              "number": "01.06.2017.1140",
               "status": "in_progress",
               "ready_to_send": "2018-04-11T10:47:42+0100",
               "freights": [],
@@ -184,7 +184,7 @@ paths:
                       "side"
                     ],
                     "required_truck_bodies": [
-                      22
+                      "20"
                     ],
                     "is_truck_crane_required": true,
                     "is_lift_required": false,
@@ -284,7 +284,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/255:
+  /shipment-requests/70:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -572,8 +572,7 @@ definitions:
         description: ''
         type: array
         items:
-          type: integer
-          format: int32
+          type: string
       is_truck_crane_required:
         description: ''
         type: boolean
@@ -673,7 +672,7 @@ definitions:
         type: integer
         format: int32
       requirements:
-        $ref: '#/definitions/Requirements25'
+        $ref: '#/definitions/Requirements'
     required:
     - id
     - name
@@ -686,57 +685,6 @@ definitions:
     - volume
     - amount
     - requirements
-  Requirements25:
-    title: Requirements25
-    type: object
-    properties:
-      required_adr_classes:
-        description: ''
-        type: array
-        items:
-          type: string
-      required_ways_of_loading:
-        description: ''
-        type: array
-        items:
-          type: string
-      required_truck_bodies:
-        description: ''
-        type: array
-        items:
-          type: string
-      is_truck_crane_required:
-        description: ''
-        type: boolean
-      is_lift_required:
-        description: ''
-        type: boolean
-      is_for_clearance:
-        description: ''
-        type: boolean
-      is_tir_cable_required:
-        description: ''
-        type: boolean
-      is_ftl:
-        description: ''
-        type: boolean
-      is_tracking_system_required:
-        description: ''
-        type: boolean
-      shipping_remarks:
-        description: ''
-        type: string
-    required:
-    - required_adr_classes
-    - required_ways_of_loading
-    - required_truck_bodies
-    - is_truck_crane_required
-    - is_lift_required
-    - is_for_clearance
-    - is_tir_cable_required
-    - is_ftl
-    - is_tracking_system_required
-    - shipping_remarks
   SrAdd/updateFreightsrequest:
     title: SR add/update FreightsRequest
     type: object
@@ -754,8 +702,7 @@ definitions:
     properties:
       id:
         description: ''
-        type: integer
-        format: int32
+        type: string
       number:
         description: ''
         type: string
@@ -839,7 +786,8 @@ definitions:
     properties:
       value:
         description: ''
-        type: string
+        type: integer
+        format: int32
       currency:
         description: ''
         type: string
@@ -878,7 +826,7 @@ definitions:
         type: integer
         format: int32
       requirements:
-        $ref: '#/definitions/Requirements'
+        $ref: '#/definitions/Requirements43'
     required:
     - shipment_request_load_id
     - name
@@ -891,3 +839,55 @@ definitions:
     - volume
     - amount
     - requirements
+  Requirements43:
+    title: Requirements43
+    type: object
+    properties:
+      required_adr_classes:
+        description: ''
+        type: array
+        items:
+          type: string
+      required_ways_of_loading:
+        description: ''
+        type: array
+        items:
+          type: string
+      required_truck_bodies:
+        description: ''
+        type: array
+        items:
+          type: integer
+          format: int32
+      is_truck_crane_required:
+        description: ''
+        type: boolean
+      is_lift_required:
+        description: ''
+        type: boolean
+      is_for_clearance:
+        description: ''
+        type: boolean
+      is_tir_cable_required:
+        description: ''
+        type: boolean
+      is_ftl:
+        description: ''
+        type: boolean
+      is_tracking_system_required:
+        description: ''
+        type: boolean
+      shipping_remarks:
+        description: ''
+        type: string
+    required:
+    - required_adr_classes
+    - required_ways_of_loading
+    - required_truck_bodies
+    - is_truck_crane_required
+    - is_lift_required
+    - is_for_clearance
+    - is_tir_cable_required
+    - is_ftl
+    - is_tracking_system_required
+    - shipping_remarks
