@@ -21,7 +21,7 @@ produces:
 - application/json
 paths:
   /shipment-requests:
-    get:
+    put:
       description: 'TODO: Add Description'
       summary: Get All User ShipmentRequests
       tags:
@@ -42,10 +42,10 @@ paths:
       - auth: []
       x-unitTests:
       - request:
-          method: GET
+          method: PUT
           uri: /shipment-requests
           headers:
-            Authorization: Bearer d6b6582a036b592b1c01d03767799631c872ec1a
+            Authorization: Bearer 7f37b838c41e76388c8f41263465b1aaf13cd532
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
@@ -213,7 +213,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /api/rest/v1/shipment-requests:
+  /api/rest/v1/shipment-requests/34:
     put:
       description: 'TODO: Add Description'
       summary: Edit ShipmentReqests
@@ -234,16 +234,138 @@ paths:
         required: true
         type: string
         description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
       responses:
         200:
           description: ''
-      security: []
-      x-unitTests: []
+      security:
+      - auth: []
+      x-unitTests:
+      - request:
+          method: PUT
+          uri: /api/rest/v1/shipment-requests/34
+          headers:
+            Content-Type: application/json
+            Authorization: Bearer 17457720279cbe743d45335b5676f13244497827
+          body: >-
+            {
+              "name": "30.05.2017.1421",
+              "number": "123456789",
+              "status": "in_progress",
+              "ready_to_send": "2018-04-11T10:47:42+0100",
+              "freights": [],
+              "spots": [
+                {
+                  "name": "ChemicalsCompany",
+                  "type": "loading",
+                  "timespans": {
+                    "begin": "2018-04-15T10:47:42+0100",
+                    "end": "2018-04-15T10:47:42+0100"
+                  },
+                  "place": {
+                    "address": {
+                      "locality": "Munchen",
+                      "postal_code": "80331",
+                      "country": "DE",
+                      "street": "Street",
+                      "number": "2"
+                    },
+                    "coordinates": {
+                      "latitude": -90.0,
+                      "longitude": -180.0
+                    }
+                  }
+                },
+                {
+                  "name": "Lidl",
+                  "type": "unloading",
+                  "timespans": {
+                    "begin": "2018-04-15T10:47:42+0100",
+                    "end": "2018-04-15T10:47:42+0100"
+                  },
+                  "place": {
+                    "address": {
+                      "locality": "WrocBaw",
+                      "postal_code": "50-064",
+                      "country": "PL",
+                      "street": "Zwidnicka",
+                      "number": "1"
+                    },
+                    "coordinates": {
+                      "latitude": -90.0,
+                      "longitude": -180.0
+                    }
+                  }
+                }
+              ],
+              "loads": [
+                {
+                  "name": "Chemicals",
+                  "description": "Test",
+                  "type_of_load": "box",
+                  "weight": {
+                    "value": 45,
+                    "unit_code": "kg"
+                  },
+                  "height": {
+                    "value": 26,
+                    "unit_code": "kg"
+                  },
+                  "width": {
+                    "value": 16,
+                    "unit_code": "kg"
+                  },
+                  "length": {
+                    "value": 16,
+                    "unit_code": "kg"
+                  },
+                  "volume": {
+                    "value": 16,
+                    "unit_code": "kg"
+                  },
+                  "amount": 50000,
+                  "requirements": {
+                    "required_adr_classes": [
+                      "1"
+                    ],
+                    "required_ways_of_loading": [
+                      "side"
+                    ],
+                    "required_truck_bodies": [
+                      "20"
+                    ],
+                    "is_truck_crane_required": true,
+                    "is_lift_required": false,
+                    "is_for_clearance": true,
+                    "is_tir_cable_required": true,
+                    "is_ftl": true,
+                    "is_tracking_system_required": true,
+                    "shipping_remarks": "brak dodatkowych wymagaD"
+                  }
+                }
+              ]
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Edit ShipmentReqests
+        x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+  /api/rest/v1/shipment-requests:
     delete:
       description: 'TODO: Add Description'
       summary: Delete ShipmentReqests
@@ -284,7 +406,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/70:
+  /shipment-requests/473:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -315,7 +437,143 @@ paths:
           description: ''
       security:
       - auth: []
-      x-unitTests: []
+      x-unitTests:
+      - request:
+          method: PATCH
+          uri: /shipment-requests/473
+          headers:
+            Content-Type: application/json
+            Authorization: Bearer 10014d2b3b0867b008fd59b153328080df112e5f
+          body: >-
+            {
+              "freights": [
+                {
+                  "id": 611,
+                  "number": "09111991",
+                  "publish_date": "2019-04-15T10:47:42+0100",
+                  "publish_type": "type1",
+                  "send_to_stock": false,
+                  "type": "auction",
+                  "status": "in_progress",
+                  "carriers": [
+                    {
+                      "company": {
+                        "id": 4122
+                      }
+                    }
+                  ],
+                  "spots": [
+                    {
+                      "name": "ChemicalsCompany",
+                      "type": "loading",
+                      "timespans": {
+                        "begin": "2018-04-15T10:27:42+0100",
+                        "end": "2018-04-15T10:37:42+0100"
+                      },
+                      "place": {
+                        "address": {
+                          "locality": "Munchen",
+                          "postal_code": "80331",
+                          "country": "DE",
+                          "street": "Street",
+                          "number": "2"
+                        },
+                        "coordinates": {
+                          "latitude": -90.0,
+                          "longitude": -180.0
+                        }
+                      }
+                    },
+                    {
+                      "name": "Lidl",
+                      "type": "unloading",
+                      "timespans": {
+                        "begin": "2018-04-16T10:47:42+0100",
+                        "end": "2018-04-16T10:48:42+0100"
+                      },
+                      "place": {
+                        "address": {
+                          "locality": "WrocBaw",
+                          "postal_code": "50-064",
+                          "country": "PL",
+                          "street": "Zwidnicka",
+                          "number": "1"
+                        },
+                        "coordinates": {
+                          "latitude": -90.0,
+                          "longitude": -180.0
+                        }
+                      }
+                    }
+                  ],
+                  "payment": {
+                    "price": {
+                      "value": 5000,
+                      "currency": "PLN"
+                    }
+                  },
+                  "decision_date": "2019-04-15T10:47:42+0100",
+                  "loads": [
+                    {
+                      "shipment_request_load_id": 232,
+                      "name": "Chemicals",
+                      "description": "Test",
+                      "type_of_load": "box",
+                      "weight": {
+                        "value": 55,
+                        "unit_code": "kg"
+                      },
+                      "height": {
+                        "value": 26,
+                        "unit_code": "m"
+                      },
+                      "width": {
+                        "value": 16,
+                        "unit_code": "m"
+                      },
+                      "length": {
+                        "value": 16,
+                        "unit_code": "m"
+                      },
+                      "volume": {
+                        "value": 16,
+                        "unit_code": "l"
+                      },
+                      "amount": 50000,
+                      "requirements": {
+                        "required_adr_classes": [
+                          "1"
+                        ],
+                        "required_ways_of_loading": [
+                          "side"
+                        ],
+                        "required_truck_bodies": [
+                          22
+                        ],
+                        "is_truck_crane_required": true,
+                        "is_lift_required": false,
+                        "is_for_clearance": true,
+                        "is_tir_cable_required": true,
+                        "is_ftl": true,
+                        "is_tracking_system_required": true,
+                        "shipping_remarks": "brak dodatkowych wymagaD"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: SR add/update Freights
+        x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -618,6 +876,9 @@ definitions:
       status:
         description: ''
         type: string
+      ready_to_send:
+        description: ''
+        type: string
       freights:
         description: ''
         type: array
@@ -632,59 +893,15 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Load19'
+          $ref: '#/definitions/Load'
     required:
     - name
     - number
     - status
+    - ready_to_send
     - freights
     - spots
     - loads
-  Load19:
-    title: Load19
-    type: object
-    properties:
-      id:
-        description: ''
-        type: integer
-        format: int32
-      name:
-        description: ''
-        type: string
-      description:
-        description: ''
-        type: string
-      type_of_load:
-        description: ''
-        type: string
-      weight:
-        $ref: '#/definitions/Weight'
-      height:
-        $ref: '#/definitions/Height'
-      width:
-        $ref: '#/definitions/Width'
-      length:
-        $ref: '#/definitions/Length'
-      volume:
-        $ref: '#/definitions/Volume'
-      amount:
-        description: ''
-        type: integer
-        format: int32
-      requirements:
-        $ref: '#/definitions/Requirements'
-    required:
-    - id
-    - name
-    - description
-    - type_of_load
-    - weight
-    - height
-    - width
-    - length
-    - volume
-    - amount
-    - requirements
   SrAdd/updateFreightsrequest:
     title: SR add/update FreightsRequest
     type: object
@@ -702,7 +919,8 @@ definitions:
     properties:
       id:
         description: ''
-        type: string
+        type: integer
+        format: int32
       number:
         description: ''
         type: string
