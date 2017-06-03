@@ -220,6 +220,71 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+  /offers/131:
+    put:
+      description: 'TODO: Add Description'
+      summary: Update offer
+      tags:
+      - Misc
+      operationId: Update offer
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/UpdateOfferrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests:
+      - request:
+          method: PUT
+          uri: /offers/131
+          headers:
+            Content-Type: application/json
+            Authorization: Bearer c34edcbe968b11bbf09a017886927539194c3ba5
+          body: >-
+            {
+              "payment" : {
+                "price" : {
+                  "value" : 1000,
+                  "currency" : "PLN"
+                }
+              },
+              "comment": "sale",
+              "version" : 2
+              }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Update offer
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
 definitions:
   AddNewOfferrequest:
     title: Add New OfferRequest
@@ -298,3 +363,20 @@ definitions:
         type: string
     required:
     - id
+  UpdateOfferrequest:
+    title: Update offerRequest
+    type: object
+    properties:
+      payment:
+        $ref: '#/definitions/Payment'
+      comment:
+        description: ''
+        type: string
+      version:
+        description: ''
+        type: integer
+        format: int32
+    required:
+    - payment
+    - comment
+    - version
