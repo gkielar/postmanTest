@@ -21,7 +21,7 @@ produces:
 - application/json
 paths:
   /shipment-requests:
-    put:
+    get:
       description: 'TODO: Add Description'
       summary: Get All User ShipmentRequests
       tags:
@@ -42,7 +42,7 @@ paths:
       - auth: []
       x-unitTests:
       - request:
-          method: PUT
+          method: GET
           uri: /shipment-requests
           headers:
             Authorization: Bearer 7f37b838c41e76388c8f41263465b1aaf13cd532
@@ -573,6 +573,48 @@ paths:
         x-testShouldPass: true
         x-testEnabled: true
         x-testName: SR add/update Freights
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /freight-shipper:
+    get:
+      description: 'TODO: Add Description'
+      summary: GET Get All Freights
+      tags:
+      - Misc
+      operationId: GET Get All Freights
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /freight-shipper
+          headers:
+            Authorization: Bearer 51af349a915d85b887ad6e83dcadf87d6447bb17
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: GET Get All Freights
         x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
