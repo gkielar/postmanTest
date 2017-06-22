@@ -57,8 +57,8 @@ paths:
           uri: /offers
           headers:
             Content-Type: application/json
-            Authorization: Bearer 8f5df691fb7b59b16ec22dc29a81f09e85f3f020
-          body: "{\n  \"payment\" : {\n    \"price\" : {\n      \"value\" : 1500,\n      \"currency\" : \"PLN\"\n    }\n  },\n  \"freight\": 169,\n  \"comment\": \"sale\",\n  \"version\" : 1\n  \n}"
+            Authorization: Bearer 51af349a915d85b887ad6e83dcadf87d6447bb17
+          body: "{\n  \"payment\" : {\n    \"price\" : {\n      \"value\" : 1500,\n      \"currency\" : \"PLN\"\n    }\n  },\n  \"freight\": 151,\n  \"comment\": \"sale\",\n  \"version\" : 1,\n  \"valid_to\": \"2019-04-15T10:47:42+0100\"\n  \n}"
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
@@ -75,7 +75,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /freight-carrier/:
+  /freight-carrier:
     get:
       description: 'TODO: Add Description'
       summary: Get All Carrier Offers
@@ -93,14 +93,13 @@ paths:
       responses:
         200:
           description: ''
-      security:
-      - auth: []
+      security: []
       x-unitTests:
       - request:
           method: GET
-          uri: /freight-carrier/
+          uri: /freight-carrier
           headers:
-            Authorization: Bearer 319e150a38d014819273ce4ac259b2a56c7227c1
+            Authorization: '{{auth_token}}'
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
@@ -200,11 +199,15 @@ definitions:
         description: ''
         type: integer
         format: int32
+      valid_to:
+        description: ''
+        type: string
     required:
     - payment
     - freight
     - comment
     - version
+    - valid_to
   Payment:
     title: Payment
     type: object
