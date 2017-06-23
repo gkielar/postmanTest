@@ -97,11 +97,11 @@ paths:
           uri: /shipment-requests
           headers:
             Content-Type: application/json
-            Authorization: Bearer 5af272aaa602422ecce60cfb7d6a4c855af5ca11
+            Authorization: Bearer 9af48236e8d8abf45478ffe4ade9b4cfe7067cdd
           body: >-
             {
-              "name": "01.06.2017.1145",
-              "number": "01.06.2017.1140",
+              "name": "21.06.2017.1148",
+              "number": "21.06.2017.1148",
               "status": "in_progress",
               "ready_to_send": "2018-04-11T10:47:42+0100",
               "freights": [],
@@ -215,10 +215,10 @@ paths:
   /freight-shipper:
     get:
       description: 'TODO: Add Description'
-      summary: GET Get All Freights
+      summary: Get All Freights
       tags:
       - Misc
-      operationId: GET Get All Freights
+      operationId: Get All Freights
       produces:
       - application/json
       parameters:
@@ -230,14 +230,13 @@ paths:
       responses:
         200:
           description: ''
-      security:
-      - auth: []
+      security: []
       x-unitTests:
       - request:
           method: GET
           uri: /freight-shipper
           headers:
-            Authorization: Bearer 51af349a915d85b887ad6e83dcadf87d6447bb17
+            Authorization: '{{auth_token}}'
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
@@ -247,7 +246,7 @@ paths:
           headers: {}
         x-testShouldPass: true
         x-testEnabled: true
-        x-testName: GET Get All Freights
+        x-testName: Get All Freights
         x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
@@ -447,7 +446,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/473:
+  /shipment-requests/53:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -481,15 +480,15 @@ paths:
       x-unitTests:
       - request:
           method: PATCH
-          uri: /shipment-requests/473
+          uri: /shipment-requests/53
           headers:
             Content-Type: application/json
-            Authorization: Bearer 10014d2b3b0867b008fd59b153328080df112e5f
+            Authorization: Bearer 9af48236e8d8abf45478ffe4ade9b4cfe7067cdd
           body: >-
             {
               "freights": [
                 {
-                  "id": 611,
+                  "id": 90,
                   "number": "09111991",
                   "publish_date": "2019-04-15T10:47:42+0100",
                   "publish_type": "type1",
@@ -556,7 +555,7 @@ paths:
                   "decision_date": "2019-04-15T10:47:42+0100",
                   "loads": [
                     {
-                      "shipment_request_load_id": 232,
+                      "shipment_request_load_id": 213,
                       "name": "Chemicals",
                       "description": "Test",
                       "type_of_load": "box",
