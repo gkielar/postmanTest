@@ -89,15 +89,14 @@ paths:
       responses:
         200:
           description: ''
-      security:
-      - auth: []
+      security: []
       x-unitTests:
       - request:
           method: POST
           uri: /shipment-requests
           headers:
             Content-Type: application/json
-            Authorization: Bearer 9af48236e8d8abf45478ffe4ade9b4cfe7067cdd
+            Authorization: '{{auth_token}}'
           body: >-
             {
               "name": "21.06.2017.1148",
