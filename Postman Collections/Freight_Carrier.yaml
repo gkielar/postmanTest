@@ -49,15 +49,14 @@ paths:
       responses:
         200:
           description: ''
-      security:
-      - auth: []
+      security: []
       x-unitTests:
       - request:
           method: POST
           uri: /offers
           headers:
             Content-Type: application/json
-            Authorization: Bearer 51af349a915d85b887ad6e83dcadf87d6447bb17
+            Authorization: '{{auth_token}}'
           body: "{\n  \"payment\" : {\n    \"price\" : {\n      \"value\" : 1500,\n      \"currency\" : \"PLN\"\n    }\n  },\n  \"freight\": 151,\n  \"comment\": \"sale\",\n  \"version\" : 1,\n  \"valid_to\": \"2019-04-15T10:47:42+0100\"\n  \n}"
         expectedResponse:
           x-allowExtraHeaders: true
