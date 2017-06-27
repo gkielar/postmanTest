@@ -618,6 +618,76 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+  /shipment-requests/76:
+    patch:
+      description: 'TODO: Add Description'
+      summary: Send freight to carriers
+      tags:
+      - Misc
+      operationId: Send freight to carriers
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/SendFreightToCarriersrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests:
+      - request:
+          method: PATCH
+          uri: /shipment-requests/76
+          headers:
+            Content-Type: application/json
+            Authorization: Bearer 9f0a5b7d68d7544242e634876b6798eabfa0d5f1
+          body: >-
+            {
+              "freights": [
+                {
+                  "id": 130,
+                  "status" : "in_progress",
+                  "carriers": [
+                    {
+                      "company": {
+                        "id": 1023505
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Send freight to carriers
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
 definitions:
   AddNewShipmentrequestsrequest:
     title: Add New ShipmentRequestsRequest
@@ -1148,3 +1218,34 @@ definitions:
     - is_ftl
     - is_tracking_system_required
     - shipping_remarks
+  SendFreightToCarriersrequest:
+    title: Send freight to carriersRequest
+    type: object
+    properties:
+      freights:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Freight45'
+    required:
+    - freights
+  Freight45:
+    title: Freight45
+    type: object
+    properties:
+      id:
+        description: ''
+        type: integer
+        format: int32
+      status:
+        description: ''
+        type: string
+      carriers:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Carrier'
+    required:
+    - id
+    - status
+    - carriers
