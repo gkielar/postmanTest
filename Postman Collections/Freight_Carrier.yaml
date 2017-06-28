@@ -1,18 +1,13 @@
 swagger: '2.0'
 info:
   version: '1.0'
-  title: FreightDevApi_Carrier
+  title: Freights Carrier
   description: 'TODO: Add Description'
   license:
     name: MIT
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
 host: example.com
 basePath: /
-securityDefinitions:
-  auth:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: ''
 schemes:
 - http
 consumes:
@@ -77,10 +72,10 @@ paths:
   /freight-carrier:
     get:
       description: 'TODO: Add Description'
-      summary: Get All Carrier Offers
+      summary: Get All Carrier Freights
       tags:
       - Misc
-      operationId: Get All Carrier Offers
+      operationId: Get All Carrier Freights
       produces:
       - application/json
       parameters:
@@ -108,7 +103,7 @@ paths:
           headers: {}
         x-testShouldPass: true
         x-testEnabled: true
-        x-testName: Get All Carrier Offers
+        x-testName: Get All Carrier Freights
         x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
@@ -144,15 +139,14 @@ paths:
       responses:
         200:
           description: ''
-      security:
-      - auth: []
+      security: []
       x-unitTests:
       - request:
           method: PUT
           uri: /offers/131
           headers:
             Content-Type: application/json
-            Authorization: Bearer c34edcbe968b11bbf09a017886927539194c3ba5
+            Authorization: '{{auth_token}}'
           body: >-
             {
               "payment" : {
