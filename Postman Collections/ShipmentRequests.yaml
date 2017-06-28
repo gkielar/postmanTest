@@ -8,11 +8,6 @@ info:
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
 host: example.com
 basePath: /
-securityDefinitions:
-  auth:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: ''
 schemes:
 - http
 consumes:
@@ -99,8 +94,8 @@ paths:
             Authorization: '{{auth_token}}'
           body: >-
             {
-              "name": "21.06.2017.1148",
-              "number": "21.06.2017.1148",
+              "name": "28.06.2017 1327",
+              "number": "28.06.2017 1327",
               "status": "in_progress",
               "ready_to_send": "2018-04-11T10:47:42+0100",
               "freights": [],
@@ -281,15 +276,14 @@ paths:
       responses:
         200:
           description: ''
-      security:
-      - auth: []
+      security: []
       x-unitTests:
       - request:
           method: PUT
           uri: /api/rest/v1/shipment-requests/34
           headers:
             Content-Type: application/json
-            Authorization: Bearer 17457720279cbe743d45335b5676f13244497827
+            Authorization: '{{auth_token}}'
           body: >-
             {
               "name": "30.05.2017.1421",
@@ -419,6 +413,11 @@ paths:
         required: true
         type: string
         description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
       responses:
         200:
           description: ''
@@ -429,6 +428,7 @@ paths:
           uri: /api/rest/v1/shipment-requests
           headers:
             Content-Type: application/json
+            Authorization: '{{auth_token}}'
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
@@ -445,7 +445,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/53:
+  /shipment-requests/93:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -474,151 +474,14 @@ paths:
       responses:
         200:
           description: ''
-      security:
-      - auth: []
-      x-unitTests:
-      - request:
-          method: PATCH
-          uri: /shipment-requests/53
-          headers:
-            Content-Type: application/json
-            Authorization: Bearer 9af48236e8d8abf45478ffe4ade9b4cfe7067cdd
-          body: >-
-            {
-              "freights": [
-                {
-                  "id": 90,
-                  "number": "09111991",
-                  "publish_date": "2019-04-15T10:47:42+0100",
-                  "publish_type": "type1",
-                  "send_to_stock": false,
-                  "type": "auction",
-                  "status": "in_progress",
-                  "carriers": [
-                    {
-                      "company": {
-                        "id": 4122
-                      }
-                    }
-                  ],
-                  "spots": [
-                    {
-                      "name": "ChemicalsCompany",
-                      "type": "loading",
-                      "timespans": {
-                        "begin": "2018-04-15T10:27:42+0100",
-                        "end": "2018-04-15T10:37:42+0100"
-                      },
-                      "place": {
-                        "address": {
-                          "locality": "Munchen",
-                          "postal_code": "80331",
-                          "country": "DE",
-                          "street": "Street",
-                          "number": "2"
-                        },
-                        "coordinates": {
-                          "latitude": -90.0,
-                          "longitude": -180.0
-                        }
-                      }
-                    },
-                    {
-                      "name": "Lidl",
-                      "type": "unloading",
-                      "timespans": {
-                        "begin": "2018-04-16T10:47:42+0100",
-                        "end": "2018-04-16T10:48:42+0100"
-                      },
-                      "place": {
-                        "address": {
-                          "locality": "WrocBaw",
-                          "postal_code": "50-064",
-                          "country": "PL",
-                          "street": "Zwidnicka",
-                          "number": "1"
-                        },
-                        "coordinates": {
-                          "latitude": -90.0,
-                          "longitude": -180.0
-                        }
-                      }
-                    }
-                  ],
-                  "payment": {
-                    "price": {
-                      "value": 5000,
-                      "currency": "PLN"
-                    }
-                  },
-                  "decision_date": "2019-04-15T10:47:42+0100",
-                  "loads": [
-                    {
-                      "shipment_request_load_id": 213,
-                      "name": "Chemicals",
-                      "description": "Test",
-                      "type_of_load": "box",
-                      "weight": {
-                        "value": 55,
-                        "unit_code": "kg"
-                      },
-                      "height": {
-                        "value": 26,
-                        "unit_code": "m"
-                      },
-                      "width": {
-                        "value": 16,
-                        "unit_code": "m"
-                      },
-                      "length": {
-                        "value": 16,
-                        "unit_code": "m"
-                      },
-                      "volume": {
-                        "value": 16,
-                        "unit_code": "l"
-                      },
-                      "amount": 50000,
-                      "requirements": {
-                        "required_adr_classes": [
-                          "1"
-                        ],
-                        "required_ways_of_loading": [
-                          "side"
-                        ],
-                        "required_truck_bodies": [
-                          22
-                        ],
-                        "is_truck_crane_required": true,
-                        "is_lift_required": false,
-                        "is_for_clearance": true,
-                        "is_tir_cable_required": true,
-                        "is_ftl": true,
-                        "is_tracking_system_required": true,
-                        "shipping_remarks": "brak dodatkowych wymagaD"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: SR add/update Freights
-        x-testDescription: 'TODO: Add Description'
+      security: []
+      x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/76:
+  /shipment-requests/81:
     patch:
       description: 'TODO: Add Description'
       summary: Send freight to carriers
@@ -647,20 +510,19 @@ paths:
       responses:
         200:
           description: ''
-      security:
-      - auth: []
+      security: []
       x-unitTests:
       - request:
           method: PATCH
-          uri: /shipment-requests/76
+          uri: /shipment-requests/81
           headers:
             Content-Type: application/json
-            Authorization: Bearer 9f0a5b7d68d7544242e634876b6798eabfa0d5f1
+            Authorization: '{{auth_token}}'
           body: >-
             {
               "freights": [
                 {
-                  "id": 130,
+                  "id": 141,
                   "status" : "in_progress",
                   "carriers": [
                     {
@@ -1028,8 +890,7 @@ definitions:
     properties:
       id:
         description: ''
-        type: integer
-        format: int32
+        type: string
       number:
         description: ''
         type: string
