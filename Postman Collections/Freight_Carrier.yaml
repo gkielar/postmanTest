@@ -69,7 +69,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /freight-carrier:
+  /freight-shipper/88:
     get:
       description: 'TODO: Add Description'
       summary: Get All Carrier Freights
@@ -91,7 +91,7 @@ paths:
       x-unitTests:
       - request:
           method: GET
-          uri: /freight-carrier
+          uri: /freight-shipper/88
           headers:
             Authorization: '{{auth_token}}'
         expectedResponse:
