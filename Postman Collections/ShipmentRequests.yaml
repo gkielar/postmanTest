@@ -445,7 +445,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/93:
+  /shipment-requests/153:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -956,8 +956,7 @@ definitions:
     properties:
       id:
         description: ''
-        type: integer
-        format: int32
+        type: string
     required:
     - id
   Payment:
@@ -1105,8 +1104,26 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Carrier'
+          $ref: '#/definitions/Carrier46'
     required:
     - id
     - status
     - carriers
+  Carrier46:
+    title: Carrier46
+    type: object
+    properties:
+      company:
+        $ref: '#/definitions/Company47'
+    required:
+    - company
+  Company47:
+    title: Company47
+    type: object
+    properties:
+      id:
+        description: ''
+        type: integer
+        format: int32
+    required:
+    - id
