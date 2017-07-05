@@ -94,18 +94,18 @@ paths:
             Authorization: '{{auth_token}}'
           body: >-
             {
-              "name": "28.06.2017 1327",
-              "number": "28.06.2017 1327",
+              "name": "04.07.2017 1417",
+              "number": "04.07.2017 1417",
               "status": "in_progress",
-              "ready_to_send": "2018-04-11T10:47:42+0100",
+              "ready_to_send": "2017-07-05T10:47:42+0100",
               "freights": [],
               "spots": [
                 {
                   "name": "ChemicalsCompany",
                   "type": "loading",
                   "timespans": {
-                    "begin": "2018-04-15T10:47:42+0100",
-                    "end": "2018-04-15T10:47:42+0100"
+                    "begin": "2017-07-07T10:47:42+0100",
+                    "end": "2017-07-07T10:47:42+0100"
                   },
                   "place": {
                     "address": {
@@ -125,8 +125,8 @@ paths:
                   "name": "Lidl",
                   "type": "unloading",
                   "timespans": {
-                    "begin": "2018-04-15T10:47:42+0100",
-                    "end": "2018-04-15T10:47:42+0100"
+                    "begin": "2017-07-07T10:47:42+0100",
+                    "end": "2017-07-07T10:47:42+0100"
                   },
                   "place": {
                     "address": {
@@ -247,7 +247,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /api/rest/v1/shipment-requests/34:
+  /shipment-requests/12:
     put:
       description: 'TODO: Add Description'
       summary: Edit ShipmentReqests
@@ -280,7 +280,7 @@ paths:
       x-unitTests:
       - request:
           method: PUT
-          uri: /api/rest/v1/shipment-requests/34
+          uri: /shipment-requests/12
           headers:
             Content-Type: application/json
             Authorization: '{{auth_token}}'
@@ -392,53 +392,6 @@ paths:
         x-testShouldPass: true
         x-testEnabled: true
         x-testName: Edit ShipmentReqests
-        x-testDescription: 'TODO: Add Description'
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
-  /api/rest/v1/shipment-requests:
-    delete:
-      description: 'TODO: Add Description'
-      summary: Delete ShipmentReqests
-      tags:
-      - Misc
-      operationId: Delete ShipmentReqests
-      produces:
-      - application/json
-      parameters:
-      - name: Content-Type
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security: []
-      x-unitTests:
-      - request:
-          method: DELETE
-          uri: /api/rest/v1/shipment-requests
-          headers:
-            Content-Type: application/json
-            Authorization: '{{auth_token}}'
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Delete ShipmentReqests
         x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
