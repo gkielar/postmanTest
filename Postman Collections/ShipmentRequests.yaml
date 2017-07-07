@@ -97,15 +97,15 @@ paths:
               "name": "04.07.2017 1417",
               "number": "04.07.2017 1417",
               "status": "in_progress",
-              "ready_to_send": "2017-07-05T10:47:42+0100",
+              "ready_to_send": "2017-07-20T10:47:42+0100",
               "freights": [],
               "spots": [
                 {
                   "name": "ChemicalsCompany",
                   "type": "loading",
                   "timespans": {
-                    "begin": "2017-07-07T10:47:42+0100",
-                    "end": "2017-07-07T10:47:42+0100"
+                    "begin": "2017-07-20T10:47:42+0100",
+                    "end": "2017-07-20T10:47:42+0100"
                   },
                   "place": {
                     "address": {
@@ -125,8 +125,8 @@ paths:
                   "name": "Lidl",
                   "type": "unloading",
                   "timespans": {
-                    "begin": "2017-07-07T10:47:42+0100",
-                    "end": "2017-07-07T10:47:42+0100"
+                    "begin": "2017-07-20T10:47:42+0100",
+                    "end": "2017-07-20T10:47:42+0100"
                   },
                   "place": {
                     "address": {
@@ -398,7 +398,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/153:
+  /shipment-requests/1:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
