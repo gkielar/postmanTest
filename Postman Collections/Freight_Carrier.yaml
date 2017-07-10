@@ -84,6 +84,11 @@ paths:
         required: true
         type: string
         description: ''
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
       responses:
         200:
           description: ''
@@ -94,6 +99,7 @@ paths:
           uri: /freight-carrier
           headers:
             Authorization: '{{auth_token}}'
+            Content-Type: application/json
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
