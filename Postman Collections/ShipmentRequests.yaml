@@ -16,46 +16,6 @@ produces:
 - application/json
 paths:
   /shipment-requests:
-    get:
-      description: 'TODO: Add Description'
-      summary: Get All User ShipmentRequests
-      tags:
-      - Misc
-      operationId: Get All User ShipmentRequests
-      produces:
-      - application/json
-      parameters:
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security: []
-      x-unitTests:
-      - request:
-          method: GET
-          uri: /shipment-requests
-          headers:
-            Authorization: '{{auth_token}}'
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Get All User ShipmentRequests
-        x-testDescription: 'TODO: Add Description'
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
     post:
       description: 'TODO: Add Description'
       summary: Add New ShipmentRequests
@@ -206,7 +166,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /freight-shipper:
+  /:
     get:
       description: 'TODO: Add Description'
       summary: Get All Freights
@@ -216,6 +176,21 @@ paths:
       produces:
       - application/json
       parameters:
+      - name: sortBy
+        in: query
+        required: true
+        type: string
+        description: ''
+      - name: order
+        in: query
+        required: true
+        type: string
+        description: ''
+      - name: createdBy
+        in: query
+        required: true
+        type: string
+        description: ''
       - name: Authorization
         in: header
         required: true
@@ -228,7 +203,7 @@ paths:
       x-unitTests:
       - request:
           method: GET
-          uri: /freight-shipper
+          uri: /?sortBy=status&order=DESC&createdBy=@me
           headers:
             Authorization: '{{auth_token}}'
         expectedResponse:
