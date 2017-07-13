@@ -183,6 +183,15 @@ paths:
 definitions:
   AddNewOfferrequest:
     title: Add New OfferRequest
+    example:
+      payment:
+        price:
+          value: 1500
+          currency: PLN
+      freight: 151
+      comment: sale
+      version: 1
+      valid_to: 2019-04-15T09:47:42.0000000+00:00
     type: object
     properties:
       payment:
@@ -231,6 +240,13 @@ definitions:
     - currency
   UpdateOfferrequest:
     title: Update offerRequest
+    example:
+      payment:
+        price:
+          value: 1000
+          currency: PLN
+      comment: sale
+      version: 2
     type: object
     properties:
       payment:
