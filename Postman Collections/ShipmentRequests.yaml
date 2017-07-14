@@ -54,8 +54,8 @@ paths:
             Authorization: '{{auth_token}}'
           body: >-
             {
-              "name": "04.07.2017 1417",
-              "number": "04.07.2017 1417",
+              "name": "14.07.2017 0931",
+              "number": "14.07.2017 0931",
               "status": "in_progress",
               "ready_to_send": "2017-07-20T10:47:42+0100",
               "freights": [],
@@ -222,7 +222,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/12:
+  /shipment-requests/15:
     put:
       description: 'TODO: Add Description'
       summary: Edit ShipmentReqests
@@ -255,20 +255,20 @@ paths:
       x-unitTests:
       - request:
           method: PUT
-          uri: /shipment-requests/12
+          uri: /shipment-requests/15
           headers:
             Content-Type: application/json
             Authorization: '{{auth_token}}'
           body: >-
             {
-              "name": "30.05.2017.1421",
+              "name": "13.07.2017 2005",
               "number": "123456789",
               "status": "in_progress",
               "ready_to_send": "2018-04-11T10:47:42+0100",
               "freights": [],
               "spots": [
                 {
-                  "name": "ChemicalsCompany",
+                  "name": "Hurtownia",
                   "type": "loading",
                   "timespans": {
                     "begin": "2018-04-15T10:47:42+0100",
@@ -279,7 +279,7 @@ paths:
                       "locality": "Munchen",
                       "postal_code": "80331",
                       "country": "DE",
-                      "street": "Street",
+                      "street": "Ulica",
                       "number": "2"
                     },
                     "coordinates": {
@@ -316,7 +316,7 @@ paths:
                   "description": "Test",
                   "type_of_load": "box",
                   "weight": {
-                    "value": 45,
+                    "value": 50,
                     "unit_code": "kg"
                   },
                   "height": {
@@ -373,7 +373,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/1:
+  /shipment-requests/21:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -482,8 +482,8 @@ definitions:
   AddNewShipmentrequestsrequest:
     title: Add New ShipmentRequestsRequest
     example:
-      name: 04.07.2017 1417
-      number: 04.07.2017 1417
+      name: 14.07.2017 0931
+      number: 14.07.2017 0931
       status: in_progress
       ready_to_send: 2017-07-20T09:47:42.0000000+00:00
       freights: []
@@ -836,13 +836,13 @@ definitions:
   EditShipmentreqestsrequest:
     title: Edit ShipmentReqestsRequest
     example:
-      name: 30.05.2017.1421
+      name: 13.07.2017 2005
       number: 123456789
       status: in_progress
       ready_to_send: 2018-04-11T09:47:42.0000000+00:00
       freights: []
       spots:
-      - name: ChemicalsCompany
+      - name: Hurtownia
         type: loading
         timespans:
           begin: 2018-04-15T09:47:42.0000000+00:00
@@ -852,7 +852,7 @@ definitions:
             locality: Munchen
             postal_code: 80331
             country: DE
-            street: Street
+            street: Ulica
             number: 2
           coordinates:
             latitude: -90
@@ -877,7 +877,7 @@ definitions:
         description: Test
         type_of_load: box
         weight:
-          value: 45
+          value: 50
           unit_code: kg
         height:
           value: 26
@@ -949,7 +949,7 @@ definitions:
       freights:
       - id: 
         number: 09111991
-        publish_date: 2018-07-04T09:47:42.0000000+00:00
+        publish_date: 2017-07-14T09:47:42.0000000+00:00
         publish_type: type1
         send_to_stock: false
         type: auction
@@ -961,8 +961,8 @@ definitions:
         - name: ChemicalsCompany
           type: loading
           timespans:
-            begin: 2018-07-03T09:27:42.0000000+00:00
-            end: 2018-07-04T09:37:42.0000000+00:00
+            begin: 2017-07-15T09:27:42.0000000+00:00
+            end: 2017-07-16T09:37:42.0000000+00:00
           place:
             address:
               locality: Munchen
@@ -976,8 +976,8 @@ definitions:
         - name: Lidl
           type: unloading
           timespans:
-            begin: 2018-07-04T09:47:42.0000000+00:00
-            end: 2018-07-05T09:48:42.0000000+00:00
+            begin: 2017-07-17T09:47:42.0000000+00:00
+            end: 2017-07-18T09:48:42.0000000+00:00
           place:
             address:
               locality: WrocBaw
@@ -990,11 +990,11 @@ definitions:
               longitude: -180
         payment:
           price:
-            value: 5000
+            value: 400
             currency: PLN
-        decision_date: 2018-07-08T09:47:42.0000000+00:00
+        decision_date: 2017-07-20T09:47:42.0000000+00:00
         loads:
-        - shipment_request_load_id: 213
+        - shipment_request_load_id: 17
           name: Chemicals
           description: Test
           type_of_load: box
