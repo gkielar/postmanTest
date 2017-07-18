@@ -45,122 +45,7 @@ paths:
         200:
           description: ''
       security: []
-      x-unitTests:
-      - request:
-          method: POST
-          uri: /shipment-requests
-          headers:
-            Content-Type: application/json
-            Authorization: '{{auth_token}}'
-          body: >-
-            {
-              "name": "14.07.2017 0931",
-              "number": "14.07.2017 0931",
-              "status": "in_progress",
-              "ready_to_send": "2017-07-20T10:47:42+0100",
-              "freights": [],
-              "spots": [
-                {
-                  "name": "ChemicalsCompany",
-                  "type": "loading",
-                  "timespans": {
-                    "begin": "2017-07-20T10:47:42+0100",
-                    "end": "2017-07-20T10:47:42+0100"
-                  },
-                  "place": {
-                    "address": {
-                      "locality": "Munchen",
-                      "postal_code": "80331",
-                      "country": "DE",
-                      "street": "Street",
-                      "number": "2"
-                    },
-                    "coordinates": {
-                      "latitude": -90.0,
-                      "longitude": -180.0
-                    }
-                  }
-                },
-                {
-                  "name": "Lidl",
-                  "type": "unloading",
-                  "timespans": {
-                    "begin": "2017-07-20T10:47:42+0100",
-                    "end": "2017-07-20T10:47:42+0100"
-                  },
-                  "place": {
-                    "address": {
-                      "locality": "WrocBaw",
-                      "postal_code": "50-064",
-                      "country": "PL",
-                      "street": "Zwidnicka",
-                      "number": "1"
-                    },
-                    "coordinates": {
-                      "latitude": -90.0,
-                      "longitude": -180.0
-                    }
-                  }
-                }
-              ],
-              "loads": [
-                {
-                  "name": "Chemicals",
-                  "description": "Test",
-                  "type_of_load": "box",
-                  "weight": {
-                    "value": 33,
-                    "unit_code": "kg"
-                  },
-                  "height": {
-                    "value": 26,
-                    "unit_code": "kg"
-                  },
-                  "width": {
-                    "value": 16,
-                    "unit_code": "kg"
-                  },
-                  "length": {
-                    "value": 16,
-                    "unit_code": "kg"
-                  },
-                  "volume": {
-                    "value": 16,
-                    "unit_code": "kg"
-                  },
-                  "amount": 50000,
-                  "requirements": {
-                    "required_adr_classes": [
-                      "1"
-                    ],
-                    "required_ways_of_loading": [
-                      "side"
-                    ],
-                    "required_truck_bodies": [
-                      "20"
-                    ],
-                    "is_truck_crane_required": true,
-                    "is_lift_required": false,
-                    "is_for_clearance": true,
-                    "is_tir_cable_required": true,
-                    "is_ftl": true,
-                    "is_tracking_system_required": true,
-                    "shipping_remarks": "brak dodatkowych wymagaD"
-                  }
-                }
-              ]
-            }
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Add New ShipmentRequests
-        x-testDescription: 'TODO: Add Description'
+      x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -482,22 +367,22 @@ definitions:
   AddNewShipmentrequestsrequest:
     title: Add New ShipmentRequestsRequest
     example:
-      name: 14.07.2017 0931
-      number: 14.07.2017 0931
+      name: 18.07.2017 0937
+      number: 18.07.2017 0921
       status: in_progress
-      ready_to_send: 2017-07-20T09:47:42.0000000+00:00
+      ready_to_send: 2017-07-26T09:47:42.0000000+00:00
       freights: []
       spots:
       - name: ChemicalsCompany
         type: loading
         timespans:
-          begin: 2017-07-20T09:47:42.0000000+00:00
-          end: 2017-07-20T09:47:42.0000000+00:00
+          begin: 2018-07-20T09:47:42.0000000+00:00
+          end: 2018-07-20T09:47:42.0000000+00:00
         place:
           address:
-            locality: Munchen
-            postal_code: 80331
-            country: DE
+            locality: Opole
+            postal_code: 42-256
+            country: PL
             street: Street
             number: 2
           coordinates:
@@ -506,37 +391,37 @@ definitions:
       - name: Lidl
         type: unloading
         timespans:
-          begin: 2017-07-20T09:47:42.0000000+00:00
-          end: 2017-07-20T09:47:42.0000000+00:00
+          begin: 2018-07-20T09:47:42.0000000+00:00
+          end: 2018-07-20T09:47:42.0000000+00:00
         place:
           address:
-            locality: WrocBaw
-            postal_code: 50-064
-            country: PL
+            locality: Monachium
+            postal_code: 53-342
+            country: DE
             street: Zwidnicka
             number: 1
           coordinates:
             latitude: -90
             longitude: -180
       loads:
-      - name: Chemicals
+      - name: Warzywa
         description: Test
         type_of_load: box
         weight:
           value: 33
-          unit_code: kg
+          unit_code: t
         height:
           value: 26
-          unit_code: kg
+          unit_code: m
         width:
           value: 16
-          unit_code: kg
+          unit_code: m
         length:
           value: 16
-          unit_code: kg
+          unit_code: m
         volume:
           value: 16
-          unit_code: kg
+          unit_code: m3
         amount: 50000
         requirements:
           required_adr_classes:
@@ -545,6 +430,41 @@ definitions:
           - side
           required_truck_bodies:
           - 20
+          - 16
+          is_truck_crane_required: true
+          is_lift_required: false
+          is_for_clearance: true
+          is_tir_cable_required: true
+          is_ftl: true
+          is_tracking_system_required: true
+          shipping_remarks: brak dodatkowych wymagaD
+      - name: Owoce
+        description: Test
+        type_of_load: box
+        weight:
+          value: 33
+          unit_code: t
+        height:
+          value: 26
+          unit_code: m
+        width:
+          value: 16
+          unit_code: m
+        length:
+          value: 16
+          unit_code: m
+        volume:
+          value: 16
+          unit_code: m3
+        amount: 50000
+        requirements:
+          required_adr_classes:
+          - 1
+          required_ways_of_loading:
+          - side
+          required_truck_bodies:
+          - 20
+          - 22
           is_truck_crane_required: true
           is_lift_required: false
           is_for_clearance: true
@@ -697,8 +617,7 @@ definitions:
         $ref: '#/definitions/Volume'
       amount:
         description: ''
-        type: integer
-        format: int32
+        type: string
       requirements:
         $ref: '#/definitions/Requirements'
     required:
@@ -934,7 +853,7 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Load'
+          $ref: '#/definitions/Load19'
     required:
     - name
     - number
@@ -943,6 +862,46 @@ definitions:
     - freights
     - spots
     - loads
+  Load19:
+    title: Load19
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      description:
+        description: ''
+        type: string
+      type_of_load:
+        description: ''
+        type: string
+      weight:
+        $ref: '#/definitions/Weight'
+      height:
+        $ref: '#/definitions/Height'
+      width:
+        $ref: '#/definitions/Width'
+      length:
+        $ref: '#/definitions/Length'
+      volume:
+        $ref: '#/definitions/Volume'
+      amount:
+        description: ''
+        type: integer
+        format: int32
+      requirements:
+        $ref: '#/definitions/Requirements'
+    required:
+    - name
+    - description
+    - type_of_load
+    - weight
+    - height
+    - width
+    - length
+    - volume
+    - amount
+    - requirements
   SrAdd/updateFreightsrequest:
     title: SR add/update FreightsRequest
     example:
