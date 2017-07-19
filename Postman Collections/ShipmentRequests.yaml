@@ -258,7 +258,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/21:
+  /shipment-requests/214:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -366,112 +366,6 @@ paths:
 definitions:
   AddNewShipmentrequestsrequest:
     title: Add New ShipmentRequestsRequest
-    example:
-      name: 18.07.2017 0937
-      number: 18.07.2017 0921
-      status: in_progress
-      ready_to_send: 2017-07-26T09:47:42.0000000+00:00
-      freights: []
-      spots:
-      - name: ChemicalsCompany
-        type: loading
-        timespans:
-          begin: 2018-07-20T09:47:42.0000000+00:00
-          end: 2018-07-20T09:47:42.0000000+00:00
-        place:
-          address:
-            locality: Opole
-            postal_code: 42-256
-            country: PL
-            street: Street
-            number: 2
-          coordinates:
-            latitude: -90
-            longitude: -180
-      - name: Lidl
-        type: unloading
-        timespans:
-          begin: 2018-07-20T09:47:42.0000000+00:00
-          end: 2018-07-20T09:47:42.0000000+00:00
-        place:
-          address:
-            locality: Monachium
-            postal_code: 53-342
-            country: DE
-            street: Zwidnicka
-            number: 1
-          coordinates:
-            latitude: -90
-            longitude: -180
-      loads:
-      - name: Warzywa
-        description: Test
-        type_of_load: box
-        weight:
-          value: 33
-          unit_code: t
-        height:
-          value: 26
-          unit_code: m
-        width:
-          value: 16
-          unit_code: m
-        length:
-          value: 16
-          unit_code: m
-        volume:
-          value: 16
-          unit_code: m3
-        amount: 50000
-        requirements:
-          required_adr_classes:
-          - 1
-          required_ways_of_loading:
-          - side
-          required_truck_bodies:
-          - 20
-          - 16
-          is_truck_crane_required: true
-          is_lift_required: false
-          is_for_clearance: true
-          is_tir_cable_required: true
-          is_ftl: true
-          is_tracking_system_required: true
-          shipping_remarks: brak dodatkowych wymagaD
-      - name: Owoce
-        description: Test
-        type_of_load: box
-        weight:
-          value: 33
-          unit_code: t
-        height:
-          value: 26
-          unit_code: m
-        width:
-          value: 16
-          unit_code: m
-        length:
-          value: 16
-          unit_code: m
-        volume:
-          value: 16
-          unit_code: m3
-        amount: 50000
-        requirements:
-          required_adr_classes:
-          - 1
-          required_ways_of_loading:
-          - side
-          required_truck_bodies:
-          - 20
-          - 22
-          is_truck_crane_required: true
-          is_lift_required: false
-          is_for_clearance: true
-          is_tir_cable_required: true
-          is_ftl: true
-          is_tracking_system_required: true
-          shipping_remarks: brak dodatkowych wymagaD
     type: object
     properties:
       name:
@@ -904,89 +798,6 @@ definitions:
     - requirements
   SrAdd/updateFreightsrequest:
     title: SR add/update FreightsRequest
-    example:
-      freights:
-      - id: 
-        number: 09111991
-        publish_date: 2017-07-14T09:47:42.0000000+00:00
-        publish_type: type1
-        send_to_stock: false
-        type: auction
-        status: in_progress
-        carriers:
-        - company:
-            id: 
-        spots:
-        - name: ChemicalsCompany
-          type: loading
-          timespans:
-            begin: 2017-07-15T09:27:42.0000000+00:00
-            end: 2017-07-16T09:37:42.0000000+00:00
-          place:
-            address:
-              locality: Munchen
-              postal_code: 80331
-              country: DE
-              street: Street
-              number: 2
-            coordinates:
-              latitude: -90
-              longitude: -180
-        - name: Lidl
-          type: unloading
-          timespans:
-            begin: 2017-07-17T09:47:42.0000000+00:00
-            end: 2017-07-18T09:48:42.0000000+00:00
-          place:
-            address:
-              locality: WrocBaw
-              postal_code: 50-064
-              country: PL
-              street: Zwidnicka
-              number: 1
-            coordinates:
-              latitude: -90
-              longitude: -180
-        payment:
-          price:
-            value: 400
-            currency: PLN
-        decision_date: 2017-07-20T09:47:42.0000000+00:00
-        loads:
-        - shipment_request_load_id: 17
-          name: Chemicals
-          description: Test
-          type_of_load: box
-          weight:
-            value: 55
-            unit_code: kg
-          height:
-            value: 26
-            unit_code: m
-          width:
-            value: 16
-            unit_code: m
-          length:
-            value: 16
-            unit_code: m
-          volume:
-            value: 16
-            unit_code: l
-          amount: 50000
-          requirements:
-            required_adr_classes:
-            - 1
-            required_ways_of_loading:
-            - side
-            required_truck_bodies:
-            - 22
-            is_truck_crane_required: true
-            is_lift_required: false
-            is_for_clearance: true
-            is_tir_cable_required: true
-            is_ftl: true
-            is_tracking_system_required: true
-            shipping_remarks: brak dodatkowych wymagaD
     type: object
     properties:
       freights:
@@ -1125,7 +936,7 @@ definitions:
         type: integer
         format: int32
       requirements:
-        $ref: '#/definitions/Requirements43'
+        $ref: '#/definitions/Requirements'
     required:
     - shipment_request_load_id
     - name
@@ -1138,58 +949,6 @@ definitions:
     - volume
     - amount
     - requirements
-  Requirements43:
-    title: Requirements43
-    type: object
-    properties:
-      required_adr_classes:
-        description: ''
-        type: array
-        items:
-          type: string
-      required_ways_of_loading:
-        description: ''
-        type: array
-        items:
-          type: string
-      required_truck_bodies:
-        description: ''
-        type: array
-        items:
-          type: integer
-          format: int32
-      is_truck_crane_required:
-        description: ''
-        type: boolean
-      is_lift_required:
-        description: ''
-        type: boolean
-      is_for_clearance:
-        description: ''
-        type: boolean
-      is_tir_cable_required:
-        description: ''
-        type: boolean
-      is_ftl:
-        description: ''
-        type: boolean
-      is_tracking_system_required:
-        description: ''
-        type: boolean
-      shipping_remarks:
-        description: ''
-        type: string
-    required:
-    - required_adr_classes
-    - required_ways_of_loading
-    - required_truck_bodies
-    - is_truck_crane_required
-    - is_lift_required
-    - is_for_clearance
-    - is_tir_cable_required
-    - is_ftl
-    - is_tracking_system_required
-    - shipping_remarks
   SendFreightToCarriersrequest:
     title: Send freight to carriersRequest
     example:
