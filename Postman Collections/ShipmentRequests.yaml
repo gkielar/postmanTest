@@ -258,7 +258,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/214:
+  /freights:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
@@ -814,6 +814,9 @@ definitions:
       id:
         description: ''
         type: string
+      shipment_request_id:
+        description: ''
+        type: string
       number:
         description: ''
         type: string
@@ -854,6 +857,7 @@ definitions:
           $ref: '#/definitions/Load37'
     required:
     - id
+    - shipment_request_id
     - number
     - publish_date
     - publish_type
