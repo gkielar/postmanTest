@@ -119,10 +119,10 @@ paths:
   /offers/131:
     put:
       description: 'TODO: Add Description'
-      summary: Update offer
+      summary: Reject offer
       tags:
       - Misc
-      operationId: Update offer
+      operationId: Reject offer
       produces:
       - application/json
       parameters:
@@ -131,7 +131,7 @@ paths:
         required: true
         description: ''
         schema:
-          $ref: '#/definitions/UpdateOfferrequest'
+          $ref: '#/definitions/RejectOfferrequest'
       - name: Content-Type
         in: header
         required: true
@@ -173,7 +173,7 @@ paths:
           headers: {}
         x-testShouldPass: true
         x-testEnabled: true
-        x-testName: Update offer
+        x-testName: Reject offer
         x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
@@ -240,6 +240,30 @@ definitions:
     - currency
   UpdateOfferrequest:
     title: Update offerRequest
+    example:
+      payment:
+        price:
+          value: 1000
+          currency: PLN
+      comment: sale
+      version: 2
+    type: object
+    properties:
+      payment:
+        $ref: '#/definitions/Payment'
+      comment:
+        description: ''
+        type: string
+      version:
+        description: ''
+        type: integer
+        format: int32
+    required:
+    - payment
+    - comment
+    - version
+  RejectOfferrequest:
+    title: Reject offerRequest
     example:
       payment:
         price:
