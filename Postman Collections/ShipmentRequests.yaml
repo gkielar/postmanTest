@@ -261,10 +261,10 @@ paths:
   /freights:
     patch:
       description: 'TODO: Add Description'
-      summary: SR add/update Freights
+      summary: Publish freights
       tags:
       - Misc
-      operationId: SR add/update Freights
+      operationId: Publish freights
       produces:
       - application/json
       parameters:
@@ -273,7 +273,7 @@ paths:
         required: true
         description: ''
         schema:
-          $ref: '#/definitions/SrAdd~1updateFreightsrequest'
+          $ref: '#/definitions/PublishFreightsrequest'
       - name: Content-Type
         in: header
         required: true
@@ -1009,3 +1009,14 @@ definitions:
         format: int32
     required:
     - id
+  PublishFreightsrequest:
+    title: Publish freightsRequest
+    type: object
+    properties:
+      freights:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Freight'
+    required:
+    - freights
