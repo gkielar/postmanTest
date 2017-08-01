@@ -15,7 +15,7 @@ consumes:
 produces:
 - application/json
 paths:
-  /shipment-requests:
+  /api/rest/v1/shipment-requests:
     post:
       description: 'TODO: Add Description'
       summary: Add New ShipmentRequests
@@ -51,31 +51,16 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /:
+  /shipment-requests:
     get:
       description: 'TODO: Add Description'
-      summary: Get All Freights
+      summary: Get All User ShipmentRequests
       tags:
       - Misc
-      operationId: Get All Freights
+      operationId: Get All User ShipmentRequests
       produces:
       - application/json
       parameters:
-      - name: sortBy
-        in: query
-        required: true
-        type: string
-        description: ''
-      - name: order
-        in: query
-        required: true
-        type: string
-        description: ''
-      - name: createdBy
-        in: query
-        required: true
-        type: string
-        description: ''
       - name: Authorization
         in: header
         required: true
@@ -88,7 +73,48 @@ paths:
       x-unitTests:
       - request:
           method: GET
-          uri: /?sortBy=status&order=DESC&createdBy=@me
+          uri: /shipment-requests
+          headers:
+            Authorization: '{{auth_token}}'
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Get All User ShipmentRequests
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /freight-shipper:
+    get:
+      description: 'TODO: Add Description'
+      summary: Get All Freights
+      tags:
+      - Misc
+      operationId: Get All Freights
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /freight-shipper
           headers:
             Authorization: '{{auth_token}}'
         expectedResponse:
@@ -258,13 +284,13 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /freights:
+  /api/rest/v1/shipment-requests/323:
     patch:
       description: 'TODO: Add Description'
-      summary: Publish freights
+      summary: SR add/update Freights
       tags:
       - Misc
-      operationId: Publish freights
+      operationId: SR add/update Freights
       produces:
       - application/json
       parameters:
@@ -273,7 +299,7 @@ paths:
         required: true
         description: ''
         schema:
-          $ref: '#/definitions/PublishFreightsrequest'
+          $ref: '#/definitions/SrAdd~1updateFreightsrequest'
       - name: Content-Type
         in: header
         required: true
@@ -358,6 +384,42 @@ paths:
         x-testEnabled: true
         x-testName: Send freight to carriers
         x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /freights:
+    patch:
+      description: 'TODO: Add Description'
+      summary: Publish freights
+      tags:
+      - Misc
+      operationId: Publish freights
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/PublishFreightsrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -814,9 +876,6 @@ definitions:
       id:
         description: ''
         type: string
-      shipment_request_id:
-        description: ''
-        type: string
       number:
         description: ''
         type: string
@@ -857,7 +916,6 @@ definitions:
           $ref: '#/definitions/Load37'
     required:
     - id
-    - shipment_request_id
     - number
     - publish_date
     - publish_type
@@ -1017,6 +1075,68 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Freight'
+          $ref: '#/definitions/Freight49'
     required:
     - freights
+  Freight49:
+    title: Freight49
+    type: object
+    properties:
+      id:
+        description: ''
+        type: string
+      shipment_request_id:
+        description: ''
+        type: string
+      number:
+        description: ''
+        type: string
+      publish_date:
+        description: ''
+        type: string
+      publish_type:
+        description: ''
+        type: string
+      send_to_stock:
+        description: ''
+        type: boolean
+      type:
+        description: ''
+        type: string
+      status:
+        description: ''
+        type: string
+      carriers:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Carrier'
+      spots:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Spot'
+      payment:
+        $ref: '#/definitions/Payment'
+      decision_date:
+        description: ''
+        type: string
+      loads:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Load37'
+    required:
+    - id
+    - shipment_request_id
+    - number
+    - publish_date
+    - publish_type
+    - send_to_stock
+    - type
+    - status
+    - carriers
+    - spots
+    - payment
+    - decision_date
+    - loads
