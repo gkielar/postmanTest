@@ -440,8 +440,7 @@ definitions:
         description: ''
         type: string
       ready_to_send:
-        description: ''
-        type: string
+        $ref: '#/definitions/ReadyToSend'
       freights:
         description: ''
         type: array
@@ -465,6 +464,19 @@ definitions:
     - freights
     - spots
     - loads
+  ReadyToSend:
+    title: ReadyToSend
+    type: object
+    properties:
+      begin:
+        description: ''
+        type: string
+      end:
+        description: ''
+        type: string
+    required:
+    - begin
+    - end
   Spot:
     title: Spot
     type: object
@@ -809,7 +821,7 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Load19'
+          $ref: '#/definitions/Load20'
     required:
     - name
     - number
@@ -818,8 +830,8 @@ definitions:
     - freights
     - spots
     - loads
-  Load19:
-    title: Load19
+  Load20:
+    title: Load20
     type: object
     properties:
       name:
@@ -913,7 +925,7 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Load37'
+          $ref: '#/definitions/Load38'
     required:
     - id
     - number
@@ -966,8 +978,8 @@ definitions:
     required:
     - value
     - currency
-  Load37:
-    title: Load37
+  Load38:
+    title: Load38
     type: object
     properties:
       shipment_request_load_id:
@@ -1026,11 +1038,11 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Freight45'
+          $ref: '#/definitions/Freight46'
     required:
     - freights
-  Freight45:
-    title: Freight45
+  Freight46:
+    title: Freight46
     type: object
     properties:
       id:
@@ -1044,21 +1056,21 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Carrier46'
+          $ref: '#/definitions/Carrier47'
     required:
     - id
     - status
     - carriers
-  Carrier46:
-    title: Carrier46
+  Carrier47:
+    title: Carrier47
     type: object
     properties:
       company:
-        $ref: '#/definitions/Company47'
+        $ref: '#/definitions/Company48'
     required:
     - company
-  Company47:
-    title: Company47
+  Company48:
+    title: Company48
     type: object
     properties:
       id:
@@ -1075,11 +1087,11 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Freight49'
+          $ref: '#/definitions/Freight50'
     required:
     - freights
-  Freight49:
-    title: Freight49
+  Freight50:
+    title: Freight50
     type: object
     properties:
       id:
@@ -1125,7 +1137,7 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Load37'
+          $ref: '#/definitions/Load38'
     required:
     - id
     - shipment_request_id
