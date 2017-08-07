@@ -6,8 +6,8 @@ info:
   license:
     name: MIT
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
-host: example.com
-basePath: /
+host: shipment-request.loc
+basePath: /api/rest/v1
 schemes:
 - http
 consumes:
@@ -15,42 +15,6 @@ consumes:
 produces:
 - application/json
 paths:
-  /api/rest/v1/shipment-requests:
-    post:
-      description: 'TODO: Add Description'
-      summary: Add New ShipmentRequests
-      tags:
-      - Misc
-      operationId: Add New ShipmentRequests
-      produces:
-      - application/json
-      parameters:
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/AddNewShipmentrequestsrequest'
-      - name: Content-Type
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security: []
-      x-unitTests: []
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
   /shipment-requests:
     get:
       description: 'TODO: Add Description'
@@ -87,6 +51,41 @@ paths:
         x-testEnabled: true
         x-testName: Get All User ShipmentRequests
         x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+    post:
+      description: 'TODO: Add Description'
+      summary: Add New ShipmentRequests
+      tags:
+      - Misc
+      operationId: Add New ShipmentRequests
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/AddNewShipmentrequestsrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -284,7 +283,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /api/rest/v1/shipment-requests/323:
+  /323:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
