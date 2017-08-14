@@ -6,8 +6,8 @@ info:
   license:
     name: MIT
     url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
-host: shipment-request.loc
-basePath: /api/rest/v1
+host: example.com
+basePath: /
 schemes:
 - http
 consumes:
