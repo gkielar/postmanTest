@@ -1122,21 +1122,11 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Carrier'
-      spots:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Spot'
       payment:
         $ref: '#/definitions/Payment'
       decision_date:
         description: ''
         type: string
-      loads:
-        description: ''
-        type: array
-        items:
-          $ref: '#/definitions/Load38'
     required:
     - id
     - shipment_request_id
@@ -1147,7 +1137,5 @@ definitions:
     - type
     - status
     - carriers
-    - spots
     - payment
     - decision_date
-    - loads
