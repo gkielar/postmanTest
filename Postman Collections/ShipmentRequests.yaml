@@ -91,6 +91,115 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+    patch:
+      description: 'TODO: Add Description'
+      summary: Edit SR Collection
+      tags:
+      - Misc
+      operationId: Edit SR Collection
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/EditSrCollectionrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: PATCH
+          uri: /shipment-requests
+          headers:
+            Content-Type: application/json
+            Authorization: '{{auth_token}}'
+          body: >-
+            {
+              "ids": [
+                1,
+                2
+              ],
+              "data": {
+              	 "ready_to_send": {
+            		"begin": "2017-08-30T10:55:42+0100",
+            		"end" : "2017-08-30T10:55:42+0100"
+            	  },
+              	  "spots": [
+            	   {
+                  "name": "Lidl",
+                  "type": "unloading",
+                  "timespans": {
+                    "begin": "2018-07-20T10:47:42+0100",
+                    "end": "2018-07-20T10:47:42+0100"
+                  },
+                  "place": {
+                    "address": {
+                      "locality": "Monachium",
+                      "postal_code": "53-342",
+                      "country": "DE",
+                      "street": "Zwidnicka",
+                      "number": "1"
+                    },
+                    "coordinates": {
+                      "latitude": -90.0,
+                      "longitude": -180.0
+                    }
+                  }
+                },
+                   {
+                  "name": "Lidl",
+                  "type": "loading",
+                  "timespans": {
+                    "begin": "2018-07-20T10:47:42+0100",
+                    "end": "2018-07-20T10:47:42+0100"
+                  },
+                  "place": {
+                    "address": {
+                      "locality": "Monachium",
+                      "postal_code": "53-342",
+                      "country": "DE",
+                      "street": "Zwidnicka",
+                      "number": "1"
+                    },
+                    "coordinates": {
+                      "latitude": -90.0,
+                      "longitude": -180.0
+                    }
+                  }
+                }
+              ]
+              }
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Edit SR Collection
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
   /freight-shipper:
     get:
       description: 'TODO: Add Description'
@@ -383,42 +492,6 @@ paths:
         x-testEnabled: true
         x-testName: Send freight to carriers
         x-testDescription: 'TODO: Add Description'
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
-  /freights:
-    patch:
-      description: 'TODO: Add Description'
-      summary: Publish freights
-      tags:
-      - Misc
-      operationId: Publish freights
-      produces:
-      - application/json
-      parameters:
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/PublishFreightsrequest'
-      - name: Content-Type
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security: []
-      x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -1078,64 +1151,71 @@ definitions:
         format: int32
     required:
     - id
-  PublishFreightsrequest:
-    title: Publish freightsRequest
+  EditSrCollectionrequest:
+    title: Edit SR CollectionRequest
+    example:
+      ids:
+      - 1
+      - 2
+      data:
+        ready_to_send:
+          begin: 2017-08-30T09:55:42.0000000+00:00
+          end: 2017-08-30T09:55:42.0000000+00:00
+        spots:
+        - name: Lidl
+          type: unloading
+          timespans:
+            begin: 2018-07-20T09:47:42.0000000+00:00
+            end: 2018-07-20T09:47:42.0000000+00:00
+          place:
+            address:
+              locality: Monachium
+              postal_code: 53-342
+              country: DE
+              street: Zwidnicka
+              number: 1
+            coordinates:
+              latitude: -90
+              longitude: -180
+        - name: Lidl
+          type: loading
+          timespans:
+            begin: 2018-07-20T09:47:42.0000000+00:00
+            end: 2018-07-20T09:47:42.0000000+00:00
+          place:
+            address:
+              locality: Monachium
+              postal_code: 53-342
+              country: DE
+              street: Zwidnicka
+              number: 1
+            coordinates:
+              latitude: -90
+              longitude: -180
     type: object
     properties:
-      freights:
+      ids:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Freight50'
+          type: integer
+          format: int32
+      data:
+        $ref: '#/definitions/Data'
     required:
-    - freights
-  Freight50:
-    title: Freight50
+    - ids
+    - data
+  Data:
+    title: Data
     type: object
     properties:
-      id:
-        description: ''
-        type: string
-      shipment_request_id:
-        description: ''
-        type: string
-      number:
-        description: ''
-        type: string
-      publish_date:
-        description: ''
-        type: string
-      publish_type:
-        description: ''
-        type: string
-      send_to_stock:
-        description: ''
-        type: boolean
-      type:
-        description: ''
-        type: string
-      status:
-        description: ''
-        type: string
-      carriers:
+      ready_to_send:
+        $ref: '#/definitions/ReadyToSend'
+      spots:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Carrier'
-      payment:
-        $ref: '#/definitions/Payment'
-      decision_date:
-        description: ''
-        type: string
+          $ref: '#/definitions/Spot'
     required:
-    - id
-    - shipment_request_id
-    - number
-    - publish_date
-    - publish_type
-    - send_to_stock
-    - type
-    - status
-    - carriers
-    - payment
-    - decision_date
+    - ready_to_send
+    - spots
