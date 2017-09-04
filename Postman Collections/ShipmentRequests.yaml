@@ -456,6 +456,60 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+  /api/rest/v1/shipment-requests:
+    patch:
+      description: 'TODO: Add Description'
+      summary: Edit SR Collection(local)
+      tags:
+      - Misc
+      operationId: Edit SR Collection(local)
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/EditSrCollection(local)request'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: PATCH
+          uri: /api/rest/v1/shipment-requests
+          headers:
+            Content-Type: application/json
+            Authorization: '{{auth_token}}'
+          body: "{\n	\"ids\":[\n		1,\n		2\n	],\n	\"data\": {\n		\"spots\": [\n			{\n				\"name\":\"Logintrans Sp. z o. o.2\",\n				\"type\":\"loading\",\n				\"place\": {\n					\"address\": {\n						\"locality\": \"WrocBaw\",\n						\"postal_code\": \"52-200\",\n						\"country\": \"PL\",\n						\"street\": \"Chabrowa\",\n						\"number\": \"4\"\n						\n					},\n					\"coordinates\": {\n						\"latitude\": -90, \n						\"longitude\": -180\n					}\n				}\n			}\n		]\n	}\n}\n"
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Edit SR Collection(local)
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
 definitions:
   AddNewShipmentrequestsrequest:
     title: Add New ShipmentRequestsRequest
@@ -1178,3 +1232,89 @@ definitions:
     required:
     - ready_to_send
     - spots
+  EditSrCollection(local)request:
+    title: Edit SR Collection(local)Request
+    example:
+      ids:
+      - 1
+      - 2
+      data:
+        spots:
+        - name: Logintrans Sp. z o. o.2
+          type: loading
+          place:
+            address:
+              locality: WrocBaw
+              postal_code: 52-200
+              country: PL
+              street: Chabrowa
+              number: 4
+            coordinates:
+              latitude: -90
+              longitude: -180
+    type: object
+    properties:
+      ids:
+        description: ''
+        type: array
+        items:
+          type: integer
+          format: int32
+      data:
+        $ref: '#/definitions/Data58'
+    required:
+    - ids
+    - data
+  Data58:
+    title: Data58
+    type: object
+    properties:
+      spots:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Spot59'
+    required:
+    - spots
+  Spot59:
+    title: Spot59
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      type:
+        description: ''
+        type: string
+      place:
+        $ref: '#/definitions/Place60'
+    required:
+    - name
+    - type
+    - place
+  Place60:
+    title: Place60
+    type: object
+    properties:
+      address:
+        $ref: '#/definitions/Address'
+      coordinates:
+        $ref: '#/definitions/Coordinates62'
+    required:
+    - address
+    - coordinates
+  Coordinates62:
+    title: Coordinates62
+    type: object
+    properties:
+      latitude:
+        description: ''
+        type: integer
+        format: int32
+      longitude:
+        description: ''
+        type: integer
+        format: int32
+    required:
+    - latitude
+    - longitude
