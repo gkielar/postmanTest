@@ -351,7 +351,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /323:
+  /freights:
     patch:
       description: 'TODO: Add Description'
       summary: SR add/update Freights
