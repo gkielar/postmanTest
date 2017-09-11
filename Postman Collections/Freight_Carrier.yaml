@@ -45,25 +45,7 @@ paths:
         200:
           description: ''
       security: []
-      x-unitTests:
-      - request:
-          method: POST
-          uri: /offers
-          headers:
-            Content-Type: application/json
-            Authorization: '{{auth_token}}'
-          body: "{\n  \"payment\" : {\n    \"price\" : {\n      \"value\" : 1500,\n      \"currency\" : \"PLN\"\n    }\n  },\n  \"freight\": 151,\n  \"comment\": \"sale\",\n  \"version\" : 1,\n  \"valid_to\": \"2019-04-15T10:47:42+0100\"\n  \n}"
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Add New Offer
-        x-testDescription: 'TODO: Add Description'
+      x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -183,15 +165,6 @@ paths:
 definitions:
   AddNewOfferrequest:
     title: Add New OfferRequest
-    example:
-      payment:
-        price:
-          value: 1500
-          currency: PLN
-      freight: 151
-      comment: sale
-      version: 1
-      valid_to: 2019-04-15T09:47:42.0000000+00:00
     type: object
     properties:
       payment:
@@ -207,15 +180,11 @@ definitions:
         description: ''
         type: integer
         format: int32
-      valid_to:
-        description: ''
-        type: string
     required:
     - payment
     - freight
     - comment
     - version
-    - valid_to
   Payment:
     title: Payment
     type: object
