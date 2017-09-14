@@ -200,7 +200,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/15:
+  /shipment-requests/919:
     put:
       description: 'TODO: Add Description'
       summary: Edit ShipmentReqests
@@ -230,122 +230,7 @@ paths:
         200:
           description: ''
       security: []
-      x-unitTests:
-      - request:
-          method: PUT
-          uri: /shipment-requests/15
-          headers:
-            Content-Type: application/json
-            Authorization: '{{auth_token}}'
-          body: >-
-            {
-              "name": "13.07.2017 2005",
-              "number": "123456789",
-              "status": "in_progress",
-              "ready_to_send": "2018-04-11T10:47:42+0100",
-              "freights": [],
-              "spots": [
-                {
-                  "name": "Hurtownia",
-                  "type": "loading",
-                  "timespans": {
-                    "begin": "2018-04-15T10:47:42+0100",
-                    "end": "2018-04-15T10:47:42+0100"
-                  },
-                  "place": {
-                    "address": {
-                      "locality": "Munchen",
-                      "postal_code": "80331",
-                      "country": "DE",
-                      "street": "Ulica",
-                      "number": "2"
-                    },
-                    "coordinates": {
-                      "latitude": -90.0,
-                      "longitude": -180.0
-                    }
-                  }
-                },
-                {
-                  "name": "Lidl",
-                  "type": "unloading",
-                  "timespans": {
-                    "begin": "2018-04-15T10:47:42+0100",
-                    "end": "2018-04-15T10:47:42+0100"
-                  },
-                  "place": {
-                    "address": {
-                      "locality": "WrocBaw",
-                      "postal_code": "50-064",
-                      "country": "PL",
-                      "street": "Zwidnicka",
-                      "number": "1"
-                    },
-                    "coordinates": {
-                      "latitude": -90.0,
-                      "longitude": -180.0
-                    }
-                  }
-                }
-              ],
-              "loads": [
-                {
-                  "name": "Chemicals",
-                  "description": "Test",
-                  "type_of_load": "box",
-                  "weight": {
-                    "value": 50,
-                    "unit_code": "kg"
-                  },
-                  "height": {
-                    "value": 26,
-                    "unit_code": "kg"
-                  },
-                  "width": {
-                    "value": 16,
-                    "unit_code": "kg"
-                  },
-                  "length": {
-                    "value": 16,
-                    "unit_code": "kg"
-                  },
-                  "volume": {
-                    "value": 16,
-                    "unit_code": "kg"
-                  },
-                  "amount": 50000,
-                  "requirements": {
-                    "required_adr_classes": [
-                      "1"
-                    ],
-                    "required_ways_of_loading": [
-                      "side"
-                    ],
-                    "required_truck_bodies": [
-                      "20"
-                    ],
-                    "is_truck_crane_required": true,
-                    "is_lift_required": false,
-                    "is_for_clearance": true,
-                    "is_tir_cable_required": true,
-                    "is_ftl": true,
-                    "is_tracking_system_required": true,
-                    "shipping_remarks": "brak dodatkowych wymagaD"
-                  }
-                }
-              ]
-            }
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Edit ShipmentReqests
-        x-testDescription: 'TODO: Add Description'
+      x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -807,77 +692,6 @@ definitions:
     - shipping_remarks
   EditShipmentreqestsrequest:
     title: Edit ShipmentReqestsRequest
-    example:
-      name: 13.07.2017 2005
-      number: 123456789
-      status: in_progress
-      ready_to_send: 2018-04-11T09:47:42.0000000+00:00
-      freights: []
-      spots:
-      - name: Hurtownia
-        type: loading
-        timespans:
-          begin: 2018-04-15T09:47:42.0000000+00:00
-          end: 2018-04-15T09:47:42.0000000+00:00
-        place:
-          address:
-            locality: Munchen
-            postal_code: 80331
-            country: DE
-            street: Ulica
-            number: 2
-          coordinates:
-            latitude: -90
-            longitude: -180
-      - name: Lidl
-        type: unloading
-        timespans:
-          begin: 2018-04-15T09:47:42.0000000+00:00
-          end: 2018-04-15T09:47:42.0000000+00:00
-        place:
-          address:
-            locality: WrocBaw
-            postal_code: 50-064
-            country: PL
-            street: Zwidnicka
-            number: 1
-          coordinates:
-            latitude: -90
-            longitude: -180
-      loads:
-      - name: Chemicals
-        description: Test
-        type_of_load: box
-        weight:
-          value: 50
-          unit_code: kg
-        height:
-          value: 26
-          unit_code: kg
-        width:
-          value: 16
-          unit_code: kg
-        length:
-          value: 16
-          unit_code: kg
-        volume:
-          value: 16
-          unit_code: kg
-        amount: 50000
-        requirements:
-          required_adr_classes:
-          - 1
-          required_ways_of_loading:
-          - side
-          required_truck_bodies:
-          - 20
-          is_truck_crane_required: true
-          is_lift_required: false
-          is_for_clearance: true
-          is_tir_cable_required: true
-          is_ftl: true
-          is_tracking_system_required: true
-          shipping_remarks: brak dodatkowych wymagaD
     type: object
     properties:
       name:
@@ -890,8 +704,7 @@ definitions:
         description: ''
         type: string
       ready_to_send:
-        description: ''
-        type: string
+        $ref: '#/definitions/ReadyToSend'
       freights:
         description: ''
         type: array
@@ -901,12 +714,12 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Spot'
+          $ref: '#/definitions/Spot16'
       loads:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Load20'
+          $ref: '#/definitions/Load21'
     required:
     - name
     - number
@@ -915,10 +728,64 @@ definitions:
     - freights
     - spots
     - loads
-  Load20:
-    title: Load20
+  Spot16:
+    title: Spot16
     type: object
     properties:
+      id:
+        description: ''
+        type: integer
+        format: int32
+      name:
+        description: ''
+        type: string
+      type:
+        description: ''
+        type: string
+      timespans:
+        $ref: '#/definitions/Timespans'
+      place:
+        $ref: '#/definitions/Place18'
+    required:
+    - id
+    - name
+    - type
+    - timespans
+    - place
+  Place18:
+    title: Place18
+    type: object
+    properties:
+      address:
+        $ref: '#/definitions/Address'
+      coordinates:
+        $ref: '#/definitions/Coordinates20'
+    required:
+    - address
+    - coordinates
+  Coordinates20:
+    title: Coordinates20
+    type: object
+    properties:
+      latitude:
+        description: ''
+        type: integer
+        format: int32
+      longitude:
+        description: ''
+        type: integer
+        format: int32
+    required:
+    - latitude
+    - longitude
+  Load21:
+    title: Load21
+    type: object
+    properties:
+      id:
+        description: ''
+        type: integer
+        format: int32
       name:
         description: ''
         type: string
@@ -945,6 +812,7 @@ definitions:
       requirements:
         $ref: '#/definitions/Requirements'
     required:
+    - id
     - name
     - description
     - type_of_load
@@ -1010,7 +878,7 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Load38'
+          $ref: '#/definitions/Load39'
     required:
     - id
     - number
@@ -1063,8 +931,8 @@ definitions:
     required:
     - value
     - currency
-  Load38:
-    title: Load38
+  Load39:
+    title: Load39
     type: object
     properties:
       shipment_request_load_id:
@@ -1123,11 +991,11 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Freight46'
+          $ref: '#/definitions/Freight47'
     required:
     - freights
-  Freight46:
-    title: Freight46
+  Freight47:
+    title: Freight47
     type: object
     properties:
       id:
@@ -1141,21 +1009,21 @@ definitions:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Carrier47'
+          $ref: '#/definitions/Carrier48'
     required:
     - id
     - status
     - carriers
-  Carrier47:
-    title: Carrier47
+  Carrier48:
+    title: Carrier48
     type: object
     properties:
       company:
-        $ref: '#/definitions/Company48'
+        $ref: '#/definitions/Company49'
     required:
     - company
-  Company48:
-    title: Company48
+  Company49:
+    title: Company49
     type: object
     properties:
       id:
@@ -1261,23 +1129,23 @@ definitions:
           type: integer
           format: int32
       data:
-        $ref: '#/definitions/Data58'
+        $ref: '#/definitions/Data59'
     required:
     - ids
     - data
-  Data58:
-    title: Data58
+  Data59:
+    title: Data59
     type: object
     properties:
       spots:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Spot59'
+          $ref: '#/definitions/Spot60'
     required:
     - spots
-  Spot59:
-    title: Spot59
+  Spot60:
+    title: Spot60
     type: object
     properties:
       name:
@@ -1287,34 +1155,8 @@ definitions:
         description: ''
         type: string
       place:
-        $ref: '#/definitions/Place60'
+        $ref: '#/definitions/Place18'
     required:
     - name
     - type
     - place
-  Place60:
-    title: Place60
-    type: object
-    properties:
-      address:
-        $ref: '#/definitions/Address'
-      coordinates:
-        $ref: '#/definitions/Coordinates62'
-    required:
-    - address
-    - coordinates
-  Coordinates62:
-    title: Coordinates62
-    type: object
-    properties:
-      latitude:
-        description: ''
-        type: integer
-        format: int32
-      longitude:
-        description: ''
-        type: integer
-        format: int32
-    required:
-    - latitude
-    - longitude
