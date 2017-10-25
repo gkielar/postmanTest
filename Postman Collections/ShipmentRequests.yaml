@@ -290,6 +290,160 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+  /shipment-requests/69:
+    patch:
+      description: 'TODO: Add Description'
+      summary: Patch ShipmentReqests
+      tags:
+      - Misc
+      operationId: Patch ShipmentReqests
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/PatchShipmentreqestsrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: PATCH
+          uri: /shipment-requests/69
+          headers:
+            Content-Type: application/json
+            Authorization: '{{auth_token}}'
+          body: >-
+            {
+              "name": "13.07.2017 2005",
+              "number": "123456789",
+              "status": "in_progress",
+              "ready_to_send": {
+                "begin": "2017-10-19T00:00:00+0200",
+                "end" : "2017-10-19T00:00:00+0200"
+              },
+              "freights": [],
+              "spots": [
+                {
+                  "name": "Hurtownia",
+                  "type": "loading",
+                  "timespans": {
+                    "begin": "2017-10-19T00:00:00+0200",
+                    "end": "2017-10-19T00:00:00+0200"
+                  },
+                  "place": {
+                    "address": {
+                      "locality": "Munchen",
+                      "postal_code": "80331",
+                      "country": "DE",
+                      "street": "Ulica",
+                      "number": "2"
+                    },
+                    "coordinates": {
+                      "latitude": -90.0,
+                      "longitude": -180.0
+                    }
+                  }
+                },
+                {
+                  "name": "Lidl",
+                  "type": "unloading",
+                  "timespans": {
+                    "begin": "2017-10-19T00:00:00+0200",
+                    "end": "2017-10-19T00:00:00+0200"
+                  },
+                  "place": {
+                    "address": {
+                      "locality": "WrocBaw",
+                      "postal_code": "50-064",
+                      "country": "PL",
+                      "street": "Zwidnicka",
+                      "number": "1"
+                    },
+                    "coordinates": {
+                      "latitude": -90.0,
+                      "longitude": -180.0
+                    }
+                  }
+                }
+              ],
+              "loads": [
+                {
+                  "name": "Chemicals",
+                  "description": "Test",
+                  "type_of_load": "box",
+                  "weight": {
+                    "value": 50,
+                    "unit_code": "kg"
+                  },
+                  "height": {
+                    "value": 26,
+                    "unit_code": "kg"
+                  },
+                  "width": {
+                    "value": 16,
+                    "unit_code": "kg"
+                  },
+                  "length": {
+                    "value": 16,
+                    "unit_code": "kg"
+                  },
+                  "volume": {
+                    "value": 16,
+                    "unit_code": "kg"
+                  },
+                  "amount": 50000,
+                  "requirements": {
+                    "required_adr_classes": [
+                      "1"
+                    ],
+                    "required_ways_of_loading": [
+                      "side"
+                    ],
+                    "required_truck_bodies": [
+                      "20"
+                    ],
+                    "is_truck_crane_required": true,
+                    "is_lift_required": false,
+                    "is_for_clearance": true,
+                    "is_tir_cable_required": true,
+                    "is_ftl": true,
+                    "is_tracking_system_required": true,
+                    "shipping_remarks": "brak dodatkowych wymagaD"
+                  }
+                }
+              ]
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Patch ShipmentReqests
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
 definitions:
   AddNewShipmentrequestsrequest:
     title: Add New ShipmentRequestsRequest
@@ -846,3 +1000,154 @@ definitions:
     - name
     - type
     - place
+  PatchShipmentreqestsrequest:
+    title: Patch ShipmentReqestsRequest
+    example:
+      name: 13.07.2017 2005
+      number: 123456789
+      status: in_progress
+      ready_to_send:
+        begin: 2017-10-18T22:00:00.0000000+00:00
+        end: 2017-10-18T22:00:00.0000000+00:00
+      freights: []
+      spots:
+      - name: Hurtownia
+        type: loading
+        timespans:
+          begin: 2017-10-18T22:00:00.0000000+00:00
+          end: 2017-10-18T22:00:00.0000000+00:00
+        place:
+          address:
+            locality: Munchen
+            postal_code: 80331
+            country: DE
+            street: Ulica
+            number: 2
+          coordinates:
+            latitude: -90
+            longitude: -180
+      - name: Lidl
+        type: unloading
+        timespans:
+          begin: 2017-10-18T22:00:00.0000000+00:00
+          end: 2017-10-18T22:00:00.0000000+00:00
+        place:
+          address:
+            locality: WrocBaw
+            postal_code: 50-064
+            country: PL
+            street: Zwidnicka
+            number: 1
+          coordinates:
+            latitude: -90
+            longitude: -180
+      loads:
+      - name: Chemicals
+        description: Test
+        type_of_load: box
+        weight:
+          value: 50
+          unit_code: kg
+        height:
+          value: 26
+          unit_code: kg
+        width:
+          value: 16
+          unit_code: kg
+        length:
+          value: 16
+          unit_code: kg
+        volume:
+          value: 16
+          unit_code: kg
+        amount: 50000
+        requirements:
+          required_adr_classes:
+          - 1
+          required_ways_of_loading:
+          - side
+          required_truck_bodies:
+          - 20
+          is_truck_crane_required: true
+          is_lift_required: false
+          is_for_clearance: true
+          is_tir_cable_required: true
+          is_ftl: true
+          is_tracking_system_required: true
+          shipping_remarks: brak dodatkowych wymagaD
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      number:
+        description: ''
+        type: string
+      status:
+        description: ''
+        type: string
+      ready_to_send:
+        $ref: '#/definitions/ReadyToSend'
+      freights:
+        description: ''
+        type: array
+        items:
+          type: string
+      spots:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Spot'
+      loads:
+        description: ''
+        type: array
+        items:
+          $ref: '#/definitions/Load49'
+    required:
+    - name
+    - number
+    - status
+    - ready_to_send
+    - freights
+    - spots
+    - loads
+  Load49:
+    title: Load49
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      description:
+        description: ''
+        type: string
+      type_of_load:
+        description: ''
+        type: string
+      weight:
+        $ref: '#/definitions/Weight'
+      height:
+        $ref: '#/definitions/Height'
+      width:
+        $ref: '#/definitions/Width'
+      length:
+        $ref: '#/definitions/Length'
+      volume:
+        $ref: '#/definitions/Volume'
+      amount:
+        description: ''
+        type: integer
+        format: int32
+      requirements:
+        $ref: '#/definitions/Requirements'
+    required:
+    - name
+    - description
+    - type_of_load
+    - weight
+    - height
+    - width
+    - length
+    - volume
+    - amount
+    - requirements
