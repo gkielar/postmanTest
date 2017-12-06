@@ -21,7 +21,7 @@ paths:
       summary: Get All User ShipmentRequests
       tags:
       - Misc
-      operationId: Get All User ShipmentRequests
+      operationId: ShipmentRequestsGet
       produces:
       - application/json
       parameters:
@@ -61,7 +61,7 @@ paths:
       summary: Add New ShipmentRequests
       tags:
       - Misc
-      operationId: Add New ShipmentRequests
+      operationId: ShipmentRequestsPost
       produces:
       - application/json
       parameters:
@@ -96,7 +96,7 @@ paths:
       summary: Edit SR Collection
       tags:
       - Misc
-      operationId: Edit SR Collection
+      operationId: ShipmentRequestsPatch
       produces:
       - application/json
       parameters:
@@ -206,7 +206,7 @@ paths:
       summary: Edit ShipmentReqests
       tags:
       - Misc
-      operationId: Edit ShipmentReqests
+      operationId: ShipmentRequests919Put
       produces:
       - application/json
       parameters:
@@ -242,7 +242,7 @@ paths:
       summary: Edit SR Collection(local)
       tags:
       - Misc
-      operationId: Edit SR Collection(local)
+      operationId: ApiRestV1ShipmentRequestsPatch
       produces:
       - application/json
       parameters:
@@ -296,7 +296,7 @@ paths:
       summary: Patch ShipmentReqests
       tags:
       - Misc
-      operationId: Patch ShipmentReqests
+      operationId: ShipmentRequests69Patch
       produces:
       - application/json
       parameters:
