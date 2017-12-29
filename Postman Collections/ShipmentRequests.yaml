@@ -463,9 +463,6 @@ definitions:
         type: string
       ready_to_send:
         $ref: '#/definitions/ReadyToSend'
-        example:
-          begin: 2018-08-31T09:47:42.0000000+00:00
-          end: 2018-08-31T09:47:42.0000000+00:00
       freights:
         description: ''
         example: []
@@ -569,21 +566,8 @@ definitions:
         type: string
       timespans:
         $ref: '#/definitions/Timespans'
-        example:
-          begin: 2018-07-20T09:47:42.0000000+00:00
-          end: 2018-07-20T09:47:42.0000000+00:00
       place:
         $ref: '#/definitions/Place'
-        example:
-          address:
-            locality: Opole
-            postal_code: 42-256
-            country: PL
-            street: Street
-            number: 2
-          coordinates:
-            latitude: -90
-            longitude: -180
     required:
     - name
     - type
@@ -623,17 +607,8 @@ definitions:
     properties:
       address:
         $ref: '#/definitions/Address'
-        example:
-          locality: Opole
-          postal_code: 42-256
-          country: PL
-          street: Street
-          number: 2
       coordinates:
         $ref: '#/definitions/Coordinates'
-        example:
-          latitude: -90
-          longitude: -180
     required:
     - address
     - coordinates
@@ -711,50 +686,20 @@ definitions:
         type: string
       weight:
         $ref: '#/definitions/Weight'
-        example:
-          value: 33
-          unit_code: t
       height:
         $ref: '#/definitions/Height'
-        example:
-          value: 26
-          unit_code: m
       width:
         $ref: '#/definitions/Width'
-        example:
-          value: 16
-          unit_code: m
       length:
         $ref: '#/definitions/Length'
-        example:
-          value: 16
-          unit_code: m
       volume:
         $ref: '#/definitions/Volume'
-        example:
-          value: 16
-          unit_code: m3
       amount:
         description: ''
         example: 50000
         type: string
       requirements:
         $ref: '#/definitions/Requirements'
-        example:
-          required_adr_classes:
-          - 1
-          required_ways_of_loading:
-          - side
-          required_truck_bodies:
-          - 20
-          - 16
-          is_truck_crane_required: true
-          is_lift_required: false
-          is_for_clearance: true
-          is_tir_cable_required: true
-          is_ftl: true
-          is_tracking_system_required: true
-          shipping_remarks: brak dodatkowych wymagaD
     required:
     - name
     - description
@@ -959,9 +904,6 @@ definitions:
         type: string
       ready_to_send:
         $ref: '#/definitions/ReadyToSend'
-        example:
-          begin: 2017-09-15T11:00:00.0000000+00:00
-          end: 2017-09-15T11:00:00.0000000+00:00
       freights:
         description: ''
         example: []
@@ -1087,21 +1029,8 @@ definitions:
         type: string
       timespans:
         $ref: '#/definitions/Timespans'
-        example:
-          begin: null
-          end: null
       place:
         $ref: '#/definitions/Place18'
-        example:
-          address:
-            locality: ytuytyut
-            postal_code: 777
-            country: PL
-            street: uytuytuyt
-            number: 76
-          coordinates:
-            latitude: -90
-            longitude: -180
     required:
     - id
     - name
@@ -1124,17 +1053,8 @@ definitions:
     properties:
       address:
         $ref: '#/definitions/Address'
-        example:
-          locality: ytuytyut
-          postal_code: 777
-          country: PL
-          street: uytuytuyt
-          number: 76
       coordinates:
         $ref: '#/definitions/Coordinates20'
-        example:
-          latitude: -90
-          longitude: -180
     required:
     - address
     - coordinates
@@ -1212,29 +1132,14 @@ definitions:
         type: string
       weight:
         $ref: '#/definitions/Weight'
-        example:
-          value: 4
-          unit_code: t
       height:
         $ref: '#/definitions/Height'
-        example:
-          value: 5
-          unit_code: m
       width:
         $ref: '#/definitions/Width'
-        example:
-          value: 2
-          unit_code: m
       length:
         $ref: '#/definitions/Length'
-        example:
-          value: 8
-          unit_code: m
       volume:
         $ref: '#/definitions/Volume'
-        example:
-          value: 80
-          unit_code: m³
       amount:
         description: ''
         example: 3
@@ -1242,17 +1147,6 @@ definitions:
         format: int32
       requirements:
         $ref: '#/definitions/Requirements'
-        example:
-          required_adr_classes: []
-          required_ways_of_loading: []
-          required_truck_bodies: []
-          is_truck_crane_required: false
-          is_lift_required: false
-          is_for_clearance: false
-          is_tir_cable_required: false
-          is_ftl: false
-          is_tracking_system_required: false
-          shipping_remarks: ''
     required:
     - id
     - name
@@ -1319,41 +1213,6 @@ definitions:
           format: int32
       data:
         $ref: '#/definitions/Data'
-        example:
-          ready_to_send:
-            begin: 2017-08-30T09:55:42.0000000+00:00
-            end: 2017-08-30T09:55:42.0000000+00:00
-          spots:
-          - name: Lidl
-            type: unloading
-            timespans:
-              begin: 2018-07-20T09:47:42.0000000+00:00
-              end: 2018-07-20T09:47:42.0000000+00:00
-            place:
-              address:
-                locality: Monachium
-                postal_code: 53-342
-                country: DE
-                street: Zwidnicka
-                number: 1
-              coordinates:
-                latitude: -90
-                longitude: -180
-          - name: Lidl
-            type: loading
-            timespans:
-              begin: 2018-07-20T09:47:42.0000000+00:00
-              end: 2018-07-20T09:47:42.0000000+00:00
-            place:
-              address:
-                locality: Monachium
-                postal_code: 53-342
-                country: DE
-                street: Zwidnicka
-                number: 1
-              coordinates:
-                latitude: -90
-                longitude: -180
     required:
     - ids
     - data
@@ -1398,9 +1257,6 @@ definitions:
     properties:
       ready_to_send:
         $ref: '#/definitions/ReadyToSend'
-        example:
-          begin: 2017-08-30T09:55:42.0000000+00:00
-          end: 2017-08-30T09:55:42.0000000+00:00
       spots:
         description: ''
         example:
@@ -1473,20 +1329,6 @@ definitions:
           format: int32
       data:
         $ref: '#/definitions/Data37'
-        example:
-          spots:
-          - name: Logintrans Sp. z o. o.2
-            type: loading
-            place:
-              address:
-                locality: WrocBaw
-                postal_code: 52-200
-                country: PL
-                street: Chabrowa
-                number: 4
-              coordinates:
-                latitude: -90
-                longitude: -180
     required:
     - ids
     - data
@@ -1555,16 +1397,6 @@ definitions:
         type: string
       place:
         $ref: '#/definitions/Place18'
-        example:
-          address:
-            locality: WrocBaw
-            postal_code: 52-200
-            country: PL
-            street: Chabrowa
-            number: 4
-          coordinates:
-            latitude: -90
-            longitude: -180
     required:
     - name
     - type
@@ -1660,9 +1492,6 @@ definitions:
         type: string
       ready_to_send:
         $ref: '#/definitions/ReadyToSend'
-        example:
-          begin: 2017-10-18T22:00:00.0000000+00:00
-          end: 2017-10-18T22:00:00.0000000+00:00
       freights:
         description: ''
         example: []
@@ -1804,29 +1633,14 @@ definitions:
         type: string
       weight:
         $ref: '#/definitions/Weight'
-        example:
-          value: 50
-          unit_code: kg
       height:
         $ref: '#/definitions/Height'
-        example:
-          value: 26
-          unit_code: kg
       width:
         $ref: '#/definitions/Width'
-        example:
-          value: 16
-          unit_code: kg
       length:
         $ref: '#/definitions/Length'
-        example:
-          value: 16
-          unit_code: kg
       volume:
         $ref: '#/definitions/Volume'
-        example:
-          value: 16
-          unit_code: kg
       amount:
         description: ''
         example: 50000
@@ -1834,20 +1648,6 @@ definitions:
         format: int32
       requirements:
         $ref: '#/definitions/Requirements'
-        example:
-          required_adr_classes:
-          - 1
-          required_ways_of_loading:
-          - side
-          required_truck_bodies:
-          - 20
-          is_truck_crane_required: true
-          is_lift_required: false
-          is_for_clearance: true
-          is_tir_cable_required: true
-          is_ftl: true
-          is_tracking_system_required: true
-          shipping_remarks: brak dodatkowych wymagaD
     required:
     - name
     - description
