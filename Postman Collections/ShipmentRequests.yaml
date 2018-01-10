@@ -912,39 +912,6 @@ definitions:
           type: string
       spots:
         description: ''
-        example:
-        - id: 5510
-          name: yyutytuyt
-          type: loading
-          timespans:
-            begin: null
-            end: null
-          place:
-            address:
-              locality: ytuytyut
-              postal_code: 777
-              country: PL
-              street: uytuytuyt
-              number: 76
-            coordinates:
-              latitude: -90
-              longitude: -180
-        - id: 5511
-          name: uytuytytuyt
-          type: unloading
-          timespans:
-            begin: '"2017-09-16T11:00:00+00:00"'
-            end: '"2017-09-16T11:00:00+00:00"'
-          place:
-            address:
-              locality: uytuytuyt
-              postal_code: 666
-              country: PL
-              street: uytuytuyt
-              number: 777
-            coordinates:
-              latitude: -90
-              longitude: -180
         type: array
         items:
           $ref: '#/definitions/Spot16'
@@ -995,23 +962,6 @@ definitions:
     - loads
   Spot16:
     title: Spot16
-    example:
-      id: 5510
-      name: yyutytuyt
-      type: loading
-      timespans:
-        begin: null
-        end: null
-      place:
-        address:
-          locality: ytuytyut
-          postal_code: 777
-          country: PL
-          street: uytuytuyt
-          number: 76
-        coordinates:
-          latitude: -90
-          longitude: -180
     type: object
     properties:
       id:
@@ -1028,7 +978,7 @@ definitions:
         example: loading
         type: string
       timespans:
-        $ref: '#/definitions/Timespans'
+        $ref: '#/definitions/Timespans17'
       place:
         $ref: '#/definitions/Place18'
     required:
@@ -1037,6 +987,20 @@ definitions:
     - type
     - timespans
     - place
+  Timespans17:
+    title: Timespans17
+    example:
+      begin: 
+      end: 
+    type: object
+    properties:
+      begin:
+        description: ''
+      end:
+        description: ''
+    required:
+    - begin
+    - end
   Place18:
     title: Place18
     example:
