@@ -200,13 +200,13 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  /shipment-requests/919:
+  /shipment-requests/3345:
     put:
       description: ''
       summary: Edit ShipmentReqests
       tags:
       - Misc
-      operationId: ShipmentRequests919Put
+      operationId: ShipmentRequests3345Put
       produces:
       - application/json
       parameters:
@@ -892,103 +892,152 @@ definitions:
     properties:
       name:
         description: ''
-        example: Marcin2
-        type: string
-      number:
-        description: ''
-        example: Marcin2
+        example: AAAAAAAAABBBBBB
         type: string
       status:
         description: ''
         example: new
         type: string
-      ready_to_send:
-        $ref: '#/definitions/ReadyToSend'
-      freights:
-        description: ''
-        example: []
-        type: array
-        items:
-          type: string
       spots:
         description: ''
         type: array
         items:
-          $ref: '#/definitions/Spot16'
+          $ref: '#/definitions/Spot15'
+      ready_to_send:
+        $ref: '#/definitions/ReadyToSend'
+      number:
+        description: ''
+        example: AAAAAAAAABBBBBBBBB
+        type: string
       loads:
         description: ''
         example:
-        - id: 1894
-          name: peanut butter jelly sandwich
+        - id: 4437
+          name: ciastka
           description: ''
-          type_of_load: package
+          type_of_load: bag
           weight:
-            value: 4
+            value: 1
             unit_code: t
           height:
-            value: 5
+            value: 1
             unit_code: m
           width:
-            value: 2
+            value: 1
             unit_code: m
           length:
-            value: 8
+            value: 1
             unit_code: m
           volume:
-            value: 80
-            unit_code: m³
-          amount: 3
-          requirements:
-            required_adr_classes: []
-            required_ways_of_loading: []
-            required_truck_bodies: []
-            is_truck_crane_required: false
-            is_lift_required: false
-            is_for_clearance: false
-            is_tir_cable_required: false
-            is_ftl: false
-            is_tracking_system_required: false
-            shipping_remarks: ''
+            value: 1
+            unit_code: m3
+          amount: 1
         type: array
         items:
           $ref: '#/definitions/Load21'
     required:
     - name
-    - number
     - status
-    - ready_to_send
-    - freights
     - spots
+    - ready_to_send
+    - number
     - loads
-  Spot16:
-    title: Spot16
+  Spot15:
+    title: Spot15
     type: object
     properties:
       id:
         description: ''
-        example: 5510
+        example: 8331
         type: integer
         format: int32
       name:
         description: ''
-        example: yyutytuyt
+        example: test
         type: string
+      description:
+        description: ''
+        type: string
+      place:
+        $ref: '#/definitions/Place16'
       type:
         description: ''
         example: loading
         type: string
       timespans:
-        $ref: '#/definitions/Timespans17'
-      place:
-        $ref: '#/definitions/Place18'
+        $ref: '#/definitions/Timespans19'
     required:
     - id
     - name
+    - description
+    - place
     - type
     - timespans
-    - place
-  Timespans17:
-    title: Timespans17
+  Place16:
+    title: Place16
+    example:
+      address:
+        locality: WrocBaw
+        postal_code: 53-502
+        country: PL
+        street: test
+        number: 3
+        description: ''
+      coordinates:
+        latitude: 51.103674425194001
+        longitude: 17.020096475209002
+    type: object
+    properties:
+      address:
+        $ref: '#/definitions/Address17'
+      coordinates:
+        $ref: '#/definitions/Coordinates'
+    required:
+    - address
+    - coordinates
+  Address17:
+    title: Address17
+    example:
+      locality: WrocBaw
+      postal_code: 53-502
+      country: PL
+      street: test
+      number: 3
+      description: ''
+    type: object
+    properties:
+      locality:
+        description: ''
+        example: WrocBaw
+        type: string
+      postal_code:
+        description: ''
+        example: 53-502
+        type: string
+      country:
+        description: ''
+        example: PL
+        type: string
+      street:
+        description: ''
+        example: test
+        type: string
+      number:
+        description: ''
+        example: 3
+        type: string
+      description:
+        description: ''
+        type: string
+    required:
+    - locality
+    - postal_code
+    - country
+    - street
+    - number
+    - description
+  Timespans19:
+    title: Timespans19
     example:
       begin: 
       end: 
@@ -1001,98 +1050,46 @@ definitions:
     required:
     - begin
     - end
-  Place18:
-    title: Place18
-    example:
-      address:
-        locality: ytuytyut
-        postal_code: 777
-        country: PL
-        street: uytuytuyt
-        number: 76
-      coordinates:
-        latitude: -90
-        longitude: -180
-    type: object
-    properties:
-      address:
-        $ref: '#/definitions/Address'
-      coordinates:
-        $ref: '#/definitions/Coordinates20'
-    required:
-    - address
-    - coordinates
-  Coordinates20:
-    title: Coordinates20
-    example:
-      latitude: -90
-      longitude: -180
-    type: object
-    properties:
-      latitude:
-        description: ''
-        example: -90
-        type: integer
-        format: int32
-      longitude:
-        description: ''
-        example: -180
-        type: integer
-        format: int32
-    required:
-    - latitude
-    - longitude
   Load21:
     title: Load21
     example:
-      id: 1894
-      name: peanut butter jelly sandwich
+      id: 4437
+      name: ciastka
       description: ''
-      type_of_load: package
+      type_of_load: bag
       weight:
-        value: 4
+        value: 1
         unit_code: t
       height:
-        value: 5
+        value: 1
         unit_code: m
       width:
-        value: 2
+        value: 1
         unit_code: m
       length:
-        value: 8
+        value: 1
         unit_code: m
       volume:
-        value: 80
-        unit_code: m³
-      amount: 3
-      requirements:
-        required_adr_classes: []
-        required_ways_of_loading: []
-        required_truck_bodies: []
-        is_truck_crane_required: false
-        is_lift_required: false
-        is_for_clearance: false
-        is_tir_cable_required: false
-        is_ftl: false
-        is_tracking_system_required: false
-        shipping_remarks: ''
+        value: 1
+        unit_code: m3
+      amount: 1
     type: object
     properties:
       id:
         description: ''
-        example: 1894
+        example: 4437
         type: integer
         format: int32
       name:
         description: ''
-        example: peanut butter jelly sandwich
+        example: ciastka
         type: string
       description:
         description: ''
         type: string
       type_of_load:
         description: ''
-        example: package
+        example: bag
         type: string
       weight:
         $ref: '#/definitions/Weight'
@@ -1106,11 +1103,9 @@ definitions:
         $ref: '#/definitions/Volume'
       amount:
         description: ''
-        example: 3
+        example: 1
         type: integer
         format: int32
-      requirements:
-        $ref: '#/definitions/Requirements'
     required:
     - id
     - name
@@ -1122,7 +1117,6 @@ definitions:
     - length
     - volume
     - amount
-    - requirements
   EditSrCollectionrequest:
     title: Edit SR CollectionRequest
     example:
@@ -1292,12 +1286,12 @@ definitions:
           type: integer
           format: int32
       data:
-        $ref: '#/definitions/Data37'
+        $ref: '#/definitions/Data36'
     required:
     - ids
     - data
-  Data37:
-    title: Data37
+  Data36:
+    title: Data36
     example:
       spots:
       - name: Logintrans Sp. z o. o.2
@@ -1331,11 +1325,11 @@ definitions:
               longitude: -180
         type: array
         items:
-          $ref: '#/definitions/Spot38'
+          $ref: '#/definitions/Spot37'
     required:
     - spots
-  Spot38:
-    title: Spot38
+  Spot37:
+    title: Spot37
     example:
       name: Logintrans Sp. z o. o.2
       type: loading
@@ -1360,11 +1354,52 @@ definitions:
         example: loading
         type: string
       place:
-        $ref: '#/definitions/Place18'
+        $ref: '#/definitions/Place38'
     required:
     - name
     - type
     - place
+  Place38:
+    title: Place38
+    example:
+      address:
+        locality: WrocBaw
+        postal_code: 52-200
+        country: PL
+        street: Chabrowa
+        number: 4
+      coordinates:
+        latitude: -90
+        longitude: -180
+    type: object
+    properties:
+      address:
+        $ref: '#/definitions/Address'
+      coordinates:
+        $ref: '#/definitions/Coordinates40'
+    required:
+    - address
+    - coordinates
+  Coordinates40:
+    title: Coordinates40
+    example:
+      latitude: -90
+      longitude: -180
+    type: object
+    properties:
+      latitude:
+        description: ''
+        example: -90
+        type: integer
+        format: int32
+      longitude:
+        description: ''
+        example: -180
+        type: integer
+        format: int32
+    required:
+    - latitude
+    - longitude
   PatchShipmentreqestsrequest:
     title: Patch ShipmentReqestsRequest
     example:
@@ -1536,7 +1571,7 @@ definitions:
             shipping_remarks: brak dodatkowych wymagaD
         type: array
         items:
-          $ref: '#/definitions/Load49'
+          $ref: '#/definitions/Load48'
     required:
     - name
     - number
@@ -1545,8 +1580,8 @@ definitions:
     - freights
     - spots
     - loads
-  Load49:
-    title: Load49
+  Load48:
+    title: Load48
     example:
       name: Chemicals
       description: Test
