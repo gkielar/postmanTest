@@ -13,6 +13,46 @@ produces:
 - application/json
 paths:
   /shipment-requests:
+    get:
+      description: Get Shippment Request list
+      summary: Get All User ShipmentRequests
+      tags:
+      - Misc
+      operationId: ShipmentRequestsGet
+      produces:
+      - application/json
+      parameters:
+      - name: x-user-id
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /shipment-requests
+          headers:
+            x-user-id: 25157
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Get All User ShipmentRequests
+        x-testDescription: Get Shippment Request list
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
     put:
       description: ''
       summary: Edit ShipmentReqest
@@ -183,47 +223,6 @@ paths:
         x-testEnabled: true
         x-testName: Edit ShipmentReqests
         x-testDescription: 'TODO: Add Description'
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
-  /shipment-requests/32:
-    get:
-      description: Get Shippment Request list
-      summary: Get All User ShipmentRequests
-      tags:
-      - Misc
-      operationId: ShipmentRequests32Get
-      produces:
-      - application/json
-      parameters:
-      - name: x-user-id
-        in: header
-        required: true
-        type: string
-        description: ''
-      responses:
-        200:
-          description: ''
-      security: []
-      x-unitTests:
-      - request:
-          method: GET
-          uri: /shipment-requests/32
-          headers:
-            x-user-id: 25157
-        expectedResponse:
-          x-allowExtraHeaders: true
-          x-bodyMatchMode: NONE
-          x-arrayOrderedMatching: false
-          x-arrayCheckCount: false
-          x-matchResponseSchema: true
-          headers: {}
-        x-testShouldPass: true
-        x-testEnabled: true
-        x-testName: Get All User ShipmentRequests
-        x-testDescription: Get Shippment Request list
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
