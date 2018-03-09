@@ -54,7 +54,7 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
     put:
-      description: ''
+      description: 'TODO: Add Description'
       summary: Edit ShipmentReqest
       tags:
       - Misc
@@ -89,7 +89,7 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
     post:
-      description: ''
+      description: 'TODO: Add Description'
       summary: Add New ShipmentRequests
       tags:
       - Misc
@@ -230,7 +230,7 @@ paths:
         IsMultiContentStreaming: false
   /api/rest/v1/shipment-requests:
     patch:
-      description: ''
+      description: 'TODO: Add Description'
       summary: Edit SR Collection(local)
       tags:
       - Misc
@@ -276,7 +276,7 @@ paths:
         x-testShouldPass: true
         x-testEnabled: true
         x-testName: Edit SR Collection(local)
-        x-testDescription: ''
+        x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -284,7 +284,7 @@ paths:
         IsMultiContentStreaming: false
   /shipment-requests/69:
     patch:
-      description: ''
+      description: 'TODO: Add Description'
       summary: Patch ShipmentReqests
       tags:
       - Misc
@@ -430,7 +430,7 @@ paths:
         x-testShouldPass: true
         x-testEnabled: true
         x-testName: Patch ShipmentReqests
-        x-testDescription: ''
+        x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
