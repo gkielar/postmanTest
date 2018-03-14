@@ -55,10 +55,10 @@ paths:
         IsMultiContentStreaming: false
     put:
       description: 'TODO: Add Description'
-      summary: Edit ShipmentReqest
+      summary: Edit ShipmentReqests
       tags:
       - Misc
-      operationId: ShipmentRequestsPut
+      operationId: ShipmentRequestsPut2
       produces:
       - application/json
       parameters:
@@ -67,7 +67,7 @@ paths:
         required: true
         description: ''
         schema:
-          $ref: '#/definitions/EditShipmentreqestrequest'
+          $ref: '#/definitions/EditShipmentreqestsrequest'
       - name: Content-Type
         in: header
         required: true
@@ -82,7 +82,83 @@ paths:
         200:
           description: ''
       security: []
-      x-unitTests: []
+      x-unitTests:
+      - request:
+          method: PUT
+          uri: /shipment-requests
+          headers:
+            Content-Type: application/json
+            x-user-id: 25157
+          body: >-
+            {
+                "loads":[
+                    {
+                        "id":null,
+                        "name":"test2",
+                        "description":"",
+                        "type_of_load":"2_europalette",
+                        "weight":{
+                            "value":2,
+                            "unit_code":"t"
+                        },
+                        "height":{
+                            "value":2,
+                            "unit_code":"m"
+                        },
+                        "width":{
+                            "value":2,
+                            "unit_code":"m"
+                        },
+                        "length":{
+                            "value":2,
+                            "unit_code":"m"
+                        },
+                        "volume":{
+                            "value":8,
+                            "unit_code":"m3"
+                        },
+                        "amount":2
+                    },
+                    {
+                        "id":null,
+                        "name":"test3",
+                        "description":"",
+                        "type_of_load":"1_palette",
+                        "weight":{
+                            "value":2,
+                            "unit_code":"t"
+                        },
+                        "height":{
+                            "value":1,
+                            "unit_code":"m"
+                        },
+                        "width":{
+                            "value":3,
+                            "unit_code":"m"
+                        },
+                        "length":{
+                            "value":1,
+                            "unit_code":"m"
+                        },
+                        "volume":{
+                            "value":3,
+                            "unit_code":"m3"
+                        },
+                        "amount":2
+                    }
+                ]
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Edit ShipmentReqests
+        x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
@@ -125,10 +201,10 @@ paths:
         IsMultiContentStreaming: false
     patch:
       description: 'TODO: Add Description'
-      summary: Edit ShipmentReqests
+      summary: Edit SR Collection
       tags:
       - Misc
-      operationId: ShipmentRequestsPatch2
+      operationId: ShipmentRequestsPatch
       produces:
       - application/json
       parameters:
@@ -137,13 +213,13 @@ paths:
         required: true
         description: ''
         schema:
-          $ref: '#/definitions/EditShipmentreqestsrequest'
+          $ref: '#/definitions/EditSrCollectionrequest'
       - name: Content-Type
         in: header
         required: true
         type: string
         description: ''
-      - name: x-user-id
+      - name: Authorization
         in: header
         required: true
         type: string
@@ -158,58 +234,62 @@ paths:
           uri: /shipment-requests
           headers:
             Content-Type: application/json
-            x-user-id: 25157
-          body: >
+            Authorization: '{{auth_token}}'
+          body: >-
             {
               "ids": [
-                9,
-                48
+                1,
+                2
               ],
               "data": {
-                "ready_to_send": {
-                  "begin": "2019-01-24T00:00:00+01:00",
-                  "end": "2019-01-24T00:00:00+01:00"
-                },
-                "unloading_timespans": {
-                  "begin": "2019-02-02T00:00:00+01:00",
-                  "end": "2019-02-02T00:00:00+01:00"
-                },
-                "spots": [
-                  {
-                    "name": "firm 1",
-                    "type": "loading",
-                    "place": {
-                      "address": {
-                        "locality": "Ryga",
-                        "postal_code": "1001",
-                        "country": "34_latvia",
-                        "street": "ulica",
-                        "number": "1"
-                      },
-                      "coordinates": {
-                        "latitude": 56.960821169515,
-                        "longitude": 24.132035144143
-                      }
-                    }
+              	 "ready_to_send": {
+            		"begin": "2017-08-30T10:55:42+0100",
+            		"end" : "2017-08-30T10:55:42+0100"
+            	  },
+              	  "spots": [
+            	   {
+                  "name": "Lidl",
+                  "type": "unloading",
+                  "timespans": {
+                    "begin": "2018-07-20T10:47:42+0100",
+                    "end": "2018-07-20T10:47:42+0100"
                   },
-                  {
-                    "name": "firm 2",
-                    "type": "unloading",
-                    "place": {
-                      "address": {
-                        "locality": "Ateny",
-                        "postal_code": "104 35",
-                        "country": "20_georgia",
-                        "street": "ulica",
-                        "number": "2"
-                      },
-                      "coordinates": {
-                        "latitude": 37.97945,
-                        "longitude": 23.71622
-                      }
+                  "place": {
+                    "address": {
+                      "locality": "Monachium",
+                      "postal_code": "53-342",
+                      "country": "DE",
+                      "street": "Zwidnicka",
+                      "number": "1"
+                    },
+                    "coordinates": {
+                      "latitude": -90.0,
+                      "longitude": -180.0
                     }
                   }
-                ]
+                },
+                   {
+                  "name": "Lidl",
+                  "type": "loading",
+                  "timespans": {
+                    "begin": "2018-07-20T10:47:42+0100",
+                    "end": "2018-07-20T10:47:42+0100"
+                  },
+                  "place": {
+                    "address": {
+                      "locality": "Monachium",
+                      "postal_code": "53-342",
+                      "country": "DE",
+                      "street": "Zwidnicka",
+                      "number": "1"
+                    },
+                    "coordinates": {
+                      "latitude": -90.0,
+                      "longitude": -180.0
+                    }
+                  }
+                }
+              ]
               }
             }
         expectedResponse:
@@ -221,7 +301,7 @@ paths:
           headers: {}
         x-testShouldPass: true
         x-testEnabled: true
-        x-testName: Edit ShipmentReqests
+        x-testName: Edit SR Collection
         x-testDescription: 'TODO: Add Description'
       x-operation-settings:
         CollectParameters: false
@@ -1711,177 +1791,158 @@ definitions:
   EditShipmentreqestsrequest:
     title: Edit ShipmentReqestsRequest
     example:
-      ids:
-      - 9
-      - 48
-      data:
-        ready_to_send:
-          begin: 2019-01-23T23:00:00.0000000+00:00
-          end: 2019-01-23T23:00:00.0000000+00:00
-        unloading_timespans:
-          begin: 2019-02-01T23:00:00.0000000+00:00
-          end: 2019-02-01T23:00:00.0000000+00:00
-        spots:
-        - name: firm 1
-          type: loading
-          place:
-            address:
-              locality: Ryga
-              postal_code: 1001
-              country: 34_latvia
-              street: ulica
-              number: 1
-            coordinates:
-              latitude: 56.960821169515
-              longitude: 24.132035144143
-        - name: firm 2
-          type: unloading
-          place:
-            address:
-              locality: Ateny
-              postal_code: 104 35
-              country: 20_georgia
-              street: ulica
-              number: 2
-            coordinates:
-              latitude: 37.97945
-              longitude: 23.71622
+      loads:
+      - id: 
+        name: test2
+        description: ''
+        type_of_load: 2_europalette
+        weight:
+          value: 2
+          unit_code: t
+        height:
+          value: 2
+          unit_code: m
+        width:
+          value: 2
+          unit_code: m
+        length:
+          value: 2
+          unit_code: m
+        volume:
+          value: 8
+          unit_code: m3
+        amount: 2
+      - id: 
+        name: test3
+        description: ''
+        type_of_load: 1_palette
+        weight:
+          value: 2
+          unit_code: t
+        height:
+          value: 1
+          unit_code: m
+        width:
+          value: 3
+          unit_code: m
+        length:
+          value: 1
+          unit_code: m
+        volume:
+          value: 3
+          unit_code: m3
+        amount: 2
     type: object
     properties:
-      ids:
+      loads:
         description: ''
         example:
-        - 9
-        - 48
+        - id: 
+          name: test2
+          description: ''
+          type_of_load: 2_europalette
+          weight:
+            value: 2
+            unit_code: t
+          height:
+            value: 2
+            unit_code: m
+          width:
+            value: 2
+            unit_code: m
+          length:
+            value: 2
+            unit_code: m
+          volume:
+            value: 8
+            unit_code: m3
+          amount: 2
+        - id: 
+          name: test3
+          description: ''
+          type_of_load: 1_palette
+          weight:
+            value: 2
+            unit_code: t
+          height:
+            value: 1
+            unit_code: m
+          width:
+            value: 3
+            unit_code: m
+          length:
+            value: 1
+            unit_code: m
+          volume:
+            value: 3
+            unit_code: m3
+          amount: 2
         type: array
         items:
-          type: integer
-          format: int32
-      data:
-        $ref: '#/definitions/Data56'
+          $ref: '#/definitions/Load56'
     required:
-    - ids
-    - data
-  Data56:
-    title: Data56
+    - loads
+  Load56:
+    title: Load56
     example:
-      ready_to_send:
-        begin: 2019-01-23T23:00:00.0000000+00:00
-        end: 2019-01-23T23:00:00.0000000+00:00
-      unloading_timespans:
-        begin: 2019-02-01T23:00:00.0000000+00:00
-        end: 2019-02-01T23:00:00.0000000+00:00
-      spots:
-      - name: firm 1
-        type: loading
-        place:
-          address:
-            locality: Ryga
-            postal_code: 1001
-            country: 34_latvia
-            street: ulica
-            number: 1
-          coordinates:
-            latitude: 56.960821169515
-            longitude: 24.132035144143
-      - name: firm 2
-        type: unloading
-        place:
-          address:
-            locality: Ateny
-            postal_code: 104 35
-            country: 20_georgia
-            street: ulica
-            number: 2
-          coordinates:
-            latitude: 37.97945
-            longitude: 23.71622
+      id: 
+      name: test2
+      description: ''
+      type_of_load: 2_europalette
+      weight:
+        value: 2
+        unit_code: t
+      height:
+        value: 2
+        unit_code: m
+      width:
+        value: 2
+        unit_code: m
+      length:
+        value: 2
+        unit_code: m
+      volume:
+        value: 8
+        unit_code: m3
+      amount: 2
     type: object
     properties:
-      ready_to_send:
-        $ref: '#/definitions/ReadyToSend'
-      unloading_timespans:
-        $ref: '#/definitions/UnloadingTimespans'
-      spots:
+      id:
         description: ''
-        example:
-        - name: firm 1
-          type: loading
-          place:
-            address:
-              locality: Ryga
-              postal_code: 1001
-              country: 34_latvia
-              street: ulica
-              number: 1
-            coordinates:
-              latitude: 56.960821169515
-              longitude: 24.132035144143
-        - name: firm 2
-          type: unloading
-          place:
-            address:
-              locality: Ateny
-              postal_code: 104 35
-              country: 20_georgia
-              street: ulica
-              number: 2
-            coordinates:
-              latitude: 37.97945
-              longitude: 23.71622
-        type: array
-        items:
-          $ref: '#/definitions/Spot59'
-    required:
-    - ready_to_send
-    - unloading_timespans
-    - spots
-  UnloadingTimespans:
-    title: UnloadingTimespans
-    example:
-      begin: 2019-02-01T23:00:00.0000000+00:00
-      end: 2019-02-01T23:00:00.0000000+00:00
-    type: object
-    properties:
-      begin:
-        description: ''
-        example: 2/1/2019 11:00:00 PM
-        type: string
-      end:
-        description: ''
-        example: 2/1/2019 11:00:00 PM
-        type: string
-    required:
-    - begin
-    - end
-  Spot59:
-    title: Spot59
-    example:
-      name: firm 1
-      type: loading
-      place:
-        address:
-          locality: Ryga
-          postal_code: 1001
-          country: 34_latvia
-          street: ulica
-          number: 1
-        coordinates:
-          latitude: 56.960821169515
-          longitude: 24.132035144143
-    type: object
-    properties:
       name:
         description: ''
-        example: firm 1
+        example: test2
         type: string
-      type:
+      description:
         description: ''
-        example: loading
         type: string
-      place:
-        $ref: '#/definitions/Place32'
+      type_of_load:
+        description: ''
+        example: 2_europalette
+        type: string
+      weight:
+        $ref: '#/definitions/Weight'
+      height:
+        $ref: '#/definitions/Height'
+      width:
+        $ref: '#/definitions/Width'
+      length:
+        $ref: '#/definitions/Length'
+      volume:
+        $ref: '#/definitions/Volume'
+      amount:
+        description: ''
+        example: 2
+        type: integer
+        format: int32
     required:
+    - id
     - name
-    - type
-    - place
+    - description
+    - type_of_load
+    - weight
+    - height
+    - width
+    - length
+    - volume
+    - amount
