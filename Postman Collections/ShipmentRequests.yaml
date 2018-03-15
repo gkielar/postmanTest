@@ -89,65 +89,7 @@ paths:
           headers:
             Content-Type: application/json
             x-user-id: 25157
-          body: >-
-            {
-                "loads":[
-                    {
-                        "id":null,
-                        "name":"test2",
-                        "description":"",
-                        "type_of_load":"2_europalette",
-                        "weight":{
-                            "value":2,
-                            "unit_code":"t"
-                        },
-                        "height":{
-                            "value":2,
-                            "unit_code":"m"
-                        },
-                        "width":{
-                            "value":2,
-                            "unit_code":"m"
-                        },
-                        "length":{
-                            "value":2,
-                            "unit_code":"m"
-                        },
-                        "volume":{
-                            "value":8,
-                            "unit_code":"m3"
-                        },
-                        "amount":2
-                    },
-                    {
-                        "id":null,
-                        "name":"test3",
-                        "description":"",
-                        "type_of_load":"1_palette",
-                        "weight":{
-                            "value":2,
-                            "unit_code":"t"
-                        },
-                        "height":{
-                            "value":1,
-                            "unit_code":"m"
-                        },
-                        "width":{
-                            "value":3,
-                            "unit_code":"m"
-                        },
-                        "length":{
-                            "value":1,
-                            "unit_code":"m"
-                        },
-                        "volume":{
-                            "value":3,
-                            "unit_code":"m3"
-                        },
-                        "amount":2
-                    }
-                ]
-            }
+          body: '{"loads":[{"id":null,"name":"test2","description":"","type_of_load":"2_europalette","weight":{"value":2,"unit_code":"t"},"height":{"value":2,"unit_code":"m"},"width":{"value":2,"unit_code":"m"},"length":{"value":2,"unit_code":"m"},"volume":{"value":8,"unit_code":"m3"},"amount":2},{"id":null,"name":"test3","description":"","type_of_load":"1_palette","weight":{"value":2,"unit_code":"t"},"height":{"value":1,"unit_code":"m"},"width":{"value":3,"unit_code":"m"},"length":{"value":1,"unit_code":"m"},"volume":{"value":3,"unit_code":"m3"},"amount":2}]}'
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
@@ -235,63 +177,7 @@ paths:
           headers:
             Content-Type: application/json
             Authorization: '{{auth_token}}'
-          body: >-
-            {
-              "ids": [
-                1,
-                2
-              ],
-              "data": {
-              	 "ready_to_send": {
-            		"begin": "2017-08-30T10:55:42+0100",
-            		"end" : "2017-08-30T10:55:42+0100"
-            	  },
-              	  "spots": [
-            	   {
-                  "name": "Lidl",
-                  "type": "unloading",
-                  "timespans": {
-                    "begin": "2018-07-20T10:47:42+0100",
-                    "end": "2018-07-20T10:47:42+0100"
-                  },
-                  "place": {
-                    "address": {
-                      "locality": "Monachium",
-                      "postal_code": "53-342",
-                      "country": "DE",
-                      "street": "Zwidnicka",
-                      "number": "1"
-                    },
-                    "coordinates": {
-                      "latitude": -90.0,
-                      "longitude": -180.0
-                    }
-                  }
-                },
-                   {
-                  "name": "Lidl",
-                  "type": "loading",
-                  "timespans": {
-                    "begin": "2018-07-20T10:47:42+0100",
-                    "end": "2018-07-20T10:47:42+0100"
-                  },
-                  "place": {
-                    "address": {
-                      "locality": "Monachium",
-                      "postal_code": "53-342",
-                      "country": "DE",
-                      "street": "Zwidnicka",
-                      "number": "1"
-                    },
-                    "coordinates": {
-                      "latitude": -90.0,
-                      "longitude": -180.0
-                    }
-                  }
-                }
-              ]
-              }
-            }
+          body: '{"ids":[1,2],"data":{"ready_to_send":{"begin":"2017-08-30T09:55:42+00:00","end":"2017-08-30T09:55:42+00:00"},"spots":[{"name":"Lidl","type":"unloading","timespans":{"begin":"2018-07-20T09:47:42+00:00","end":"2018-07-20T09:47:42+00:00"},"place":{"address":{"locality":"Monachium","postal_code":"53-342","country":"DE","street":"Zwidnicka","number":"1"},"coordinates":{"latitude":-90.0,"longitude":-180.0}}},{"name":"Lidl","type":"loading","timespans":{"begin":"2018-07-20T09:47:42+00:00","end":"2018-07-20T09:47:42+00:00"},"place":{"address":{"locality":"Monachium","postal_code":"53-342","country":"DE","street":"Zwidnicka","number":"1"},"coordinates":{"latitude":-90.0,"longitude":-180.0}}}]}}'
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
@@ -345,7 +231,7 @@ paths:
           headers:
             Content-Type: application/json
             Authorization: '{{auth_token}}'
-          body: "{\n	\"ids\":[\n		1,\n		2\n	],\n	\"data\": {\n		\"spots\": [\n			{\n				\"name\":\"Logintrans Sp. z o. o.2\",\n				\"type\":\"loading\",\n				\"place\": {\n					\"address\": {\n						\"locality\": \"WrocBaw\",\n						\"postal_code\": \"52-200\",\n						\"country\": \"PL\",\n						\"street\": \"Chabrowa\",\n						\"number\": \"4\"\n						\n					},\n					\"coordinates\": {\n						\"latitude\": -90, \n						\"longitude\": -180\n					}\n				}\n			}\n		]\n	}\n}\n"
+          body: '{"ids":[1,2],"data":{"spots":[{"name":"Logintrans Sp. z o. o.2","type":"loading","place":{"address":{"locality":"WrocBaw","postal_code":"52-200","country":"PL","street":"Chabrowa","number":"4"},"coordinates":{"latitude":-90,"longitude":-180}}}]}}'
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
@@ -399,107 +285,7 @@ paths:
           headers:
             Content-Type: application/json
             Authorization: '{{auth_token}}'
-          body: >-
-            {
-              "name": "13.07.2017 2005",
-              "number": "123456789",
-              "status": "in_progress",
-              "ready_to_send": {
-                "begin": "2017-10-19T00:00:00+0200",
-                "end" : "2017-10-19T00:00:00+0200"
-              },
-              "freights": [],
-              "spots": [
-                {
-                  "name": "Hurtownia",
-                  "type": "loading",
-                  "timespans": {
-                    "begin": "2017-10-19T00:00:00+0200",
-                    "end": "2017-10-19T00:00:00+0200"
-                  },
-                  "place": {
-                    "address": {
-                      "locality": "Munchen",
-                      "postal_code": "80331",
-                      "country": "DE",
-                      "street": "Ulica",
-                      "number": "2"
-                    },
-                    "coordinates": {
-                      "latitude": -90.0,
-                      "longitude": -180.0
-                    }
-                  }
-                },
-                {
-                  "name": "Lidl",
-                  "type": "unloading",
-                  "timespans": {
-                    "begin": "2017-10-19T00:00:00+0200",
-                    "end": "2017-10-19T00:00:00+0200"
-                  },
-                  "place": {
-                    "address": {
-                      "locality": "WrocBaw",
-                      "postal_code": "50-064",
-                      "country": "PL",
-                      "street": "Zwidnicka",
-                      "number": "1"
-                    },
-                    "coordinates": {
-                      "latitude": -90.0,
-                      "longitude": -180.0
-                    }
-                  }
-                }
-              ],
-              "loads": [
-                {
-                  "name": "Chemicals",
-                  "description": "Test",
-                  "type_of_load": "box",
-                  "weight": {
-                    "value": 50,
-                    "unit_code": "kg"
-                  },
-                  "height": {
-                    "value": 26,
-                    "unit_code": "kg"
-                  },
-                  "width": {
-                    "value": 16,
-                    "unit_code": "kg"
-                  },
-                  "length": {
-                    "value": 16,
-                    "unit_code": "kg"
-                  },
-                  "volume": {
-                    "value": 16,
-                    "unit_code": "kg"
-                  },
-                  "amount": 50000,
-                  "requirements": {
-                    "required_adr_classes": [
-                      "1"
-                    ],
-                    "required_ways_of_loading": [
-                      "side"
-                    ],
-                    "required_truck_bodies": [
-                      "20"
-                    ],
-                    "is_truck_crane_required": true,
-                    "is_lift_required": false,
-                    "is_for_clearance": true,
-                    "is_tir_cable_required": true,
-                    "is_ftl": true,
-                    "is_tracking_system_required": true,
-                    "shipping_remarks": "brak dodatkowych wymagaD"
-                  }
-                }
-              ]
-            }
+          body: '{"name":"13.07.2017 2005","number":"123456789","status":"in_progress","ready_to_send":{"begin":"2017-10-18T22:00:00+00:00","end":"2017-10-18T22:00:00+00:00"},"freights":[],"spots":[{"name":"Hurtownia","type":"loading","timespans":{"begin":"2017-10-18T22:00:00+00:00","end":"2017-10-18T22:00:00+00:00"},"place":{"address":{"locality":"Munchen","postal_code":"80331","country":"DE","street":"Ulica","number":"2"},"coordinates":{"latitude":-90.0,"longitude":-180.0}}},{"name":"Lidl","type":"unloading","timespans":{"begin":"2017-10-18T22:00:00+00:00","end":"2017-10-18T22:00:00+00:00"},"place":{"address":{"locality":"WrocBaw","postal_code":"50-064","country":"PL","street":"Zwidnicka","number":"1"},"coordinates":{"latitude":-90.0,"longitude":-180.0}}}],"loads":[{"name":"Chemicals","description":"Test","type_of_load":"box","weight":{"value":50,"unit_code":"kg"},"height":{"value":26,"unit_code":"kg"},"width":{"value":16,"unit_code":"kg"},"length":{"value":16,"unit_code":"kg"},"volume":{"value":16,"unit_code":"kg"},"amount":50000,"requirements":{"required_adr_classes":["1"],"required_ways_of_loading":["side"],"required_truck_bodies":["20"],"is_truck_crane_required":true,"is_lift_required":false,"is_for_clearance":true,"is_tir_cable_required":true,"is_ftl":true,"is_tracking_system_required":true,"shipping_remarks":"brak dodatkowych wymagaD"}}]}'
         expectedResponse:
           x-allowExtraHeaders: true
           x-bodyMatchMode: NONE
