@@ -867,8 +867,10 @@ definitions:
     properties:
       begin:
         description: ''
+        type: null
       end:
         description: ''
+        type: null
     required:
     - begin
     - end
@@ -1695,6 +1697,7 @@ definitions:
     properties:
       id:
         description: ''
+        type: null
       name:
         description: ''
         example: test2
